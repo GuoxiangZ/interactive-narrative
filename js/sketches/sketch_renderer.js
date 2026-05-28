@@ -15,13 +15,24 @@
             }
 
             computeLayout([]);
+            if (window.VizWorldMap && typeof window.VizWorldMap.setData === 'function') {
+                return window.VizWorldMap.setData(manager);
+            }
             return Promise.resolve(manager.data);
         },
 
         draw: function (p, manager, ai, progress) {
+            if (ai !== 1 && window.VizWorldMap && typeof window.VizWorldMap.hideOverlay === 'function') {
+                window.VizWorldMap.hideOverlay(manager);
+            }
 
-            if (ai === 0 || ai === 1) {
+            if (ai === 0) {
                 window.VizTitle.draw(p, manager, ai, progress);
+                return;
+            }
+
+            if (ai === 1 && window.VizWorldMap) {
+                window.VizWorldMap.draw(p, manager, ai, progress);
                 return;
             }
 
