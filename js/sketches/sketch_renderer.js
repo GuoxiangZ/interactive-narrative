@@ -109,7 +109,11 @@
             }
 
             if (ai === 0) {
-                window.VizTitle.draw(p, manager, ai, progress);
+                if (window.VizIntro) {
+                    window.VizIntro.draw(p, manager, ai, progress);
+                } else {
+                    window.VizTitle.draw(p, manager, ai, progress);
+                }
                 return;
             }
 

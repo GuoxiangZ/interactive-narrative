@@ -21,7 +21,9 @@
                 // - otherwise -> element top
                 var rect = el.getBoundingClientRect();
                 var top = rect.top + window.pageYOffset;
-                if (self.trigger === 'center') {
+                if (el.dataset && el.dataset.progressMode === 'height') {
+                    self.sectionPositions.push(top - window.innerHeight * 0.15);
+                } else if (self.trigger === 'center') {
                     var centerY = top + (rect.height / 2);
                     self.sectionPositions.push(centerY - window.innerHeight * 0.4);
                 } else {
@@ -61,7 +63,11 @@
             var elemTop = rect.top + window.pageYOffset;
             var elemHeight = rect.height || 1;
             var progress;
-            if (self.trigger === 'center') {
+            if (elem.dataset && elem.dataset.progressMode === 'height') {
+                var viewportCenterForHeight = window.pageYOffset + window.innerHeight / 2;
+                var travel = Math.max(1, elemHeight - window.innerHeight * 0.55);
+                progress = Math.max(0, Math.min(1, (viewportCenterForHeight - elemTop) / travel));
+            } else if (self.trigger === 'center') {
                 var sectionCenter = elemTop + elemHeight / 2;
                 var viewportCenter = window.pageYOffset + window.innerHeight / 2;
                 var band = window.innerHeight * 0.4;

@@ -19,13 +19,17 @@ function startP5() {
             var aspectW = activeIndex === 2 ? 920 : 600;
             var aspectH = 520;
             var isFullViz = !!(document.querySelector('#graphic.layout-full-viz'));
-            var rawW = isFullViz
-                ? Math.round(window.innerWidth) - 40
-                : Math.round(window.innerWidth * 0.70) - 60;
-            var availW = rawW - margin.left - margin.right;
-            var wFromHeight = Math.round((window.innerHeight - 120) * (aspectW / aspectH)) - margin.left - margin.right;
-            w = Math.min(availW, wFromHeight);
-            h = Math.round(w * (aspectH / aspectW));
+            if (isFullViz) {
+                margin = { top: 0, left: 20, bottom: 0, right: 20 };
+                w = Math.round(window.innerWidth) - margin.left - margin.right - 40;
+                h = Math.round(window.innerHeight) - 120;
+            } else {
+                var rawW = Math.round(window.innerWidth * 0.70) - 60;
+                var availW = rawW - margin.left - margin.right;
+                var wFromHeight = Math.round((window.innerHeight - 120) * (aspectW / aspectH)) - margin.left - margin.right;
+                w = Math.min(availW, wFromHeight);
+                h = Math.round(w * (aspectH / aspectW));
+            }
         }
         return { width: w, height: h, margin: margin };
     }

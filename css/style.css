@@ -232,8 +232,29 @@ body {
 
 }
 
+.intro-title-section {
+  min-height: 72vh;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-title-section .title {
+  font-size: 42px !important;
+  line-height: 1.15 !important;
+  max-width: 960px;
+  margin-bottom: 18px !important;
+}
+
+.intro-title-kicker {
+  max-width: 720px;
+  color: #6f8388;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
 .intro-placeholder {
-  min-height: calc(100vh - 80px);
+  min-height: 520vh;
 }
 
 .intro-placeholder .title {
