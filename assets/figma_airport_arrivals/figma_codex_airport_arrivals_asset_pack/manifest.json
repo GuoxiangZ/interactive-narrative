@@ -1,0 +1,472 @@
+{
+  "package_name": "figma_codex_airport_arrivals_asset_pack",
+  "description": "Figma/Codex-readable asset package for U.S. Inbound Travelers airport-arrivals visualization.",
+  "style": {
+    "palette": {
+      "teal_primary": "#1AA6A6",
+      "deep_teal": "#0B6F6A",
+      "seafoam": "#66E5DF",
+      "muted_teal": "#5F9A9B",
+      "pale_mint": "#C8EDED",
+      "soft_sky": "#B1DFF6",
+      "soft_blue": "#81BAF7",
+      "off_white": "#F7FBFA",
+      "navy_text": "#14333F",
+      "gray_text": "#637985"
+    },
+    "typography": "Use Inter, Arial, Helvetica, or system sans-serif. Avoid decorative AI dashboard fonts.",
+    "design_principles": [
+      "Use the airport background as a visual layer, not as data.",
+      "Overlay data UI in Figma/p5.js for crisp readable text.",
+      "Keep the large split-flap number in the upper half.",
+      "Keep travelers in the lower half, moving toward ARRIVALS."
+    ]
+  },
+  "assets": [
+    {
+      "path": "assets/backgrounds/airport_arrivals_hall_background.png",
+      "type": "background",
+      "description": "Full source image/sheet for Figma extraction.",
+      "recommended_use": "Import to Figma, crop/mask as needed.",
+      "size_px": null
+    },
+    {
+      "path": "assets/people/sheets/traveler_asset_sheet.png",
+      "type": "source_sheet",
+      "description": "Full source image/sheet for Figma extraction.",
+      "recommended_use": "Import to Figma, crop/mask as needed.",
+      "size_px": null
+    },
+    {
+      "path": "assets/signage/sheets/signage_props_asset_sheet.png",
+      "type": "source_sheet",
+      "description": "Full source image/sheet for Figma extraction.",
+      "recommended_use": "Import to Figma, crop/mask as needed.",
+      "size_px": null
+    },
+    {
+      "path": "assets/ui/sheets/ui_components_asset_sheet.png",
+      "type": "source_sheet",
+      "description": "Full source image/sheet for Figma extraction.",
+      "recommended_use": "Import to Figma, crop/mask as needed.",
+      "size_px": null
+    },
+    {
+      "path": "assets/architecture/sheets/architecture_modular_asset_sheet.png",
+      "type": "source_sheet",
+      "description": "Full source image/sheet for Figma extraction.",
+      "recommended_use": "Import to Figma, crop/mask as needed.",
+      "size_px": null
+    },
+    {
+      "path": "assets/people/individual_png/traveler_01.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 01 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        213,
+        315
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_02.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 02 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        174,
+        323
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_03.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 03 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        145,
+        313
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_04.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 04 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        243,
+        318
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_05.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 05 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        230,
+        346
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_06.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 06 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        189,
+        346
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_07.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 07 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        150,
+        346
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_08.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 08 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        251,
+        346
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_09.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 09 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        129,
+        292
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_10.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 10 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        191,
+        302
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_11.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 11 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        148,
+        317
+      ]
+    },
+    {
+      "path": "assets/people/individual_png/traveler_12.png",
+      "type": "traveler_png",
+      "description": "Isolated traveler figure 12 with transparent background.",
+      "recommended_use": "Place in lower half; orient/move toward ARRIVALS.",
+      "size_px": [
+        193,
+        317
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/arrivals_large_sign.png",
+      "type": "signage_or_prop_png",
+      "description": "arrivals large sign",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        956,
+        133
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/welcome_us_sign.png",
+      "type": "signage_or_prop_png",
+      "description": "welcome us sign",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        253,
+        284
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/baggage_claim_sign.png",
+      "type": "signage_or_prop_png",
+      "description": "baggage claim sign",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        302,
+        99
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/customs_inspection_sign.png",
+      "type": "signage_or_prop_png",
+      "description": "customs inspection sign",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        330,
+        99
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/wayfinding_board.png",
+      "type": "signage_or_prop_png",
+      "description": "wayfinding board",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        343,
+        234
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/arrivals_door_wide.png",
+      "type": "signage_or_prop_png",
+      "description": "arrivals door wide",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        364,
+        280
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/arrivals_door_narrow.png",
+      "type": "signage_or_prop_png",
+      "description": "arrivals door narrow",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        227,
+        280
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/plane_front.png",
+      "type": "signage_or_prop_png",
+      "description": "plane front",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        238,
+        151
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/plane_side.png",
+      "type": "signage_or_prop_png",
+      "description": "plane side",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        270,
+        89
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/suitcase_set.png",
+      "type": "signage_or_prop_png",
+      "description": "suitcase set",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        667,
+        246
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/queue_stanchion_set.png",
+      "type": "signage_or_prop_png",
+      "description": "queue stanchion set",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        267,
+        314
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/control_tower.png",
+      "type": "signage_or_prop_png",
+      "description": "control tower",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        243,
+        480
+      ]
+    },
+    {
+      "path": "assets/signage/individual_png/plants_set.png",
+      "type": "signage_or_prop_png",
+      "description": "plants set",
+      "recommended_use": "Use as modular Figma layer; mask/crop if needed.",
+      "size_px": [
+        367,
+        187
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/title_block.png",
+      "type": "ui_component_png",
+      "description": "title block",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        521,
+        133
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/year_selector_2019.png",
+      "type": "ui_component_png",
+      "description": "year selector 2019",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        785,
+        79
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/flip_board_100_card.png",
+      "type": "ui_component_png",
+      "description": "flip board 100 card",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        651,
+        335
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/flip_board_blank_card.png",
+      "type": "ui_component_png",
+      "description": "flip board blank card",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        637,
+        324
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/label_index_vs_baseline.png",
+      "type": "ui_component_png",
+      "description": "label index vs baseline",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        421,
+        107
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/badge_100_baseline.png",
+      "type": "ui_component_png",
+      "description": "badge 100 baseline",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        195,
+        76
+      ]
+    },
+    {
+      "path": "assets/ui/individual_png/global_overview_card.png",
+      "type": "ui_component_png",
+      "description": "global overview card",
+      "recommended_use": "Use as reference or import layer; recreate text as live text in Figma when possible.",
+      "size_px": [
+        633,
+        261
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/queue_barriers_straight.png",
+      "type": "architecture_module_png",
+      "description": "queue barriers straight",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        474,
+        132
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/queue_barriers_corners.png",
+      "type": "architecture_module_png",
+      "description": "queue barriers corners",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        473,
+        106
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/glass_window_panels.png",
+      "type": "architecture_module_png",
+      "description": "glass window panels",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        382,
+        304
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/sliding_door_modules.png",
+      "type": "architecture_module_png",
+      "description": "sliding door modules",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        447,
+        309
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/terminal_wall_blocks.png",
+      "type": "architecture_module_png",
+      "description": "terminal wall blocks",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        445,
+        251
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/floor_perspective_strips.png",
+      "type": "architecture_module_png",
+      "description": "floor perspective strips",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        330,
+        262
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/doorway_frames.png",
+      "type": "architecture_module_png",
+      "description": "doorway frames",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        413,
+        262
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/signage_panels.png",
+      "type": "architecture_module_png",
+      "description": "signage panels",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        436,
+        236
+      ]
+    },
+    {
+      "path": "assets/architecture/individual_png/background_skyline_runway.png",
+      "type": "architecture_module_png",
+      "description": "background skyline runway",
+      "recommended_use": "Use to build or extend airport scene in Figma/Codex.",
+      "size_px": [
+        891,
+        241
+      ]
+    }
+  ]
+}

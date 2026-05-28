@@ -15,10 +15,14 @@
             }
 
             computeLayout([]);
+            var loaders = [];
             if (window.VizWorldMap && typeof window.VizWorldMap.setData === 'function') {
-                return window.VizWorldMap.setData(manager);
+                loaders.push(window.VizWorldMap.setData(manager));
             }
-            return Promise.resolve(manager.data);
+            if (window.VizUSArrivals && typeof window.VizUSArrivals.setData === 'function') {
+                loaders.push(window.VizUSArrivals.setData(manager));
+            }
+            return Promise.all(loaders).then(function () { return manager.data; });
         },
 
         draw: function (p, manager, ai, progress) {
@@ -33,6 +37,11 @@
 
             if (ai === 1 && window.VizWorldMap) {
                 window.VizWorldMap.draw(p, manager, ai, progress);
+                return;
+            }
+
+            if (ai === 2 && window.VizUSArrivals) {
+                window.VizUSArrivals.draw(p, manager, ai, progress);
                 return;
             }
 
