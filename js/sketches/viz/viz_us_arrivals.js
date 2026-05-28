@@ -617,7 +617,7 @@
         drawSplitFlap(p, flapX, flapY + 28 * scale, shown, scale);
         p.fill(year === 2020 || year === 2021 ? '#d56f51' : COLORS.muted);
         p.textSize(12 * scale);
-        p.text('million travelers, rounded', x + w * 0.50, flapY + 164 * scale);
+        p.text('million travelers', x + w * 0.50, flapY + 164 * scale);
         p.textSize(10 * scale);
         var yoy = previousYearChange(year);
         p.fill(yoy == null ? COLORS.muted : (yoy < 0 ? '#d56f51' : COLORS.tealDark));

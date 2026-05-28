@@ -120,7 +120,7 @@
 
             if (ai === 2 && window.VizUSArrivals) {
                 if (manager._usFocusTransitionStart) {
-                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1050;
+                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1650;
                     if (amount < 1) {
                         if (window.VizUSArrivals.hideOverlay) window.VizUSArrivals.hideOverlay(manager);
                         drawUSFocusTransition(p, manager, amount);
