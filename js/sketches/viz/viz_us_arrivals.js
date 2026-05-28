@@ -72,6 +72,78 @@
         return ('000' + Math.round(value)).slice(-3);
     }
 
+    function selectYear(manager, year) {
+        var state = manager.usArrivals;
+        if (!state || !INDEX[year] || state.selectedYear === year) return;
+        state.selectedYear = year;
+        state.animStart = Date.now();
+        state.lastDisplay = state.displayValue == null ? valueFor(year) : state.displayValue;
+    }
+
+    function buildYearOverlay(manager) {
+        var vis = document.getElementById('vis');
+        if (!vis) return;
+        if (manager._usArrivalsOverlay && document.body.contains(manager._usArrivalsOverlay.root)) return;
+        manager._usArrivalsOverlay = null;
+
+        if (getComputedStyle(vis).position === 'static') {
+            vis.style.position = 'fixed';
+        }
+
+        var overlay = document.createElement('div');
+        overlay.className = 'worldmap-overlay usarrivals-overlay';
+
+        var label = document.createElement('div');
+        label.className = 'worldmap-year-label';
+        label.textContent = String(currentYear(manager));
+
+        var range = document.createElement('input');
+        range.type = 'range';
+        range.min = '2018';
+        range.max = '2024';
+        range.step = '1';
+        range.value = String(currentYear(manager));
+        range.className = 'worldmap-year-range';
+        range.setAttribute('aria-label', 'Select U.S. arrivals year');
+
+        var ticks = document.createElement('div');
+        ticks.className = 'worldmap-year-ticks';
+        YEARS.forEach(function (year) {
+            var tick = document.createElement('span');
+            tick.textContent = year;
+            if (year === 2020 || year === 2021) tick.className = 'covid-year';
+            ticks.appendChild(tick);
+        });
+
+        overlay.appendChild(label);
+        overlay.appendChild(range);
+        overlay.appendChild(ticks);
+        vis.appendChild(overlay);
+
+        range.addEventListener('input', function () {
+            var year = +range.value;
+            label.textContent = String(year);
+            selectYear(manager, year);
+        });
+
+        manager._usArrivalsOverlay = { root: overlay, range: range, label: label };
+    }
+
+    function layoutYearOverlay(manager) {
+        var state = manager.usArrivals;
+        if (!manager._usArrivalsOverlay || !state || !state.sliderBox) return;
+        var overlay = manager._usArrivalsOverlay.root;
+        var canvas = document.querySelector('#vis canvas');
+        var canvasLeft = canvas ? canvas.offsetLeft : 0;
+        var canvasTop = canvas ? canvas.offsetTop : 0;
+        var box = state.sliderBox;
+        var width = Math.round(Math.max(300, Math.min(440, box.w * 0.43)));
+        overlay.style.display = 'block';
+        overlay.style.width = width + 'px';
+        overlay.style.left = Math.round(canvasLeft + manager.margin.left + box.x + box.w - width - 36) + 'px';
+        overlay.style.top = Math.round(canvasTop + manager.margin.top + box.y + 19) + 'px';
+    }
+
     function shadow(p, blur, color, ox, oy) {
         var ctx = p.drawingContext;
         ctx.shadowBlur = blur || 14;
@@ -219,47 +291,6 @@
         p.drawingContext.fillStyle = grad;
         p.noStroke();
         p.rect(x + 104, y + h - 38, w - 126, 9, 9);
-        p.pop();
-    }
-
-    function drawYearTabs(p, manager, x, y, w) {
-        var selected = currentYear(manager);
-        var h = 38;
-        var bw = w / YEARS.length;
-        manager.usArrivals.yearButtons = [];
-        p.push();
-        shadow(p, 9, 'rgba(21,64,72,0.09)', 0, 4);
-        p.noStroke();
-        p.fill(255, 245);
-        p.rect(x, y, w, h, 22);
-        noShadow(p);
-        p.stroke('rgba(200,237,237,0.74)');
-        p.noFill();
-        p.rect(x, y, w, h, 22);
-        for (var i = 0; i < YEARS.length; i++) {
-            var year = YEARS[i];
-            var bx = x + i * bw;
-            manager.usArrivals.yearButtons.push({ year: year, x: bx, y: y, w: bw, h: h });
-            p.noStroke();
-            if (year === selected) {
-                p.fill(yearColor(year));
-                p.rect(bx + 5, y + 4, bw - 10, h - 8, 18);
-                p.fill(255);
-            } else {
-                p.fill(year === 2020 || year === 2021 ? '#d56f51' : COLORS.ink);
-            }
-            p.textAlign(p.CENTER, p.CENTER);
-            p.textStyle(p.NORMAL);
-            p.textSize(w < 420 ? 9 : 12);
-            p.text(String(year), bx + bw / 2, y + h / 2);
-            if (i > 0) {
-                p.stroke('rgba(200,237,237,0.66)');
-                p.line(bx, y + 11, bx, y + h - 11);
-                p.noStroke();
-            }
-        }
-        p.fill(yearColor(selected));
-        p.ellipse(x + YEARS.indexOf(selected) * bw + bw / 2, y + h + 13, 4, 4);
         p.pop();
     }
 
@@ -522,9 +553,7 @@
         p.fill(COLORS.muted);
         p.textSize(compact ? 12 : 14);
         p.text('International inbound travelers', x + 113, y + 56);
-        var selectorX = compact ? x + 284 : x + Math.min(w * 0.43, 330);
-        var selectorY = compact ? y + 21 : y + 23;
-        drawYearTabs(p, manager, selectorX, selectorY, x + w - selectorX - 22);
+        manager.usArrivals.sliderBox = { x: x, y: y, w: w, h: headerH };
 
         var sceneY = y + headerH;
         var sceneH = h - headerH;
@@ -567,35 +596,15 @@
         p.pop();
     }
 
-    function selectYearFromMouse(manager, p) {
-        var ui = manager.usArrivals && manager.usArrivals.yearButtons;
-        if (!ui || !p.mouseIsPressed) return;
-        var pointer = manager.usArrivals.pointer || { x: p.mouseX, y: p.mouseY };
-        var now = Date.now();
-        if (manager.usArrivals.lastClick && now - manager.usArrivals.lastClick < 160) return;
-        for (var i = 0; i < ui.length; i++) {
-            var b = ui[i];
-            if (pointer.x >= b.x && pointer.x <= b.x + b.w && pointer.y >= b.y && pointer.y <= b.y + b.h) {
-                manager.usArrivals.selectedYear = b.year;
-                manager.usArrivals.animStart = now;
-                manager.usArrivals.lastDisplay = manager.usArrivals.displayValue || valueFor(b.year);
-                manager.usArrivals.lastClick = now;
-                break;
-            }
-        }
-    }
-
     window.VizUSArrivals = {
         setData: function (manager) {
             manager.usArrivals = {
                 selectedYear: 2019,
                 rows: [],
                 countries: [],
-                yearButtons: [],
                 displayValue: INDEX[2019],
                 lastDisplay: INDEX[2019],
                 animStart: Date.now(),
-                lastClick: 0,
                 assets: {
                     background: null,
                     people: [],
@@ -630,6 +639,7 @@
         draw: function (p, manager) {
             var state = manager.usArrivals;
             if (!state) return;
+            buildYearOverlay(manager);
 
             p.push();
             p.translate(manager.margin.left, manager.margin.top);
@@ -645,14 +655,21 @@
 
             var w = manager.width;
             var h = manager.height;
-            state.pointer = { x: p.mouseX - manager.margin.left, y: p.mouseY - manager.margin.top };
-            selectYearFromMouse(manager, p);
+            if (manager._usArrivalsOverlay) {
+                manager._usArrivalsOverlay.range.value = String(year);
+                manager._usArrivalsOverlay.label.textContent = String(year);
+            }
 
             var pad = 8;
             drawHeroPanel(p, manager, pad, 8, w - pad * 2, h - 16, shown, year);
+            layoutYearOverlay(manager);
             p.pop();
         },
 
-        hideOverlay: function () { }
+        hideOverlay: function (manager) {
+            if (manager && manager._usArrivalsOverlay) {
+                manager._usArrivalsOverlay.root.style.display = 'none';
+            }
+        }
     };
 })();

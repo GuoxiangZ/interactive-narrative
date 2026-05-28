@@ -29,6 +29,9 @@
             if (ai !== 1 && window.VizWorldMap && typeof window.VizWorldMap.hideOverlay === 'function') {
                 window.VizWorldMap.hideOverlay(manager);
             }
+            if (ai !== 2 && window.VizUSArrivals && typeof window.VizUSArrivals.hideOverlay === 'function') {
+                window.VizUSArrivals.hideOverlay(manager);
+            }
 
             if (ai === 0) {
                 window.VizTitle.draw(p, manager, ai, progress);
