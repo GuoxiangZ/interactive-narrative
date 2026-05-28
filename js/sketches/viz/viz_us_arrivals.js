@@ -1,10 +1,18 @@
 // viz_us_arrivals.js
-// U.S. inbound travelers, indexed to 2019 = 100.
+// U.S. inbound travelers.
 (function () {
     var YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
-    var INDEX = { 2018: 87, 2019: 100, 2020: 28, 2021: 47, 2022: 74, 2023: 98, 2024: 112 };
+    var ARRIVALS = {
+        2018: 79745920,
+        2019: 79442000,
+        2020: 19212120,
+        2021: 22280146,
+        2022: 50770684,
+        2023: 66349860,
+        2024: 72390320
+    };
     var ASSET_ROOT = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/';
-    var TRAVELER_COUNT = { 2018: 6, 2019: 7, 2020: 3, 2021: 4, 2022: 5, 2023: 7, 2024: 8 };
+    var TRAVELER_COUNT = { 2018: 8, 2019: 8, 2020: 3, 2021: 3, 2022: 5, 2023: 7, 2024: 7 };
     var TRAVELER_LAYOUT = [
         { n: 'traveler_01.png', x: 0.060, y: 0.835, h: 0.300, mirror: false },
         { n: 'traveler_02.png', x: 0.225, y: 0.800, h: 0.280, mirror: false },
@@ -52,7 +60,11 @@
     }
 
     function valueFor(year) {
-        return INDEX[year] || 100;
+        return Math.round((ARRIVALS[year] || ARRIVALS[2019]) / 1000000);
+    }
+
+    function rawValueFor(year) {
+        return ARRIVALS[year] || ARRIVALS[2019];
     }
 
     function yearColor(year) {
@@ -61,20 +73,24 @@
 
     function statusFor(value, year) {
         if (year === 2019) return 'baseline';
-        if (value >= 108) return 'above baseline';
-        if (value >= 95) return 'near baseline';
-        if (value >= 60) return 'rebuilding';
-        if (value >= 40) return 'early recovery';
+        var ratio = rawValueFor(year) / ARRIVALS[2019];
+        if (ratio >= 0.95) return 'near baseline';
+        if (ratio >= 0.70) return 'rebuilding';
+        if (ratio >= 0.35) return 'early recovery';
         return 'pandemic low';
     }
 
     function fmt(value) {
-        return ('000' + Math.round(value)).slice(-3);
+        return String(Math.round(value));
+    }
+
+    function formatInteger(value) {
+        return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
     function selectYear(manager, year) {
         var state = manager.usArrivals;
-        if (!state || !INDEX[year] || state.selectedYear === year) return;
+        if (!state || !ARRIVALS[year] || state.selectedYear === year) return;
         state.selectedYear = year;
         state.animStart = Date.now();
         state.lastDisplay = state.displayValue == null ? valueFor(year) : state.displayValue;
@@ -487,6 +503,12 @@
         p.pop();
     }
 
+    function splitFlapWidth(value, scale) {
+        var digits = fmt(value);
+        scale = scale || 1;
+        return digits.length * 84 * scale + Math.max(0, digits.length - 1) * 8 * scale;
+    }
+
     function drawSceneAsset(p, manager, x, y, w, h) {
         var assets = manager.usArrivals && manager.usArrivals.assets;
         if (!assets || !drawImageCover(p, assets.background, x, y, w, h)) {
@@ -531,10 +553,7 @@
 
     function drawHeroPanel(p, manager, x, y, w, h, shown, year) {
         p.push();
-        shadow(p, 18, 'rgba(21,64,72,0.10)', 0, 8);
         p.noStroke();
-        p.fill(255);
-        p.rect(x, y, w, h, 22);
         noShadow(p);
 
         var compact = w < 760;
@@ -575,9 +594,9 @@
         ctx.restore();
 
         var scale = Math.max(0.68, Math.min(1.48, w / 1040));
-        var boardW = 382 * scale;
+        var flapW = splitFlapWidth(shown, scale);
+        var boardW = Math.max(300 * scale, flapW + 118 * scale);
         var boardH = 245 * scale;
-        var flapW = 268 * scale;
         var flapX = x + w * 0.50 - flapW / 2;
         var flapY = sceneY + sceneH * (compact ? 0.035 : 0.075);
         p.fill(255, 250);
@@ -588,11 +607,14 @@
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.NORMAL);
         p.textSize(15 * scale);
-        p.text('Index vs. 2019 baseline', x + w * 0.50, flapY - 17 * scale);
+        p.text('Inbound travelers', x + w * 0.50, flapY - 17 * scale);
         drawSplitFlap(p, flapX, flapY + 28 * scale, shown, scale);
         p.fill(year === 2020 || year === 2021 ? '#d56f51' : COLORS.muted);
         p.textSize(12 * scale);
-        p.text(String(year) + ' = ' + statusFor(valueFor(year), year), x + w * 0.50, flapY + 178 * scale);
+        p.text('million travelers, rounded', x + w * 0.50, flapY + 178 * scale);
+        p.textSize(10 * scale);
+        p.fill(COLORS.muted);
+        p.text(String(year) + ': ' + formatInteger(rawValueFor(year)) + ' arrivals', x + w * 0.50, flapY + 198 * scale);
         p.pop();
     }
 
@@ -602,8 +624,8 @@
                 selectedYear: 2019,
                 rows: [],
                 countries: [],
-                displayValue: INDEX[2019],
-                lastDisplay: INDEX[2019],
+                displayValue: valueFor(2019),
+                lastDisplay: valueFor(2019),
                 animStart: Date.now(),
                 assets: {
                     background: null,
