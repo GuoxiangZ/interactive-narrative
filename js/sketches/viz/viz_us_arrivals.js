@@ -535,6 +535,23 @@
         drawAsset(p, signs.wayfinding, x + w * 0.855, y + h * 0.455, w * 0.142, w * 0.142 * (234 / 343), 0.98);
     }
 
+    function drawCleanArrivalDoorSign(p, x, y, w, h) {
+        var sx = x + w * 0.482;
+        var sy = y + h * 0.505;
+        var sw = w * 0.082;
+        var sh = h * 0.032;
+        p.push();
+        p.noStroke();
+        p.fill('rgba(45,189,180,0.86)');
+        p.rect(sx, sy, sw, sh, 2);
+        p.fill(255);
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(Math.max(7, sw * 0.12));
+        p.text('ARRIVALS', sx + sw / 2, sy + sh / 2 + 0.5);
+        p.pop();
+    }
+
     function removeHeadLevelBars(p, x, y, w, h) {
         p.push();
         p.noStroke();
@@ -595,6 +612,7 @@
         ctx.clip();
         drawSceneAsset(p, manager, x, sceneY, w, sceneH);
         removeHeadLevelBars(p, x, sceneY, w, sceneH);
+        drawCleanArrivalDoorSign(p, x, sceneY, w, sceneH);
         drawFigmaSigns(p, manager, x, sceneY, w, sceneH);
         drawFigmaTravelers(p, manager, x, sceneY, w, sceneH, year);
         ctx.restore();
