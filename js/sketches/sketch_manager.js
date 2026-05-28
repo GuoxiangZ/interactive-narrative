@@ -7,7 +7,7 @@ function startP5() {
     localRenderer = window.Renderer;
 
     // --- Sketch manager ----------------------------------------------------
-    function getVisSize() {
+    function getVisSize(activeIndex) {
         var isMobile = window.innerWidth <= 700;
         var w, h, margin;
         if (isMobile) {
@@ -16,6 +16,8 @@ function startP5() {
             h = Math.round(w * (520 / 600));
         } else {
             margin = { top: 0, left: 80, bottom: 4, right: 10 };
+            var aspectW = activeIndex === 2 ? 920 : 600;
+            var aspectH = 520;
             var isFullViz = !!(document.querySelector('#graphic.layout-full-viz'));
             if (isFullViz) {
                 margin = { top: 0, left: 20, bottom: 0, right: 20 };
@@ -24,9 +26,9 @@ function startP5() {
             } else {
                 var rawW = Math.round(window.innerWidth * 0.70) - 60;
                 var availW = rawW - margin.left - margin.right;
-                var wFromHeight = Math.round((window.innerHeight - 120) * (600 / 520)) - margin.left - margin.right;
+                var wFromHeight = Math.round((window.innerHeight - 120) * (aspectW / aspectH)) - margin.left - margin.right;
                 w = Math.min(availW, wFromHeight);
-                h = Math.round(w * (520 / 600));
+                h = Math.round(w * (aspectH / aspectW));
             }
         }
         return { width: w, height: h, margin: margin };
@@ -39,6 +41,7 @@ function startP5() {
         this.margin = size.margin;
         this.canvasWidth = this.width + this.margin.left + this.margin.right;
         this.canvasHeight = this.height + this.margin.top + this.margin.bottom;
+        this._sizeActiveIndex = 0;
 
         // drawing state
         this.state = { activeIndex: 0, progress: 0 };
@@ -58,12 +61,13 @@ function startP5() {
             };
 
             p.windowResized = function () {
-                var s = getVisSize();
+                var s = getVisSize(self.state.activeIndex || 0);
                 self.width = s.width;
                 self.height = s.height;
                 self.margin = s.margin;
                 self.canvasWidth = s.width + s.margin.left + s.margin.right;
                 self.canvasHeight = s.height + s.margin.top + s.margin.bottom;
+                self._sizeActiveIndex = self.state.activeIndex || 0;
                 self._randomPoints = null;
                 self._barCounts = null;
                 p.resizeCanvas(self.canvasWidth, self.canvasHeight);
@@ -74,7 +78,9 @@ function startP5() {
                 self.draw(p);
 
                 // scroll in/out transition using progress
+                var activeIndex = self.state.activeIndex || 0;
                 var pr = self.state.progress || 0;
+                if (activeIndex === 1 || activeIndex === 2) pr = 0.5;
                 var ease = 0.05;
                 var travel = 20;
                 var tx, op;
@@ -95,7 +101,7 @@ function startP5() {
                 p.canvas.style.opacity = op.toFixed(3);
 
                 // mirror transition on the active text step
-                var activeStep = document.querySelector('.step[data-active-index="' + (self.state.activeIndex || 0) + '"]');
+                var activeStep = document.querySelector('.step[data-active-index="' + activeIndex + '"]');
                 if (activeStep) {
                     activeStep.style.transform = 'translateY(' + tx.toFixed(2) + 'px)';
                     activeStep.style.opacity = op.toFixed(3);
@@ -103,7 +109,7 @@ function startP5() {
 
                 var dbg = document.getElementById('debug-state');
                 if (dbg) {
-                    dbg.textContent = 'activeIndex: ' + (self.state.activeIndex || 0) + '   progress: ' + pr.toFixed(2);
+                    dbg.textContent = 'activeIndex: ' + activeIndex + '   progress: ' + pr.toFixed(2);
                 }
             };
         };
@@ -114,8 +120,12 @@ function startP5() {
 
     // set visualization state (called by scroll logic)
     SketchManager.prototype.setState = function (s) {
+        var oldActiveIndex = this.state.activeIndex;
         if (s.activeIndex !== undefined) this.state.activeIndex = s.activeIndex;
         if (s.progress !== undefined) this.state.progress = s.progress;
+        if (s.activeIndex !== undefined && s.activeIndex !== oldActiveIndex && this.p5) {
+            this.p5.windowResized();
+        }
     };
 
     // delegate data handling to localRenderer
@@ -127,6 +137,17 @@ function startP5() {
     SketchManager.prototype.draw = function (p) {
         var ai = this.state.activeIndex || 0;
         var progress = this.state.progress || 0;
+        if (this._sizeActiveIndex !== ai) {
+            var s = getVisSize(ai);
+            this.width = s.width;
+            this.height = s.height;
+            this.margin = s.margin;
+            this.canvasWidth = s.width + s.margin.left + s.margin.right;
+            this.canvasHeight = s.height + s.margin.top + s.margin.bottom;
+            this._sizeActiveIndex = ai;
+            p.resizeCanvas(this.canvasWidth, this.canvasHeight);
+            return;
+        }
         localRenderer.draw(p, this, ai, progress);
     };
 
@@ -147,6 +168,7 @@ function startP5() {
         setState: manager.setState.bind(manager),
         setData: manager.setData.bind(manager),
         p5: manager.p5,
+        manager: manager,
         data: manager.data
     };
 
