@@ -331,3 +331,9 @@ body {
   font-weight: 700;
 }
 
+.usarrivals-overlay {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
