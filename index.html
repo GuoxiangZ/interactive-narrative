@@ -27,7 +27,7 @@
           Use the slider to compare inbound tourist arrivals before, during, and after the pandemic.
           Countries without available data remain gray.
         </section>
-        <section class="step" data-active-index="2">
+        <section class="step" data-active-index="2" data-layout="full-viz">
           <div class="title">U.S. Inbound Travelers, 2018-2024</div>
           This section focuses on arrivals into the United States and compares each year against the
           2019 baseline. Use the year slider to see how inbound travel declined during the pandemic
@@ -106,9 +106,6 @@
   <script src="js/helpers/scroller.js"></script>
   <script src="js/helpers/visual_controller.js"></script>
 
-  <!-- orchestrator (wires scroller -> sketch) -->
-  <script src="js/helpers/sections.js"></script>
-
   <!-- sketches (manager) -->
   <script src="js/sketches/sketch_manager.js"></script>
 
@@ -121,8 +118,11 @@
   <script src="js/sketches/viz/viz_scatter.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
   <script src="js/sketches/viz/viz_worldmap.js"></script>
-  <script src="js/sketches/viz/viz_us_arrivals.js"></script>
-  <script src="js/sketches/sketch_renderer.js"></script>
+  <script src="js/sketches/viz/viz_us_arrivals.js?v=20260527-redesign"></script>
+  <script src="js/sketches/sketch_renderer.js?v=20260527-redesign"></script>
+
+  <!-- orchestrator (wires scroller -> sketch) -->
+  <script src="js/helpers/sections.js"></script>
 
 
 </body>

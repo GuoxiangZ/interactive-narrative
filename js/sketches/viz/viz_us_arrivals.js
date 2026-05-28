@@ -6,14 +6,14 @@
     var ASSET_ROOT = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/';
     var TRAVELER_COUNT = { 2018: 6, 2019: 7, 2020: 3, 2021: 4, 2022: 5, 2023: 7, 2024: 8 };
     var TRAVELER_LAYOUT = [
-        { n: 'traveler_01.png', x: 0.060, y: 0.835, h: 0.300, mirror: false },
-        { n: 'traveler_02.png', x: 0.225, y: 0.800, h: 0.280, mirror: false },
-        { n: 'traveler_03.png', x: 0.345, y: 0.760, h: 0.200, mirror: false },
-        { n: 'traveler_04.png', x: 0.430, y: 0.770, h: 0.135, mirror: false },
-        { n: 'traveler_05.png', x: 0.555, y: 0.790, h: 0.142, mirror: false },
-        { n: 'traveler_06.png', x: 0.675, y: 0.805, h: 0.165, mirror: false },
-        { n: 'traveler_07.png', x: 0.810, y: 0.850, h: 0.225, mirror: false },
-        { n: 'traveler_08.png', x: 0.900, y: 0.835, h: 0.265, mirror: false }
+        { n: 'traveler_01.png', x: 0.110, y: 0.895, h: 0.300, mirror: false },
+        { n: 'traveler_02.png', x: 0.245, y: 0.865, h: 0.270, mirror: false },
+        { n: 'traveler_03.png', x: 0.370, y: 0.825, h: 0.205, mirror: false },
+        { n: 'traveler_04.png', x: 0.465, y: 0.795, h: 0.150, mirror: false },
+        { n: 'traveler_05.png', x: 0.555, y: 0.795, h: 0.145, mirror: false },
+        { n: 'traveler_06.png', x: 0.660, y: 0.825, h: 0.175, mirror: false },
+        { n: 'traveler_07.png', x: 0.770, y: 0.875, h: 0.235, mirror: false },
+        { n: 'traveler_08.png', x: 0.895, y: 0.895, h: 0.270, mirror: false }
     ];
     var COLORS = {
         bg: '#fbfefe',
@@ -100,6 +100,16 @@
         var sh = h / scale;
         var sx = (img.naturalWidth - sw) / 2;
         var sy = (img.naturalHeight - sh) / 2;
+        p.drawingContext.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+        return true;
+    }
+
+    function drawImageCrop(p, img, x, y, w, h, crop) {
+        if (!img || !img.complete || !img.naturalWidth) return false;
+        var sx = img.naturalWidth * crop.x;
+        var sy = img.naturalHeight * crop.y;
+        var sw = img.naturalWidth * crop.w;
+        var sh = img.naturalHeight * crop.h;
         p.drawingContext.drawImage(img, sx, sy, sw, sh, x, y, w, h);
         return true;
     }
@@ -458,25 +468,62 @@
 
     function drawSceneAsset(p, manager, x, y, w, h) {
         var assets = manager.usArrivals && manager.usArrivals.assets;
-        if (!assets || !drawImageCover(p, assets.background, x, y, w, h)) {
+        if (!assets || !drawImageCrop(p, assets.background, x, y, w, h, { x: 0.055, y: 0.035, w: 0.890, h: 0.900 })) {
             drawAirportInterior(p, x, y, w, h);
         }
     }
 
-    function drawFigmaSigns(p, manager, x, y, w, h) {
-        var signs = manager.usArrivals.assets && manager.usArrivals.assets.signs;
-        if (!signs) return;
-        drawAsset(p, signs.welcome, x + w * 0.165, y + h * 0.575, w * 0.085, w * 0.085 * (284 / 253), 0.98);
-        drawAsset(p, signs.wayfinding, x + w * 0.855, y + h * 0.455, w * 0.142, w * 0.142 * (234 / 343), 0.98);
-    }
-
-    function removeHeadLevelBars(p, x, y, w, h) {
+    function quietSideClutter(p, x, y, w, h) {
         p.push();
         p.noStroke();
-        p.fill(194, 231, 237, 230);
-        p.rect(x + w * 0.540, y + h * 0.505, w * 0.195, h * 0.010, 3);
-        p.fill(219, 244, 248, 210);
-        p.rect(x + w * 0.545, y + h * 0.520, w * 0.165, h * 0.008, 3);
+        p.fill(247, 253, 253, 184);
+        p.rect(x, y + h * 0.55, w * 0.085, h * 0.39);
+        p.rect(x + w * 0.925, y + h * 0.48, w * 0.075, h * 0.44);
+        p.fill(239, 250, 252, 118);
+        p.rect(x, y + h * 0.70, w, h * 0.08);
+        p.pop();
+    }
+
+    function drawArrivalFocus(p, x, y, w, h) {
+        p.push();
+        p.noStroke();
+        p.fill(241, 252, 253, 156);
+        p.rect(x + w * 0.355, y + h * 0.395, w * 0.290, h * 0.080, 12);
+        p.fill(COLORS.tealDark);
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(Math.max(18, w * 0.034));
+        p.text('ARRIVALS', x + w * 0.50, y + h * 0.435);
+        p.stroke('rgba(95,154,155,0.28)');
+        p.strokeWeight(1.4);
+        p.noFill();
+        p.rect(x + w * 0.325, y + h * 0.475, w * 0.350, h * 0.225, 4);
+        p.line(x + w * 0.50, y + h * 0.475, x + w * 0.50, y + h * 0.700);
+        p.line(x + w * 0.325, y + h * 0.585, x + w * 0.675, y + h * 0.585);
+        p.pop();
+    }
+
+    function cleanHeadroom(p, x, y, w, h) {
+        p.push();
+        p.noStroke();
+        p.fill(234, 248, 251, 208);
+        p.rect(x + w * 0.315, y + h * 0.565, w * 0.375, h * 0.035, 10);
+        p.fill(242, 252, 253, 190);
+        p.rect(x + w * 0.215, y + h * 0.610, w * 0.600, h * 0.030, 12);
+        p.pop();
+    }
+
+    function drawContactShadows(p, x, y, w, h, year) {
+        var count = TRAVELER_COUNT[year] || 8;
+        p.push();
+        p.noStroke();
+        for (var i = 0; i < TRAVELER_LAYOUT.length; i++) {
+            if (i >= count) continue;
+            var item = TRAVELER_LAYOUT[i];
+            var size = w * item.h * 0.22;
+            p.fill(25, 64, 72, i < 2 ? 24 : 16);
+            p.ellipse(x + w * item.x, y + h * item.y + h * 0.012, size, size * 0.24);
+        }
         p.pop();
     }
 
@@ -540,17 +587,19 @@
         ctx.lineTo(x, sceneY);
         ctx.clip();
         drawSceneAsset(p, manager, x, sceneY, w, sceneH);
-        removeHeadLevelBars(p, x, sceneY, w, sceneH);
-        drawFigmaSigns(p, manager, x, sceneY, w, sceneH);
+        quietSideClutter(p, x, sceneY, w, sceneH);
+        drawArrivalFocus(p, x, sceneY, w, sceneH);
+        cleanHeadroom(p, x, sceneY, w, sceneH);
+        drawContactShadows(p, x, sceneY, w, sceneH, year);
         drawFigmaTravelers(p, manager, x, sceneY, w, sceneH, year);
         ctx.restore();
 
-        var scale = Math.max(0.68, Math.min(1.48, w / 1040));
+        var scale = Math.max(0.76, Math.min(1.42, w / 1120));
         var boardW = 382 * scale;
         var boardH = 245 * scale;
         var flapW = 268 * scale;
         var flapX = x + w * 0.50 - flapW / 2;
-        var flapY = sceneY + sceneH * (compact ? 0.035 : 0.075);
+        var flapY = sceneY + sceneH * (compact ? 0.035 : 0.052);
         p.fill(255, 250);
         shadow(p, 18, 'rgba(21,64,72,0.12)', 0, 8);
         p.rect(x + w * 0.50 - boardW / 2, flapY - 46 * scale, boardW, boardH, 22);
@@ -585,15 +634,37 @@
         }
     }
 
+    function ensureState(manager) {
+        if (manager.usArrivals) return manager.usArrivals;
+        manager.usArrivals = {
+            selectedYear: 2024,
+            rows: [],
+            countries: [],
+            yearButtons: [],
+            displayValue: INDEX[2024],
+            lastDisplay: INDEX[2024],
+            animStart: Date.now(),
+            lastClick: 0,
+            assets: {
+                background: domImage(ASSET_ROOT + 'backgrounds/airport_arrivals_hall_background.png'),
+                people: TRAVELER_LAYOUT.map(function (d) {
+                    return domImage(ASSET_ROOT + 'people/individual_png/' + d.n);
+                }),
+                signs: {}
+            }
+        };
+        return manager.usArrivals;
+    }
+
     window.VizUSArrivals = {
         setData: function (manager) {
             manager.usArrivals = {
-                selectedYear: 2019,
+                selectedYear: 2024,
                 rows: [],
                 countries: [],
                 yearButtons: [],
-                displayValue: INDEX[2019],
-                lastDisplay: INDEX[2019],
+                displayValue: INDEX[2024],
+                lastDisplay: INDEX[2024],
                 animStart: Date.now(),
                 lastClick: 0,
                 assets: {
@@ -628,8 +699,7 @@
         },
 
         draw: function (p, manager) {
-            var state = manager.usArrivals;
-            if (!state) return;
+            var state = ensureState(manager);
 
             p.push();
             p.translate(manager.margin.left, manager.margin.top);
