@@ -3,29 +3,29 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IMT 561 Data Visualization: Design and Development</title>
+  <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
   <header id="site-header">
-    <span id="site-title">Your Project Title</span>
+    <span id="site-title">Tourism Through the Pandemic</span>
     <span id="site-course">IMT 561 Data Visualization: Design and Development</span>
     <span id="debug-state"></span>
   </header>
   <div class="container">
     <div id='graphic'>
       <div id='sections'>
-        <section class="step" data-active-index="0">
-          <div class="title">IMT 561 Final Project</div>
-          Here is a template to work on your final project.<br /><br />
-          Your mission is to create an <b>interactive article using P5.js</b>.
+        <section class="step intro-placeholder" data-active-index="0" data-layout="full-text">
+          <div class="title">Pandemic Impact on Travel Frequency and Spending</div>
+          <div class="intro-card">Introduction before beginning</div>
         </section>
-        <section class="step" data-active-index="1">
-          <div class="title">Sections</div>
-          Note that each section in index.html corresponds to a section in the
-          scrolling article. You can add or remove sections as needed.
+        <section class="step map-copy-placeholder" data-active-index="1">
+          <div class="title">Worldwide Inbound Tourism, 2018-2024</div>
+          This section will introduce the world map and explain how to read the yearly recovery pattern.
+          Use the slider to compare inbound tourist arrivals before, during, and after the pandemic.
+          Countries without available data remain gray.
         </section>
         <section class="step" data-active-index="2">
           <div class="title">No visualization</div>
@@ -97,6 +97,8 @@
 
   <!-- p5.js (using CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <!-- helpers (data/loading, scroller, visual controller) -->
   <script src="js/helpers/data_loader.js"></script>
   <script src="js/helpers/scroller.js"></script>
@@ -116,6 +118,7 @@
   <script src="js/sketches/viz/viz_progress_color.js"></script>
   <script src="js/sketches/viz/viz_scatter.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
+  <script src="js/sketches/viz/viz_worldmap.js"></script>
   <script src="js/sketches/sketch_renderer.js"></script>
 
 
