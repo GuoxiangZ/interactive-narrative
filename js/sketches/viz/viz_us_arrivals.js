@@ -537,9 +537,9 @@
 
     function drawCleanArrivalDoorSign(p, x, y, w, h) {
         var sx = x + w * 0.482;
-        var sy = y + h * 0.505;
+        var sy = y + h * 0.515;
         var sw = w * 0.082;
-        var sh = h * 0.032;
+        var sh = h * 0.038;
         p.push();
         p.noStroke();
         p.fill('rgba(45,189,180,0.86)');
