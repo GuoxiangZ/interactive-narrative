@@ -88,6 +88,18 @@
         return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
+    function previousYearChange(year) {
+        var previous = ARRIVALS[year - 1];
+        var current = ARRIVALS[year];
+        if (!previous || !current) return null;
+        return ((current - previous) / previous) * 100;
+    }
+
+    function formatPercent(value) {
+        var sign = value > 0 ? '+' : '';
+        return sign + value.toFixed(1) + '%';
+    }
+
     function selectYear(manager, year) {
         var state = manager.usArrivals;
         if (!state || !ARRIVALS[year] || state.selectedYear === year) return;
@@ -609,6 +621,9 @@
         p.textSize(10 * scale);
         p.fill(COLORS.muted);
         p.text(String(year) + ': ' + formatInteger(rawValueFor(year)) + ' arrivals', x + w * 0.50, flapY + 181 * scale);
+        var yoy = previousYearChange(year);
+        p.fill(yoy == null ? COLORS.muted : (yoy < 0 ? '#d56f51' : COLORS.tealDark));
+        p.text(yoy == null ? 'vs previous year: n/a' : 'vs previous year: ' + formatPercent(yoy), x + w * 0.50, flapY + 196 * scale);
         p.pop();
     }
 
