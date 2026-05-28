@@ -619,11 +619,9 @@
         p.textSize(12 * scale);
         p.text('million travelers, rounded', x + w * 0.50, flapY + 164 * scale);
         p.textSize(10 * scale);
-        p.fill(COLORS.muted);
-        p.text(String(year) + ': ' + formatInteger(rawValueFor(year)) + ' arrivals', x + w * 0.50, flapY + 181 * scale);
         var yoy = previousYearChange(year);
         p.fill(yoy == null ? COLORS.muted : (yoy < 0 ? '#d56f51' : COLORS.tealDark));
-        p.text(yoy == null ? 'vs previous year: n/a' : 'vs previous year: ' + formatPercent(yoy), x + w * 0.50, flapY + 196 * scale);
+        p.text(yoy == null ? 'vs previous year: n/a' : 'vs previous year: ' + formatPercent(yoy), x + w * 0.50, flapY + 181 * scale);
         p.pop();
     }
 
