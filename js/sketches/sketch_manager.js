@@ -74,7 +74,9 @@ function startP5() {
                 self.draw(p);
 
                 // scroll in/out transition using progress
+                var activeIndex = self.state.activeIndex || 0;
                 var pr = self.state.progress || 0;
+                if (activeIndex === 1 || activeIndex === 2) pr = 0.5;
                 var ease = 0.05;
                 var travel = 20;
                 var tx, op;
@@ -95,7 +97,7 @@ function startP5() {
                 p.canvas.style.opacity = op.toFixed(3);
 
                 // mirror transition on the active text step
-                var activeStep = document.querySelector('.step[data-active-index="' + (self.state.activeIndex || 0) + '"]');
+                var activeStep = document.querySelector('.step[data-active-index="' + activeIndex + '"]');
                 if (activeStep) {
                     activeStep.style.transform = 'translateY(' + tx.toFixed(2) + 'px)';
                     activeStep.style.opacity = op.toFixed(3);
@@ -103,7 +105,7 @@ function startP5() {
 
                 var dbg = document.getElementById('debug-state');
                 if (dbg) {
-                    dbg.textContent = 'activeIndex: ' + (self.state.activeIndex || 0) + '   progress: ' + pr.toFixed(2);
+                    dbg.textContent = 'activeIndex: ' + activeIndex + '   progress: ' + pr.toFixed(2);
                 }
             };
         };

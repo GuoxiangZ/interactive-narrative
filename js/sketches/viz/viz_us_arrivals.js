@@ -559,7 +559,7 @@
         var compact = w < 760;
         var headerH = compact ? 94 : 88;
         p.fill(255);
-        p.rect(x, y, w, headerH, 22, 22, 0, 0);
+        p.rect(x, y, w, headerH);
         p.fill(COLORS.mint);
         p.ellipse(x + 58, y + 44, 50, 50);
         plane(p, x + 58, y + 44, 31, COLORS.tealDark, -0.35);
@@ -579,13 +579,7 @@
         var ctx = p.drawingContext;
         ctx.save();
         ctx.beginPath();
-        ctx.moveTo(x, sceneY);
-        ctx.lineTo(x + w, sceneY);
-        ctx.lineTo(x + w, y + h - 22);
-        ctx.quadraticCurveTo(x + w, y + h, x + w - 22, y + h);
-        ctx.lineTo(x + 22, y + h);
-        ctx.quadraticCurveTo(x, y + h, x, y + h - 22);
-        ctx.lineTo(x, sceneY);
+        ctx.rect(x, sceneY, w, sceneH);
         ctx.clip();
         drawSceneAsset(p, manager, x, sceneY, w, sceneH);
         removeHeadLevelBars(p, x, sceneY, w, sceneH);
@@ -611,10 +605,10 @@
         drawSplitFlap(p, flapX, flapY + 28 * scale, shown, scale);
         p.fill(year === 2020 || year === 2021 ? '#d56f51' : COLORS.muted);
         p.textSize(12 * scale);
-        p.text('million travelers, rounded', x + w * 0.50, flapY + 178 * scale);
+        p.text('million travelers, rounded', x + w * 0.50, flapY + 164 * scale);
         p.textSize(10 * scale);
         p.fill(COLORS.muted);
-        p.text(String(year) + ': ' + formatInteger(rawValueFor(year)) + ' arrivals', x + w * 0.50, flapY + 198 * scale);
+        p.text(String(year) + ': ' + formatInteger(rawValueFor(year)) + ' arrivals', x + w * 0.50, flapY + 181 * scale);
         p.pop();
     }
 
