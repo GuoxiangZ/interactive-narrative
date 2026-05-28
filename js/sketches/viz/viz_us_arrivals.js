@@ -137,10 +137,10 @@
         var canvasLeft = canvas ? canvas.offsetLeft : 0;
         var canvasTop = canvas ? canvas.offsetTop : 0;
         var box = state.sliderBox;
-        var width = Math.round(Math.max(300, Math.min(440, box.w * 0.43)));
+        var width = Math.round(Math.max(360, Math.min(520, box.w * 0.52)));
         overlay.style.display = 'block';
         overlay.style.width = width + 'px';
-        overlay.style.left = Math.round(canvasLeft + manager.margin.left + box.x + box.w - width - 36) + 'px';
+        overlay.style.left = Math.round(canvasLeft + manager.margin.left + box.x + box.w - width - 12) + 'px';
         overlay.style.top = Math.round(canvasTop + manager.margin.top + box.y + 19) + 'px';
     }
 
