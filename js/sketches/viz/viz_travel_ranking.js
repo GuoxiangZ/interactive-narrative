@@ -1,8 +1,8 @@
 // viz_travel_ranking.js
 // Center blocks for the destination ranking game.
 (function () {
-    var ASSET_ROOT = 'assets/travel_ranking_figma_design/assets/icons/';
-    var ASSET_VERSION = '20260529-landmarks-v2';
+    var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
+    var ASSET_VERSION = '20260529-cartoon-landmarks';
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -20,48 +20,49 @@
     };
 
     var ICONS = {
-        'France': { src: 'france_eiffel.svg', color: COLORS.teal },
-        'U.S.': { src: 'us_statue.svg', color: COLORS.teal },
-        'Mexico': { src: 'mexico_pyramid.svg', color: COLORS.teal },
-        'Spain': { src: 'spain_sagrada.svg', color: COLORS.teal },
-        'Turkey': { src: 'turkey_mosque.svg', color: COLORS.teal },
-        'China': { src: 'china_temple.svg', color: COLORS.teal },
-        'Italy': { src: 'italy_colosseum.svg', color: COLORS.teal }
+        'France': { src: 'france_eiffel.png', color: COLORS.teal },
+        'U.S.': { src: 'us_statue.png', color: COLORS.teal },
+        'Japan': { src: 'japan_torii.png', color: COLORS.teal },
+        'Mexico': { src: 'mexico_pyramid.png', color: COLORS.teal },
+        'Spain': { src: 'spain_sagrada.png', color: COLORS.teal },
+        'Canada': { src: 'canada_toronto.png', color: COLORS.teal },
+        'Australia': { src: 'australia_opera.png', color: COLORS.teal },
+        'Turkey': { src: 'turkey_mosque.png', color: COLORS.teal }
     };
 
-    var PRE = ['France', 'Spain', 'U.S.', 'China', 'Italy'];
-    var DURING = ['France', 'Mexico', 'Turkey', 'Italy', 'U.S.'];
-    var POST_ANSWER = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
-    var BANK = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
+    var PRE = ['France', 'Spain', 'U.S.', 'Mexico', 'Japan'];
+    var DURING = ['Mexico', 'Turkey', 'U.S.', 'Canada', 'Japan'];
+    var POST_ANSWER = ['U.S.', 'Turkey', 'Japan', 'Canada', 'Australia'];
+    var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
     var COUNTS = {
         pre: {
             'France': 89400000,
             'Spain': 83700000,
             'U.S.': 79442000,
-            'China': 65700000,
-            'Italy': 64500000
+            'Mexico': 45024000,
+            'Japan': 31882000
         },
         during: {
-            'France': 48400000,
             'Mexico': 31900000,
             'Turkey': 29900000,
-            'Italy': 26900000,
-            'U.S.': 22280146
+            'U.S.': 22280146,
+            'Canada': 3240000,
+            'Japan': 246000
         },
         post: {
-            'France': 100000000,
-            'Spain': 94000000,
             'U.S.': 72390320,
-            'Turkey': 62300000,
-            'Italy': 57200000
+            'Turkey': 56700000,
+            'Japan': 36870000,
+            'Canada': 19900000,
+            'Australia': 8300000
         }
     };
     var BANK_LAYOUT = [
-        { country: 'France', x: 1335, y: 355, w: 200, h: 58 },
-        { country: 'Spain', x: 1335, y: 425, w: 200, h: 58 },
+        { country: 'Japan', x: 1335, y: 355, w: 200, h: 58 },
+        { country: 'Canada', x: 1335, y: 425, w: 200, h: 58 },
         { country: 'U.S.', x: 1335, y: 495, w: 200, h: 58 },
-        { country: 'Turkey', x: 1335, y: 565, w: 200, h: 58 },
-        { country: 'Italy', x: 1335, y: 635, w: 200, h: 58 }
+        { country: 'Australia', x: 1335, y: 565, w: 200, h: 58 },
+        { country: 'Turkey', x: 1335, y: 635, w: 200, h: 58 }
     ];
     var SLOTS = [
         { rank: 1, x: 990, y: 290, w: 285, h: 62 },
@@ -208,7 +209,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 60, y + 7, h - 14, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 64, y + 3, h - 6, icon && icon.color);
     }
 
     function slot(p, x, y, w, h, rank) {
@@ -243,7 +244,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 24, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 54, y + 7, h - 14, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 61, y + 3, h - 6, icon && icon.color);
     }
 
     function pointInRect(px, py, r) {
