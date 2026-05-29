@@ -1,5 +1,5 @@
 // viz_travel_ranking.js
-// Static center blocks for the destination ranking game. p5 interaction can be added on top.
+// Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_figma_design/assets/icons/';
     var COLORS = {
@@ -13,8 +13,7 @@
         dash: '#95B8C6',
         panel: '#FFFFFF',
         panelSoft: '#F8FBFC',
-        restricted: '#EEF4F7',
-        red: '#C83232'
+        restricted: '#EEF4F7'
     };
 
     var ICONS = {
@@ -31,6 +30,20 @@
     var PRE = ['France', 'U.S.', 'Japan', 'Mexico', 'Spain'];
     var DURING = ['Japan', 'Mexico', 'U.S.', 'Turkey', 'Australia'];
     var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
+    var BANK_LAYOUT = [
+        { country: 'Japan', x: 1335, y: 355, w: 200, h: 58 },
+        { country: 'Canada', x: 1335, y: 425, w: 200, h: 58 },
+        { country: 'U.S.', x: 1335, y: 495, w: 200, h: 58 },
+        { country: 'Australia', x: 1335, y: 565, w: 200, h: 58 },
+        { country: 'Turkey', x: 1335, y: 635, w: 200, h: 58 }
+    ];
+    var SLOTS = [
+        { rank: 1, x: 990, y: 290, w: 285, h: 62 },
+        { rank: 2, x: 990, y: 375, w: 285, h: 62 },
+        { rank: 3, x: 990, y: 460, w: 285, h: 62 },
+        { rank: 4, x: 990, y: 545, w: 285, h: 62 },
+        { rank: 5, x: 990, y: 630, w: 285, h: 62 }
+    ];
 
     function domImage(src) {
         var img = new Image();
@@ -109,9 +122,9 @@
         p.pop();
     }
 
-    function header(p, x, y, num, title, badge, muted) {
+    function header(p, x, y, num, title, yearLabel, badge, muted) {
         p.noStroke();
-        p.fill(muted ? COLORS.muted : COLORS.teal);
+        p.fill(COLORS.teal);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(31);
@@ -119,12 +132,16 @@
         p.textSize(18);
         p.text(title, x + 60, y + 7);
         p.textStyle(p.NORMAL);
+        p.textSize(11);
+        p.fill(COLORS.tealDark);
+        p.text(yearLabel, x + 60, y + 31);
+        p.textStyle(p.NORMAL);
         p.fill(muted ? '#DCE7EE' : COLORS.tealLight);
-        p.rect(x + 62, y + 42, 118, 28, 999);
-        p.fill(muted ? '#65778A' : COLORS.teal);
+        p.rect(x + 62, y + 50, 118, 28, 999);
+        p.fill(COLORS.teal);
         p.textAlign(p.CENTER, p.CENTER);
         p.textSize(11);
-        p.text(badge, x + 121, y + 56);
+        p.text(badge, x + 121, y + 64);
     }
 
     function rankBadge(p, x, y, rank) {
@@ -148,7 +165,7 @@
         p.strokeWeight(1.2);
         p.rect(x + 55, y, w - 55, h, 10);
         p.noStroke();
-        p.fill(muted ? COLORS.muted : (icon && icon.color) || COLORS.ink);
+        p.fill(COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
         p.textSize(18);
@@ -163,7 +180,7 @@
         p.strokeWeight(1.2);
         dashedRect(p, x, y, w, h, 10, COLORS.dash);
         p.noStroke();
-        p.fill(COLORS.muted);
+        p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
         p.textSize(13);
@@ -173,16 +190,117 @@
     function chip(p, manager, x, y, w, h, country) {
         var icon = ICONS[country];
         p.fill(COLORS.panel);
-        p.stroke((icon && icon.color) || COLORS.teal);
+        p.stroke(COLORS.teal);
         p.strokeWeight(1.35);
         p.rect(x, y, w, h, 9);
         p.noStroke();
-        p.fill((icon && icon.color) || COLORS.ink);
+        p.fill(COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
         p.textSize(country === 'Australia' ? 14 : 16);
         p.text(country.toUpperCase(), x + 24, y + h / 2 + 1);
         drawIcon(p, iconFor(manager, country), x + w - 49, y + 9, h - 18, icon && icon.color);
+    }
+
+    function pointInRect(px, py, r) {
+        return px >= r.x && px <= r.x + r.w && py >= r.y && py <= r.y + r.h;
+    }
+
+    function ensureState(manager) {
+        var state = manager.travelRanking;
+        if (!state) return null;
+        if (!state.chips) {
+            state.slots = SLOTS.map(function (slot) {
+                return { rank: slot.rank, x: slot.x, y: slot.y, w: slot.w, h: slot.h, country: null };
+            });
+            state.chips = BANK_LAYOUT.map(function (item) {
+                return {
+                    country: item.country,
+                    x: item.x,
+                    y: item.y,
+                    w: item.w,
+                    h: item.h,
+                    homeX: item.x,
+                    homeY: item.y,
+                    slot: null
+                };
+            });
+            state.dragging = null;
+            state.wasPressed = false;
+        }
+        return state;
+    }
+
+    function snapHome(chip) {
+        chip.x = chip.homeX;
+        chip.y = chip.homeY;
+        chip.w = 200;
+        chip.h = 58;
+        chip.slot = null;
+    }
+
+    function placeChip(state, chip, slotIndex) {
+        if (chip.slot != null && state.slots[chip.slot]) state.slots[chip.slot].country = null;
+        var slot = state.slots[slotIndex];
+        if (slot.country && slot.country !== chip.country) {
+            var existing = state.chips.find(function (item) { return item.country === slot.country; });
+            if (existing) snapHome(existing);
+        }
+        slot.country = chip.country;
+        chip.slot = slotIndex;
+        chip.x = slot.x;
+        chip.y = slot.y;
+        chip.w = slot.w;
+        chip.h = slot.h;
+    }
+
+    function handleDrag(p, manager) {
+        var state = ensureState(manager);
+        if (!state || !state.layout) return;
+        var mx = (p.mouseX - manager.margin.left - state.layout.x) / state.layout.scale;
+        var my = (p.mouseY - manager.margin.top - state.layout.y) / state.layout.scale;
+        var justPressed = p.mouseIsPressed && !state.wasPressed;
+        var justReleased = !p.mouseIsPressed && state.wasPressed;
+
+        if (justPressed) {
+            for (var i = state.chips.length - 1; i >= 0; i--) {
+                var chip = state.chips[i];
+                if (pointInRect(mx, my, chip)) {
+                    state.dragging = {
+                        chip: chip,
+                        dx: mx - chip.x,
+                        dy: my - chip.y
+                    };
+                    if (chip.slot != null && state.slots[chip.slot]) state.slots[chip.slot].country = null;
+                    chip.slot = null;
+                    state.chips.splice(i, 1);
+                    state.chips.push(chip);
+                    break;
+                }
+            }
+        }
+
+        if (state.dragging && p.mouseIsPressed) {
+            state.dragging.chip.x = mx - state.dragging.dx;
+            state.dragging.chip.y = my - state.dragging.dy;
+        }
+
+        if (justReleased && state.dragging) {
+            var dragged = state.dragging.chip;
+            var center = { x: dragged.x + dragged.w / 2, y: dragged.y + dragged.h / 2 };
+            var target = -1;
+            for (var s = 0; s < state.slots.length; s++) {
+                if (pointInRect(center.x, center.y, state.slots[s])) {
+                    target = s;
+                    break;
+                }
+            }
+            if (target >= 0) placeChip(state, dragged, target);
+            else snapHome(dragged);
+            state.dragging = null;
+        }
+
+        state.wasPressed = p.mouseIsPressed;
     }
 
     function drawPanelRows(p, manager, x, y, w, countries, muted) {
@@ -197,15 +315,15 @@
         p.scale(scale);
 
         panel(p, 55, 145, 390, 570, COLORS.teal, false);
-        panel(p, 475, 145, 390, 570, COLORS.dash, true);
+        panel(p, 475, 145, 390, 570, COLORS.teal, false);
         panel(p, 895, 145, 390, 570, COLORS.teal, false);
         panel(p, 1320, 145, 230, 570, COLORS.teal, true);
 
-        header(p, 78, 177, '01', 'PRE-COVID', 'Open Borders', false);
-        header(p, 498, 177, '02', 'DURING COVID', 'Restricted Travel', true);
-        header(p, 918, 177, '03', 'POST-COVID', 'Your Guess', false);
+        header(p, 78, 177, '01', 'PRE-COVID', '(2019)', 'Open Borders', false);
+        header(p, 498, 177, '02', 'DURING COVID', '(2021)', 'Restricted Travel', true);
+        header(p, 918, 177, '03', 'POST-COVID', '(2024 guess)', 'Your Guess', false);
 
-        p.fill(COLORS.ink);
+        p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(15);
@@ -223,8 +341,14 @@
 
         drawPanelRows(p, manager, 55, 145, 390, PRE, false);
         drawPanelRows(p, manager, 475, 145, 390, DURING, true);
-        for (var i = 0; i < 5; i++) slot(p, 990, 290 + i * 85, 285, 62, i + 1);
-        for (var j = 0; j < BANK.length; j++) chip(p, manager, 1335, 355 + j * 70, 200, 58, BANK[j]);
+        var state = ensureState(manager);
+        for (var i = 0; i < state.slots.length; i++) {
+            if (!state.slots[i].country) slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
+        }
+        for (var j = 0; j < state.chips.length; j++) {
+            var item = state.chips[j];
+            chip(p, manager, item.x, item.y, item.w, item.h, item.country);
+        }
 
         p.pop();
     }
@@ -247,6 +371,9 @@
             var scale = Math.min(manager.width / baseW, manager.height / baseH);
             var x = (manager.width - baseW * scale) / 2;
             var y = (manager.height - baseH * scale) / 2;
+            var state = ensureState(manager);
+            state.layout = { x: x, y: y, scale: scale };
+            handleDrag(p, manager);
             drawTopFourBlocks(p, manager, x, y, scale);
             p.pop();
         }
