@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" fill="none">
+<defs>
+  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#102A43" flood-opacity="0.08"/></filter>
+  <symbol id="icon-france" viewBox="0 0 128 128">
+  <g stroke="#0F5A9C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 12 L46 110"/><path d="M64 12 L82 110"/>
+    <path d="M53 54 H75"/><path d="M48 76 H80"/><path d="M40 110 H88"/>
+    <path d="M52 110 C56 91 72 91 76 110"/>
+    <path d="M59 30 H69"/><path d="M56 42 H72"/>
+  </g>
+</symbol>
+<symbol id="icon-us" viewBox="0 0 128 128">
+  <g stroke="#C83232" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M67 30 L59 113 H83 L74 30 Z"/>
+    <path d="M58 42 L34 60"/><path d="M73 40 L96 61"/>
+    <path d="M65 24 L55 35 H78 L68 24 Z"/>
+    <path d="M47 24 L39 8"/><path d="M47 24 L42 12"/><path d="M47 24 L50 10"/>
+    <path d="M34 60 L28 74"/><path d="M96 61 L101 75"/>
+    <path d="M50 113 H92"/>
+  </g>
+</symbol>
+<symbol id="icon-japan" viewBox="0 0 128 128">
+  <g stroke="#5B368A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 35 C44 24 84 24 108 35"/>
+    <path d="M28 48 H100"/><path d="M39 48 V104"/><path d="M89 48 V104"/>
+    <path d="M33 72 H95"/><path d="M28 104 H50"/><path d="M78 104 H100"/>
+  </g>
+</symbol>
+<symbol id="icon-mexico" viewBox="0 0 128 128">
+  <g stroke="#087F4F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 104 H100"/><path d="M34 92 H94"/><path d="M40 80 H88"/><path d="M46 68 H82"/><path d="M52 56 H76"/>
+    <path d="M58 44 H70"/><path d="M64 44 V104"/>
+    <path d="M28 104 L58 44 L100 104"/>
+  </g>
+</symbol>
+<symbol id="icon-spain" viewBox="0 0 128 128">
+  <g stroke="#B66A1E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 108 V54 L38 32 L48 54 V108"/>
+    <path d="M54 108 V42 L64 18 L74 42 V108"/>
+    <path d="M80 108 V58 L90 38 L100 58 V108"/>
+    <path d="M18 108 H110"/><path d="M41 82 H87"/>
+    <path d="M30 54 H46"/><path d="M56 42 H72"/><path d="M82 58 H98"/>
+    <path d="M36 32 V22"/><path d="M64 18 V8"/><path d="M90 38 V28"/>
+  </g>
+</symbol>
+<symbol id="icon-canada" viewBox="0 0 128 128">
+  <g stroke="#C83232" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M54 108 H74"/><path d="M64 18 V108"/><path d="M52 42 H76"/><path d="M57 58 H71"/>
+    <path d="M44 74 C51 66 57 66 64 74 C71 66 78 66 84 74"/>
+    <path d="M91 38 L96 52 L111 51 L99 61 L104 76 L91 67 L78 76 L83 61 L71 51 L86 52 Z"/>
+  </g>
+</symbol>
+<symbol id="icon-australia" viewBox="0 0 128 128">
+  <g stroke="#0F5A9C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 96 H110"/><path d="M28 88 C44 50 56 40 72 90"/>
+    <path d="M50 90 C66 48 78 38 102 90"/>
+    <path d="M24 96 C50 106 82 106 108 96"/>
+    <path d="M38 80 C52 78 67 80 84 88"/>
+  </g>
+</symbol>
+<symbol id="icon-turkey" viewBox="0 0 128 128">
+  <g stroke="#087E92" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 104 V52"/><path d="M96 104 V52"/><path d="M27 52 L32 36 L37 52"/><path d="M91 52 L96 36 L101 52"/>
+    <path d="M44 104 V72 C44 58 84 58 84 72 V104"/>
+    <path d="M38 72 C50 46 78 46 90 72"/>
+    <path d="M64 46 V30"/><path d="M58 34 C63 28 70 29 75 36"/>
+    <path d="M20 104 H108"/><path d="M50 84 H78"/>
+  </g>
+</symbol>
+</defs>
+
+<style>
+  .title{font: 800 36px Inter, Arial, sans-serif; letter-spacing: .02em; fill:#102A43;}
+  .small{font: 500 18px Inter, Arial, sans-serif; fill:#65778A;}
+  .label{font: 800 25px Inter, Arial, sans-serif; letter-spacing:.07em; fill:#005E60;}
+  .rank{font: 700 26px Inter, Arial, sans-serif; fill:#005E60;}
+  .country{font: 800 22px Inter, Arial, sans-serif; letter-spacing:.04em;}
+  .hint{font: 600 18px Inter, Arial, sans-serif; fill:#65778A;}
+  .chiptext{font: 800 19px Inter, Arial, sans-serif; letter-spacing:.04em;}
+  .caption{font: 500 15px Inter, Arial, sans-serif; fill:#65778A;}
+</style>
+
+<rect width="1600" height="760" fill="#FFFFFF" opacity="0"/>
+<text class="title" x="55" y="70">Destination Ranking Game</text>
+<text class="small" x="56" y="108">Four-block layout for p5.js interaction. Use Figma only for icons and visual assets.</text>
+
+<!-- 01 Pre-COVID -->
+<g filter="url(#softShadow)">
+<rect x="55" y="145" width="390" height="520" rx="18" fill="#FFFFFF" stroke="#007C78" stroke-width="2"/>
+</g>
+<text x="90" y="205" font-family="Inter, Arial" font-size="48" font-weight="800" fill="#005E60">01</text>
+<text class="label" x="175" y="195">PRE-COVID</text>
+<rect x="175" y="220" width="160" height="34" rx="17" fill="#D9F3EE"/><text x="255.0" y="243" text-anchor="middle" font-family="Inter, Arial" font-size="17" font-weight="700" fill="#005E60">Open Borders</text>
+<circle cx="110" cy="321" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="110" y="330" text-anchor="middle">1</text><rect x="150" y="290" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="190" y="329" fill="#0F5A9C">FRANCE</text><use href="#icon-france" x="340" y="303" width="40" height="40"/>
+<circle cx="110" cy="406" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="110" y="415" text-anchor="middle">2</text><rect x="150" y="375" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="190" y="414" fill="#C83232">U.S.</text><use href="#icon-us" x="340" y="388" width="40" height="40"/>
+<circle cx="110" cy="491" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="110" y="500" text-anchor="middle">3</text><rect x="150" y="460" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="190" y="499" fill="#5B368A">JAPAN</text><use href="#icon-japan" x="340" y="473" width="40" height="40"/>
+<circle cx="110" cy="576" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="110" y="585" text-anchor="middle">4</text><rect x="150" y="545" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="190" y="584" fill="#087F4F">MEXICO</text><use href="#icon-mexico" x="340" y="558" width="40" height="40"/>
+<circle cx="110" cy="661" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="110" y="670" text-anchor="middle">5</text><rect x="150" y="630" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="190" y="669" fill="#B66A1E">SPAIN</text><use href="#icon-spain" x="340" y="643" width="40" height="40"/>
+
+<!-- 02 During COVID -->
+<g filter="url(#softShadow)">
+<rect x="475" y="145" width="390" height="520" rx="18" fill="#FFFFFF" stroke="#8092A3" stroke-width="1.8"/>
+</g>
+<text x="510" y="205" font-family="Inter, Arial" font-size="48" font-weight="800" fill="#65778A">02</text>
+<text class="label" x="610" y="195" fill="#102A43">DURING COVID</text>
+<rect x="610" y="220" width="185" height="34" rx="17" fill="#6B7F92"/><text x="702.5" y="243" text-anchor="middle" font-family="Inter, Arial" font-size="17" font-weight="700" fill="white">Restricted Travel</text>
+<rect x="495" y="265" width="350" height="380" rx="14" fill="none" stroke="#A7B8C9" stroke-width="2" stroke-dasharray="10 8"/>
+<circle cx="550" cy="321" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="550" y="330" text-anchor="middle">1</text><rect x="590" y="290" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="630" y="329" fill="#5B368A">JAPAN</text><use href="#icon-japan" x="780" y="303" width="40" height="40"/>
+<circle cx="550" cy="406" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="550" y="415" text-anchor="middle">2</text><rect x="590" y="375" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="630" y="414" fill="#087F4F">MEXICO</text><use href="#icon-mexico" x="780" y="388" width="40" height="40"/>
+<circle cx="550" cy="491" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="550" y="500" text-anchor="middle">3</text><rect x="590" y="460" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="630" y="499" fill="#C83232">U.S.</text><use href="#icon-us" x="780" y="473" width="40" height="40"/>
+<circle cx="550" cy="576" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="550" y="585" text-anchor="middle">4</text><rect x="590" y="545" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="630" y="584" fill="#087E92">TURKEY</text><use href="#icon-turkey" x="780" y="558" width="40" height="40"/>
+<circle cx="550" cy="661" r="25" fill="#FFFFFF" stroke="#B9D1D8" stroke-width="1.8"/><text class="rank" x="550" y="670" text-anchor="middle">5</text><rect x="590" y="630" width="250" height="62" rx="12" fill="#FFFFFF" stroke="#D4E0E9" stroke-width="1.6"/><text class="country" x="630" y="669" fill="#0F5A9C">AUSTRALIA</text><use href="#icon-australia" x="780" y="643" width="40" height="40"/>
+
+<!-- 03 Post-COVID Guess -->
+<g filter="url(#softShadow)">
+<rect x="895" y="145" width="390" height="520" rx="18" fill="#FFFFFF" stroke="#007C78" stroke-width="2"/>
+</g>
+<text x="930" y="205" font-family="Inter, Arial" font-size="48" font-weight="800" fill="#005E60">03</text>
+<text class="label" x="1030" y="195">POST-COVID</text>
+<rect x="1030" y="220" width="145" height="34" rx="17" fill="#007C78"/><text x="1102.5" y="243" text-anchor="middle" font-family="Inter, Arial" font-size="17" font-weight="700" fill="white">Your Guess</text>
+
+    <circle cx="950" cy="321" r="25" fill="#FFFFFF" stroke="#76B9B7" stroke-width="2"/>
+    <text class="rank" x="950" y="330" text-anchor="middle">1</text>
+    <rect x="990" y="290" width="285" height="62" rx="12" fill="#FFFFFF" stroke="#B9CCD9" stroke-width="1.8" stroke-dasharray="10 8"/>
+    <text class="hint" x="1020" y="329">Drag a destination here</text>
+    
+
+    <circle cx="950" cy="406" r="25" fill="#FFFFFF" stroke="#76B9B7" stroke-width="2"/>
+    <text class="rank" x="950" y="415" text-anchor="middle">2</text>
+    <rect x="990" y="375" width="285" height="62" rx="12" fill="#FFFFFF" stroke="#B9CCD9" stroke-width="1.8" stroke-dasharray="10 8"/>
+    <text class="hint" x="1020" y="414">Drag a destination here</text>
+    
+
+    <circle cx="950" cy="491" r="25" fill="#FFFFFF" stroke="#76B9B7" stroke-width="2"/>
+    <text class="rank" x="950" y="500" text-anchor="middle">3</text>
+    <rect x="990" y="460" width="285" height="62" rx="12" fill="#FFFFFF" stroke="#B9CCD9" stroke-width="1.8" stroke-dasharray="10 8"/>
+    <text class="hint" x="1020" y="499">Drag a destination here</text>
+    
+
+    <circle cx="950" cy="576" r="25" fill="#FFFFFF" stroke="#76B9B7" stroke-width="2"/>
+    <text class="rank" x="950" y="585" text-anchor="middle">4</text>
+    <rect x="990" y="545" width="285" height="62" rx="12" fill="#FFFFFF" stroke="#B9CCD9" stroke-width="1.8" stroke-dasharray="10 8"/>
+    <text class="hint" x="1020" y="584">Drag a destination here</text>
+    
+
+    <circle cx="950" cy="661" r="25" fill="#FFFFFF" stroke="#76B9B7" stroke-width="2"/>
+    <text class="rank" x="950" y="670" text-anchor="middle">5</text>
+    <rect x="990" y="630" width="285" height="62" rx="12" fill="#FFFFFF" stroke="#B9CCD9" stroke-width="1.8" stroke-dasharray="10 8"/>
+    <text class="hint" x="1020" y="669">Drag a destination here</text>
+    
+
+<!-- 04 Available Destination Chip Bank -->
+<g filter="url(#softShadow)">
+<rect x="1320" y="145" width="230" height="520" rx="18" fill="#FFFFFF" stroke="#007C78" stroke-width="2" stroke-dasharray="10 8"/>
+</g>
+<text x="1435" y="210" text-anchor="middle" font-family="Inter, Arial" font-size="24" font-weight="800" fill="#102A43">Available</text>
+<text x="1435" y="238" text-anchor="middle" font-family="Inter, Arial" font-size="24" font-weight="800" fill="#102A43">destinations</text>
+<text x="1435" y="280" text-anchor="middle" class="hint">Drag from here</text>
+<path d="M1435 296 V326 M1435 326 L1425 316 M1435 326 L1445 316" stroke="#005E60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="1335" y="355" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#5B368A" stroke-width="1.8"/>
+    <text class="chiptext" x="1365" y="392" fill="#5B368A">JAPAN</text>
+    <use href="#icon-japan" x="1480" y="367" width="34" height="34"/>
+    
+
+    <rect x="1335" y="425" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#C83232" stroke-width="1.8"/>
+    <text class="chiptext" x="1365" y="462" fill="#C83232">CANADA</text>
+    <use href="#icon-canada" x="1480" y="437" width="34" height="34"/>
+    
+
+    <rect x="1335" y="495" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#C83232" stroke-width="1.8"/>
+    <text class="chiptext" x="1365" y="532" fill="#C83232">U.S.</text>
+    <use href="#icon-us" x="1480" y="507" width="34" height="34"/>
+    
+
+    <rect x="1335" y="565" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#0F5A9C" stroke-width="1.8"/>
+    <text class="chiptext" x="1365" y="602" fill="#0F5A9C">AUSTRALIA</text>
+    <use href="#icon-australia" x="1480" y="577" width="34" height="34"/>
+    
+
+    <rect x="1335" y="635" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#087E92" stroke-width="1.8"/>
+    <text class="chiptext" x="1365" y="672" fill="#087E92">TURKEY</text>
+    <use href="#icon-turkey" x="1480" y="647" width="34" height="34"/>
+    
+
+<text class="caption" x="65" y="730">Data note: compute the top destinations by selected year/period in p5.js, then map each row to these Figma icon assets.</text>
+</svg>
