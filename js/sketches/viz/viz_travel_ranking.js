@@ -22,11 +22,8 @@
     var ICONS = {
         'France': { src: 'france_eiffel.svg', color: COLORS.teal },
         'U.S.': { src: 'us_statue.svg', color: COLORS.teal },
-        'Japan': { src: 'japan_torii.svg', color: COLORS.teal },
         'Mexico': { src: 'mexico_pyramid.svg', color: COLORS.teal },
         'Spain': { src: 'spain_sagrada.svg', color: COLORS.teal },
-        'Canada': { src: 'canada_cn_maple.svg', color: COLORS.teal },
-        'Australia': { src: 'australia_opera.svg', color: COLORS.teal },
         'Turkey': { src: 'turkey_mosque.svg', color: COLORS.teal },
         'China': { src: 'china_temple.svg', color: COLORS.teal },
         'Italy': { src: 'italy_colosseum.svg', color: COLORS.teal }
