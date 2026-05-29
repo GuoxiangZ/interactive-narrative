@@ -2,7 +2,7 @@
 // Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_figma_design/assets/icons/';
-    var ASSET_VERSION = '20260529-ranking-icons';
+    var ASSET_VERSION = '20260529-landmarks-v2';
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -211,7 +211,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 55, y + 10, h - 20, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 60, y + 7, h - 14, icon && icon.color);
     }
 
     function slot(p, x, y, w, h, rank) {
@@ -246,7 +246,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 24, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 49, y + 9, h - 18, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 54, y + 7, h - 14, icon && icon.color);
     }
 
     function pointInRect(px, py, r) {
