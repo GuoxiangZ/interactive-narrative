@@ -2,6 +2,7 @@
 // Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_figma_design/assets/icons/';
+    var ASSET_VERSION = '20260529-ranking-icons';
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -19,49 +20,51 @@
     };
 
     var ICONS = {
-        'France': { src: 'france_eiffel.svg', color: '#0F5A9C' },
-        'U.S.': { src: 'us_statue.svg', color: '#C83232' },
-        'Japan': { src: 'japan_torii.svg', color: '#5B368A' },
-        'Mexico': { src: 'mexico_pyramid.svg', color: '#087F4F' },
-        'Spain': { src: 'spain_sagrada.svg', color: '#B66A1E' },
-        'Canada': { src: 'canada_cn_maple.svg', color: '#C83232' },
-        'Australia': { src: 'australia_opera.svg', color: '#0F5A9C' },
-        'Turkey': { src: 'turkey_mosque.svg', color: '#087E92' }
+        'France': { src: 'france_eiffel.svg', color: COLORS.teal },
+        'U.S.': { src: 'us_statue.svg', color: COLORS.teal },
+        'Japan': { src: 'japan_torii.svg', color: COLORS.teal },
+        'Mexico': { src: 'mexico_pyramid.svg', color: COLORS.teal },
+        'Spain': { src: 'spain_sagrada.svg', color: COLORS.teal },
+        'Canada': { src: 'canada_cn_maple.svg', color: COLORS.teal },
+        'Australia': { src: 'australia_opera.svg', color: COLORS.teal },
+        'Turkey': { src: 'turkey_mosque.svg', color: COLORS.teal },
+        'China': { src: 'china_temple.svg', color: COLORS.teal },
+        'Italy': { src: 'italy_colosseum.svg', color: COLORS.teal }
     };
 
-    var PRE = ['France', 'Spain', 'U.S.', 'Mexico', 'Japan'];
-    var DURING = ['Mexico', 'Turkey', 'U.S.', 'Canada', 'Japan'];
-    var POST_ANSWER = ['U.S.', 'Turkey', 'Japan', 'Canada', 'Australia'];
-    var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
+    var PRE = ['France', 'Spain', 'U.S.', 'China', 'Italy'];
+    var DURING = ['France', 'Mexico', 'Turkey', 'Italy', 'U.S.'];
+    var POST_ANSWER = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
+    var BANK = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
     var COUNTS = {
         pre: {
             'France': 89400000,
             'Spain': 83700000,
             'U.S.': 79442000,
-            'Mexico': 45024000,
-            'Japan': 31882000
+            'China': 65700000,
+            'Italy': 64500000
         },
         during: {
+            'France': 48400000,
             'Mexico': 31900000,
             'Turkey': 29900000,
-            'U.S.': 22280146,
-            'Canada': 3240000,
-            'Japan': 246000
+            'Italy': 26900000,
+            'U.S.': 22280146
         },
         post: {
+            'France': 100000000,
+            'Spain': 94000000,
             'U.S.': 72390320,
-            'Turkey': 56700000,
-            'Japan': 36870000,
-            'Canada': 19900000,
-            'Australia': 8300000
+            'Turkey': 62300000,
+            'Italy': 57200000
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1335, y: 355, w: 200, h: 58 },
-        { country: 'Canada', x: 1335, y: 425, w: 200, h: 58 },
+        { country: 'France', x: 1335, y: 355, w: 200, h: 58 },
+        { country: 'Spain', x: 1335, y: 425, w: 200, h: 58 },
         { country: 'U.S.', x: 1335, y: 495, w: 200, h: 58 },
-        { country: 'Australia', x: 1335, y: 565, w: 200, h: 58 },
-        { country: 'Turkey', x: 1335, y: 635, w: 200, h: 58 }
+        { country: 'Turkey', x: 1335, y: 565, w: 200, h: 58 },
+        { country: 'Italy', x: 1335, y: 635, w: 200, h: 58 }
     ];
     var SLOTS = [
         { rank: 1, x: 990, y: 290, w: 285, h: 62 },
@@ -74,7 +77,7 @@
 
     function domImage(src) {
         var img = new Image();
-        img.src = src;
+        img.src = src + '?v=' + ASSET_VERSION;
         return img;
     }
 
