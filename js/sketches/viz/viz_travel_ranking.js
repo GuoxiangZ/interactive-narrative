@@ -2,7 +2,7 @@
 // Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
-    var ASSET_VERSION = '20260529-cartoon-landmarks';
+    var ASSET_VERSION = '20260529-cartoon-landmarks-cutout';
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -58,20 +58,20 @@
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1335, y: 355, w: 200, h: 58 },
-        { country: 'Canada', x: 1335, y: 425, w: 200, h: 58 },
-        { country: 'U.S.', x: 1335, y: 495, w: 200, h: 58 },
-        { country: 'Australia', x: 1335, y: 565, w: 200, h: 58 },
-        { country: 'Turkey', x: 1335, y: 635, w: 200, h: 58 }
+        { country: 'Japan', x: 1335, y: 285, w: 200, h: 58 },
+        { country: 'Canada', x: 1335, y: 355, w: 200, h: 58 },
+        { country: 'U.S.', x: 1335, y: 425, w: 200, h: 58 },
+        { country: 'Australia', x: 1335, y: 495, w: 200, h: 58 },
+        { country: 'Turkey', x: 1335, y: 565, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 990, y: 290, w: 285, h: 62 },
-        { rank: 2, x: 990, y: 375, w: 285, h: 62 },
-        { rank: 3, x: 990, y: 460, w: 285, h: 62 },
-        { rank: 4, x: 990, y: 545, w: 285, h: 62 },
-        { rank: 5, x: 990, y: 630, w: 285, h: 62 }
+        { rank: 1, x: 978, y: 290, w: 279, h: 52 },
+        { rank: 2, x: 978, y: 364, w: 279, h: 52 },
+        { rank: 3, x: 978, y: 438, w: 279, h: 52 },
+        { rank: 4, x: 978, y: 512, w: 279, h: 52 },
+        { rank: 5, x: 978, y: 586, w: 279, h: 52 }
     ];
-    var REVEAL_BUTTON = { x: 1030, y: 735, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1325, y: 735, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -155,26 +155,16 @@
         p.pop();
     }
 
-    function header(p, x, y, num, title, yearLabel, badge, muted) {
+    function header(p, x, y, num, title, yearLabel, muted) {
         p.noStroke();
         p.fill(COLORS.teal);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(31);
+        p.textSize(33);
         p.text(num, x, y);
-        p.textSize(18);
-        p.text(title, x + 60, y + 7);
+        p.textSize(20);
+        p.text(title + ' ' + yearLabel, x + 60, y + 7);
         p.textStyle(p.NORMAL);
-        p.textSize(11);
-        p.fill(COLORS.tealDark);
-        p.text(yearLabel, x + 60, y + 31);
-        p.textStyle(p.NORMAL);
-        p.fill(muted ? '#DCE7EE' : COLORS.tealLight);
-        p.rect(x + 62, y + 50, 118, 28, 999);
-        p.fill(COLORS.teal);
-        p.textAlign(p.CENTER, p.CENTER);
-        p.textSize(11);
-        p.text(badge, x + 121, y + 64);
     }
 
     function rankBadge(p, x, y, rank) {
@@ -222,7 +212,7 @@
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
-        p.textSize(13);
+        p.textSize(12);
         p.text('Drag a destination here', x + w / 2, y + h / 2);
     }
 
@@ -402,12 +392,12 @@
 
         panel(p, 55, 145, 390, 570, COLORS.teal, false);
         panel(p, 475, 145, 390, 570, COLORS.teal, false);
-        panel(p, 895, 145, 390, 570, COLORS.teal, false);
-        panel(p, 1320, 145, 230, 570, COLORS.teal, true);
+        panel(p, 895, 145, 360, 570, COLORS.teal, false);
+        panel(p, 1320, 145, 230, 570, COLORS.teal, false);
 
-        header(p, 78, 177, '01', 'PRE-COVID', '(2019)', 'Open Borders', false);
-        header(p, 498, 177, '02', 'DURING COVID', '(2021)', 'Restricted Travel', true);
-        header(p, 918, 177, '03', 'POST-COVID', '(2024 guess)', 'Your Guess', false);
+        header(p, 78, 177, '01', 'PRE-COVID', '(2019)', false);
+        header(p, 498, 177, '02', 'DURING COVID', '(2021)', true);
+        header(p, 918, 177, '03', 'POST-COVID', '(2024)', false);
 
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
