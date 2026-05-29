@@ -13,7 +13,9 @@
         dash: '#95B8C6',
         panel: '#FFFFFF',
         panelSoft: '#F8FBFC',
-        restricted: '#EEF4F7'
+        restricted: '#EEF4F7',
+        wrong: '#D85B4A',
+        wrongSoft: '#FFF2EF'
     };
 
     var ICONS = {
@@ -27,9 +29,33 @@
         'Turkey': { src: 'turkey_mosque.svg', color: '#087E92' }
     };
 
-    var PRE = ['France', 'U.S.', 'Japan', 'Mexico', 'Spain'];
-    var DURING = ['Japan', 'Mexico', 'U.S.', 'Turkey', 'Australia'];
+    var PRE = ['France', 'Spain', 'U.S.', 'Mexico', 'Japan'];
+    var DURING = ['Mexico', 'Turkey', 'U.S.', 'Canada', 'Japan'];
+    var POST_ANSWER = ['U.S.', 'Turkey', 'Japan', 'Canada', 'Australia'];
     var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
+    var COUNTS = {
+        pre: {
+            'France': 89400000,
+            'Spain': 83700000,
+            'U.S.': 79442000,
+            'Mexico': 45024000,
+            'Japan': 31882000
+        },
+        during: {
+            'Mexico': 31900000,
+            'Turkey': 29900000,
+            'U.S.': 22280146,
+            'Canada': 3240000,
+            'Japan': 246000
+        },
+        post: {
+            'U.S.': 72390320,
+            'Turkey': 56700000,
+            'Japan': 36870000,
+            'Canada': 19900000,
+            'Australia': 8300000
+        }
+    };
     var BANK_LAYOUT = [
         { country: 'Japan', x: 1335, y: 355, w: 200, h: 58 },
         { country: 'Canada', x: 1335, y: 425, w: 200, h: 58 },
@@ -44,6 +70,7 @@
         { rank: 4, x: 990, y: 545, w: 285, h: 62 },
         { rank: 5, x: 990, y: 630, w: 285, h: 62 }
     ];
+    var REVEAL_BUTTON = { x: 1030, y: 735, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -67,6 +94,11 @@
             p.line(x + size * 0.27, y + size * 0.70, x + size * 0.73, y + size * 0.30);
         }
         p.pop();
+    }
+
+    function formatCount(value) {
+        if (!value) return '';
+        return (value / 1000000).toFixed(value >= 10000000 ? 1 : 2).replace(/\.0+$/, '') + 'M visitors';
     }
 
     function shadow(p, blur, color, ox, oy) {
@@ -157,19 +189,25 @@
         p.text(String(rank), x, y + 1);
     }
 
-    function row(p, manager, x, y, w, h, rank, country, muted) {
+    function row(p, manager, x, y, w, h, rank, country, muted, count, wrong) {
         var icon = ICONS[country];
         rankBadge(p, x + 22, y + h / 2, rank);
-        p.fill(muted ? COLORS.panelSoft : COLORS.panel);
-        p.stroke(muted ? COLORS.line : '#B9D2DF');
-        p.strokeWeight(1.2);
+        p.fill(wrong ? COLORS.wrongSoft : (muted ? COLORS.panelSoft : COLORS.panel));
+        p.stroke(wrong ? COLORS.wrong : (muted ? COLORS.line : '#B9D2DF'));
+        p.strokeWeight(wrong ? 2 : 1.2);
         p.rect(x + 55, y, w - 55, h, 10);
         p.noStroke();
-        p.fill(COLORS.tealDark);
+        p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(18);
-        p.text(country.toUpperCase(), x + 82, y + h / 2 + 1);
+        p.textSize(count ? 15 : 18);
+        p.text(country.toUpperCase(), x + 82, y + (count ? h * 0.38 : h / 2 + 1));
+        if (count) {
+            p.textStyle(p.NORMAL);
+            p.textSize(10);
+            p.fill(wrong ? COLORS.wrong : COLORS.muted);
+            p.text(formatCount(count), x + 82, y + h * 0.70);
+        }
         drawIcon(p, iconFor(manager, country), x + w - 55, y + 10, h - 20, icon && icon.color);
     }
 
@@ -187,18 +225,24 @@
         p.text('Drag a destination here', x + w / 2, y + h / 2);
     }
 
-    function chip(p, manager, x, y, w, h, country) {
+    function chip(p, manager, x, y, w, h, country, count, wrong) {
         var icon = ICONS[country];
-        p.fill(COLORS.panel);
-        p.stroke(COLORS.teal);
-        p.strokeWeight(1.35);
+        p.fill(wrong ? COLORS.wrongSoft : COLORS.panel);
+        p.stroke(wrong ? COLORS.wrong : COLORS.teal);
+        p.strokeWeight(wrong ? 2 : 1.35);
         p.rect(x, y, w, h, 9);
         p.noStroke();
-        p.fill(COLORS.tealDark);
+        p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(country === 'Australia' ? 14 : 16);
-        p.text(country.toUpperCase(), x + 24, y + h / 2 + 1);
+        p.textSize(count ? 14 : (country === 'Australia' ? 14 : 16));
+        p.text(country.toUpperCase(), x + 24, y + (count ? h * 0.38 : h / 2 + 1));
+        if (count) {
+            p.textStyle(p.NORMAL);
+            p.textSize(10);
+            p.fill(wrong ? COLORS.wrong : COLORS.muted);
+            p.text(formatCount(count), x + 24, y + h * 0.70);
+        }
         drawIcon(p, iconFor(manager, country), x + w - 49, y + 9, h - 18, icon && icon.color);
     }
 
@@ -227,6 +271,8 @@
             });
             state.dragging = null;
             state.wasPressed = false;
+            state.revealed = false;
+            state.wrongSlots = [];
         }
         return state;
     }
@@ -254,6 +300,18 @@
         chip.h = slot.h;
     }
 
+    function revealAnswer(state) {
+        var guess = state.slots.map(function (slot) { return slot.country; });
+        state.wrongSlots = POST_ANSWER.map(function (country, index) {
+            return guess[index] !== country;
+        });
+        POST_ANSWER.forEach(function (country, index) {
+            var chip = state.chips.find(function (item) { return item.country === country; });
+            if (chip) placeChip(state, chip, index);
+        });
+        state.revealed = true;
+    }
+
     function handleDrag(p, manager) {
         var state = ensureState(manager);
         if (!state || !state.layout) return;
@@ -261,6 +319,17 @@
         var my = (p.mouseY - manager.margin.top - state.layout.y) / state.layout.scale;
         var justPressed = p.mouseIsPressed && !state.wasPressed;
         var justReleased = !p.mouseIsPressed && state.wasPressed;
+
+        if (justPressed && pointInRect(mx, my, REVEAL_BUTTON)) {
+            revealAnswer(state);
+            state.wasPressed = p.mouseIsPressed;
+            return;
+        }
+
+        if (state.revealed) {
+            state.wasPressed = p.mouseIsPressed;
+            return;
+        }
 
         if (justPressed) {
             for (var i = state.chips.length - 1; i >= 0; i--) {
@@ -303,10 +372,26 @@
         state.wasPressed = p.mouseIsPressed;
     }
 
-    function drawPanelRows(p, manager, x, y, w, countries, muted) {
+    function drawPanelRows(p, manager, x, y, w, countries, muted, counts, showCounts) {
         for (var i = 0; i < countries.length; i++) {
-            row(p, manager, x + 28, y + 132 + i * 74, w - 56, 52, i + 1, countries[i], muted);
+            row(p, manager, x + 28, y + 132 + i * 74, w - 56, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
         }
+    }
+
+    function drawRevealButton(p, state) {
+        var b = REVEAL_BUTTON;
+        p.push();
+        shadow(p, 13, 'rgba(0,124,120,0.20)', 0, 5);
+        p.fill(state.revealed ? '#D9F3EE' : COLORS.teal);
+        p.noStroke();
+        p.rect(b.x, b.y, b.w, b.h, 12);
+        noShadow(p);
+        p.fill(state.revealed ? COLORS.tealDark : '#FFFFFF');
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(17);
+        p.text(state.revealed ? 'Answer Revealed' : 'Reveal Answer', b.x + b.w / 2, b.y + b.h / 2);
+        p.pop();
     }
 
     function drawTopFourBlocks(p, manager, x, y, scale) {
@@ -339,16 +424,22 @@
         p.line(1441, 241, 1435, 247);
         p.noStroke();
 
-        drawPanelRows(p, manager, 55, 145, 390, PRE, false);
-        drawPanelRows(p, manager, 475, 145, 390, DURING, true);
         var state = ensureState(manager);
+        drawPanelRows(p, manager, 55, 145, 390, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 475, 145, 390, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
-            if (!state.slots[i].country) slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
+            if (!state.slots[i].country) {
+                slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
+            } else if (state.revealed) {
+                row(p, manager, state.slots[i].x - 55, state.slots[i].y, state.slots[i].w + 55, state.slots[i].h, i + 1, state.slots[i].country, false, COUNTS.post[state.slots[i].country], state.wrongSlots[i]);
+            }
         }
         for (var j = 0; j < state.chips.length; j++) {
             var item = state.chips[j];
-            chip(p, manager, item.x, item.y, item.w, item.h, item.country);
+            if (state.revealed && item.slot != null) continue;
+            chip(p, manager, item.x, item.y, item.w, item.h, item.country, null, false);
         }
+        drawRevealButton(p, state);
 
         p.pop();
     }
@@ -367,7 +458,7 @@
             p.translate(manager.margin.left, manager.margin.top);
             p.background(COLORS.bg);
             var baseW = 1600;
-            var baseH = 760;
+            var baseH = 840;
             var scale = Math.min(manager.width / baseW, manager.height / baseH);
             var x = (manager.width - baseW * scale) / 2;
             var y = (manager.height - baseH * scale) / 2;
