@@ -89,6 +89,9 @@
             if (window.VizUSArrivals && typeof window.VizUSArrivals.setData === 'function') {
                 loaders.push(window.VizUSArrivals.setData(manager));
             }
+            if (window.VizTravelRanking && typeof window.VizTravelRanking.setData === 'function') {
+                loaders.push(window.VizTravelRanking.setData(manager));
+            }
             return Promise.all(loaders).then(function () { return manager.data; });
         },
 
@@ -136,12 +139,17 @@
                 return;
             }
 
+            if (ai === 4 && window.VizTravelRanking) {
+                window.VizTravelRanking.draw(p, manager, ai, progress);
+                return;
+            }
+
             if (ai === 6  || ai === 9) {
                 window.VizProgressColor.draw(p, manager, ai, progress);
                 return;
             }
 
-            if ((ai >= 4 && ai < 6)) {
+            if (ai === 5) {
                 window.VizScatter.draw(p, manager, ai, progress);
                 return;
             }
