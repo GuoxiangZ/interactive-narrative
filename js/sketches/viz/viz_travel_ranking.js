@@ -59,20 +59,20 @@
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1215, y: 285, w: 200, h: 58 },
-        { country: 'Canada', x: 1215, y: 355, w: 200, h: 58 },
-        { country: 'U.S.', x: 1215, y: 425, w: 200, h: 58 },
-        { country: 'Australia', x: 1215, y: 495, w: 200, h: 58 },
-        { country: 'Turkey', x: 1215, y: 565, w: 200, h: 58 }
+        { country: 'Japan', x: 1295, y: 285, w: 200, h: 58 },
+        { country: 'Canada', x: 1295, y: 355, w: 200, h: 58 },
+        { country: 'U.S.', x: 1295, y: 425, w: 200, h: 58 },
+        { country: 'Australia', x: 1295, y: 495, w: 200, h: 58 },
+        { country: 'Turkey', x: 1295, y: 565, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 905, y: 290, w: 200, h: 52 },
-        { rank: 2, x: 905, y: 364, w: 200, h: 52 },
-        { rank: 3, x: 905, y: 438, w: 200, h: 52 },
-        { rank: 4, x: 905, y: 512, w: 200, h: 52 },
-        { rank: 5, x: 905, y: 586, w: 200, h: 52 }
+        { rank: 1, x: 985, y: 290, w: 200, h: 52 },
+        { rank: 2, x: 985, y: 364, w: 200, h: 52 },
+        { rank: 3, x: 985, y: 438, w: 200, h: 52 },
+        { rank: 4, x: 985, y: 512, w: 200, h: 52 },
+        { rank: 5, x: 985, y: 586, w: 200, h: 52 }
     ];
-    var REVEAL_BUTTON = { x: 1205, y: 735, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1285, y: 735, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -171,9 +171,9 @@
         p.fill(COLORS.teal);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(33);
+        p.textSize(36);
         p.text(num, x, y);
-        p.textSize(20);
+        p.textSize(22);
         p.text(title + ' ' + yearLabel, x + 60, y + 7);
         p.textStyle(p.NORMAL);
     }
@@ -187,7 +187,7 @@
         p.fill(COLORS.teal);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
-        p.textSize(17);
+        p.textSize(18);
         p.text(String(rank), x, y + 1);
     }
 
@@ -202,11 +202,11 @@
         p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(count ? 15 : 18);
+        p.textSize(count ? 16 : 20);
         p.text(country.toUpperCase(), x + 82, y + (count ? h * 0.38 : h / 2 + 1));
         if (count) {
             p.textStyle(p.NORMAL);
-            p.textSize(10);
+            p.textSize(11);
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
@@ -223,7 +223,7 @@
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
-        p.textSize(12);
+        p.textSize(13);
         p.text('Drag a destination here', x + w / 2, y + h / 2);
     }
 
@@ -237,11 +237,11 @@
         p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(count ? 14 : (country === 'Australia' ? 14 : 16));
+        p.textSize(count ? 15 : (country === 'Australia' ? 15 : 17));
         p.text(country.toUpperCase(), x + 24, y + (count ? h * 0.38 : h / 2 + 1));
         if (count) {
             p.textStyle(p.NORMAL);
-            p.textSize(10);
+            p.textSize(11);
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 24, y + h * 0.70);
         }
@@ -406,34 +406,34 @@
         p.fill('rgba(251,254,254,0.38)');
         p.rect(0, 0, 1600, 840);
 
-        panel(p, 120, 145, 300, 570, COLORS.teal, false);
-        panel(p, 480, 145, 300, 570, COLORS.teal, false);
-        panel(p, 840, 145, 300, 570, COLORS.teal, false);
-        panel(p, 1200, 145, 230, 570, COLORS.teal, false);
+        panel(p, 200, 145, 300, 570, COLORS.teal, false);
+        panel(p, 560, 145, 300, 570, COLORS.teal, false);
+        panel(p, 920, 145, 300, 570, COLORS.teal, false);
+        panel(p, 1280, 145, 230, 570, COLORS.teal, false);
 
-        header(p, 143, 177, '01', 'PRE-COVID', '(2019)', false);
-        header(p, 503, 177, '02', 'DURING COVID', '(2021)', true);
-        header(p, 863, 177, '03', 'POST-COVID', '(2024)', false);
+        header(p, 223, 177, '01', 'PRE-COVID', '(2019)', false);
+        header(p, 583, 177, '02', 'DURING COVID', '(2021)', true);
+        header(p, 943, 177, '03', 'POST-COVID', '(2024)', false);
 
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(15);
-        p.text('Available destinations', 1315, 178);
+        p.textSize(16);
+        p.text('Available destinations', 1395, 178);
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
         p.textSize(12);
-        p.text('Drag from here', 1315, 205);
+        p.text('Drag from here', 1395, 205);
         p.stroke(COLORS.teal);
         p.strokeWeight(1.5);
-        p.line(1315, 231, 1315, 247);
-        p.line(1309, 241, 1315, 247);
-        p.line(1321, 241, 1315, 247);
+        p.line(1395, 231, 1395, 247);
+        p.line(1389, 241, 1395, 247);
+        p.line(1401, 241, 1395, 247);
         p.noStroke();
 
         var state = ensureState(manager);
-        drawPanelRows(p, manager, 120, 145, 300, PRE, false, COUNTS.pre, state.revealed);
-        drawPanelRows(p, manager, 480, 145, 300, DURING, true, COUNTS.during, state.revealed);
+        drawPanelRows(p, manager, 200, 145, 300, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 560, 145, 300, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
             if (!state.slots[i].country) {
                 slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
