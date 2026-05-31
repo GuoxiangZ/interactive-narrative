@@ -2,6 +2,7 @@
 // Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
+    var BACKGROUND_SRC = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/backgrounds/airport_arrivals_hall_background.png';
     var ASSET_VERSION = '20260529-cartoon-landmarks-cutout';
     var COLORS = {
         bg: '#fbfefe',
@@ -97,6 +98,16 @@
         p.pop();
     }
 
+    function drawCoverImage(p, img, x, y, w, h) {
+        if (!img || !img.complete || !img.naturalWidth) return;
+        var iw = img.naturalWidth;
+        var ih = img.naturalHeight;
+        var scale = Math.max(w / iw, h / ih);
+        var sw = iw * scale;
+        var sh = ih * scale;
+        p.drawingContext.drawImage(img, x + (w - sw) / 2, y + (h - sh) / 2, sw, sh);
+    }
+
     function formatCount(value) {
         if (!value) return '';
         return (value / 1000000).toFixed(value >= 10000000 ? 1 : 2).replace(/\.0+$/, '') + 'M visitors';
@@ -146,7 +157,7 @@
     function panel(p, x, y, w, h, accent, dashed) {
         p.push();
         shadow(p, 12, 'rgba(16,42,67,0.06)', 0, 5);
-        p.fill(COLORS.panel);
+        p.fill('rgba(255,255,255,0.90)');
         p.stroke(accent || COLORS.teal);
         p.strokeWeight(1.4);
         p.rect(x, y, w, h, 18);
@@ -199,7 +210,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 64, y + 3, h - 6, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + 220, y + 3, h - 6, icon && icon.color);
     }
 
     function slot(p, x, y, w, h, rank) {
@@ -390,6 +401,11 @@
         p.translate(x, y);
         p.scale(scale);
 
+        drawCoverImage(p, manager.travelRanking && manager.travelRanking.background, 0, 0, 1600, 840);
+        p.noStroke();
+        p.fill('rgba(251,254,254,0.38)');
+        p.rect(0, 0, 1600, 840);
+
         panel(p, 55, 145, 390, 570, COLORS.teal, false);
         panel(p, 475, 145, 390, 570, COLORS.teal, false);
         panel(p, 895, 145, 390, 570, COLORS.teal, false);
@@ -437,7 +453,7 @@
 
     window.VizTravelRanking = {
         setData: function (manager) {
-            manager.travelRanking = { icons: {} };
+            manager.travelRanking = { icons: {}, background: domImage(BACKGROUND_SRC) };
             Object.keys(ICONS).forEach(function (country) {
                 manager.travelRanking.icons[country] = domImage(ASSET_ROOT + ICONS[country].src);
             });
