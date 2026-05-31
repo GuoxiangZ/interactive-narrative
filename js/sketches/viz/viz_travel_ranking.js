@@ -210,7 +210,7 @@
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + 220, y + 3, h - 6, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 61, y + 3, h - 6, icon && icon.color);
     }
 
     function slot(p, x, y, w, h, rank) {
@@ -376,7 +376,7 @@
 
     function drawPanelRows(p, manager, x, y, w, countries, muted, counts, showCounts) {
         for (var i = 0; i < countries.length; i++) {
-            row(p, manager, x + 28, y + 132 + i * 74, w - 56, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
+            row(p, manager, x + 60, y + 132 + i * 74, 255, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
         }
     }
 
