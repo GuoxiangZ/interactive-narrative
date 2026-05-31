@@ -4,6 +4,7 @@
     var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
     var BACKGROUND_SRC = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/backgrounds/airport_arrivals_hall_background.png';
     var ASSET_VERSION = '20260529-cartoon-landmarks-cutout';
+    var GROUP_SHIFT_X = 60;
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -66,13 +67,13 @@
         { country: 'Turkey', x: 1295, y: 565, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 985, y: 290, w: 200, h: 52 },
-        { rank: 2, x: 985, y: 364, w: 200, h: 52 },
-        { rank: 3, x: 985, y: 438, w: 200, h: 52 },
-        { rank: 4, x: 985, y: 512, w: 200, h: 52 },
-        { rank: 5, x: 985, y: 586, w: 200, h: 52 }
+        { rank: 1, x: 1005, y: 290, w: 200, h: 52 },
+        { rank: 2, x: 1005, y: 364, w: 200, h: 52 },
+        { rank: 3, x: 1005, y: 438, w: 200, h: 52 },
+        { rank: 4, x: 1005, y: 512, w: 200, h: 52 },
+        { rank: 5, x: 1005, y: 586, w: 200, h: 52 }
     ];
-    var REVEAL_BUTTON = { x: 1285, y: 735, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1285, y: 690, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -317,7 +318,7 @@
     function handleDrag(p, manager) {
         var state = ensureState(manager);
         if (!state || !state.layout) return;
-        var mx = (p.mouseX - manager.margin.left - state.layout.x) / state.layout.scale;
+        var mx = (p.mouseX - manager.margin.left - state.layout.x) / state.layout.scale - (state.layout.shiftX || 0);
         var my = (p.mouseY - manager.margin.top - state.layout.y) / state.layout.scale;
         var justPressed = p.mouseIsPressed && !state.wasPressed;
         var justReleased = !p.mouseIsPressed && state.wasPressed;
@@ -376,7 +377,7 @@
 
     function drawPanelRows(p, manager, x, y, w, countries, muted, counts, showCounts) {
         for (var i = 0; i < countries.length; i++) {
-            row(p, manager, x + 40, y + 132 + i * 74, 255, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
+            row(p, manager, x + 32, y + 132 + i * 74, 255, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
         }
     }
 
@@ -400,16 +401,17 @@
         p.push();
         p.translate(x, y);
         p.scale(scale);
+        p.translate(GROUP_SHIFT_X, 0);
 
         drawCoverImage(p, manager.travelRanking && manager.travelRanking.background, 0, 0, 1600, 840);
         p.noStroke();
         p.fill('rgba(251,254,254,0.38)');
         p.rect(0, 0, 1600, 840);
 
-        panel(p, 200, 145, 300, 570, COLORS.teal, false);
-        panel(p, 560, 145, 300, 570, COLORS.teal, false);
-        panel(p, 920, 145, 300, 570, COLORS.teal, false);
-        panel(p, 1280, 145, 230, 570, COLORS.teal, false);
+        panel(p, 200, 145, 330, 525, COLORS.teal, false);
+        panel(p, 560, 145, 330, 525, COLORS.teal, false);
+        panel(p, 920, 145, 330, 525, COLORS.teal, false);
+        panel(p, 1280, 145, 230, 525, COLORS.teal, false);
 
         header(p, 223, 177, '01', 'PRE-COVID', '(2019)', false);
         header(p, 583, 177, '02', 'DURING COVID', '(2021)', true);
@@ -432,8 +434,8 @@
         p.noStroke();
 
         var state = ensureState(manager);
-        drawPanelRows(p, manager, 200, 145, 300, PRE, false, COUNTS.pre, state.revealed);
-        drawPanelRows(p, manager, 560, 145, 300, DURING, true, COUNTS.during, state.revealed);
+        drawPanelRows(p, manager, 200, 145, 330, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 560, 145, 330, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
             if (!state.slots[i].country) {
                 slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
@@ -470,7 +472,7 @@
             var x = (manager.width - baseW * scale) / 2;
             var y = (manager.height - baseH * scale) / 2;
             var state = ensureState(manager);
-            state.layout = { x: x, y: y, scale: scale };
+            state.layout = { x: x, y: y, scale: scale, shiftX: GROUP_SHIFT_X };
             handleDrag(p, manager);
             drawTopFourBlocks(p, manager, x, y, scale);
             p.pop();
