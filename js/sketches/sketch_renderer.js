@@ -19,20 +19,10 @@
         var y = 12;
         var w = manager.width - 20;
         var h = manager.height - 28;
-        p.noStroke();
-        p.fill('#123f4f');
-        p.textAlign(p.LEFT, p.TOP);
-        p.textStyle(p.BOLD);
-        p.textSize(16);
-        p.text('Worldwide Inbound Tourism Arrivals', x + 22, y + 4);
-        p.textStyle(p.NORMAL);
-        p.textSize(11);
-        p.fill('#6f8388');
-        p.text('Focusing on the United States', x + 22, y + 27);
 
         if (countries.length && typeof d3 !== 'undefined') {
             var projection = d3.geoNaturalEarth1();
-            projection.fitExtent([[x + 10, y + 50], [x + w - 10, y + h - 34]], { type: 'Sphere' });
+            projection.fitExtent([[x + 10, y + 22], [x + w - 10, y + h - 20]], { type: 'Sphere' });
             var usPoint = projection([-98, 39]);
             var centerX = x + w * 0.50;
             var centerY = y + h * 0.50;
