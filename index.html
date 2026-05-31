@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260531-destinations" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260531-destinations-ranking" />
 </head>
 
 <body>
@@ -46,9 +46,11 @@
           <br /><br />
           Data: <a href="https://www.ustravel.org/research/travel-forecasts" target="_blank" rel="noopener">U.S. Travel Association Travel Forecast</a>
         </section>
+        <section class="step" data-active-index="4" data-layout="full-viz">
+        </section>
         <section class="step destination-transition-step" data-active-index="13" data-layout="full-viz">
         </section>
-        <section class="step destination-copy" data-active-index="4">
+        <section class="step destination-copy" data-active-index="5">
           <div class="title">Hawaii and Cancun, 2018-2024</div>
           Hawaii and Cancun are both leisure destinations people choose for holidays, but they carry
           different spending expectations. Comparing arrivals, hotel occupancy, and real spending per visitor
@@ -119,7 +121,7 @@
   <script src="js/helpers/sections.js"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260531-destinations"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260531-destinations-ranking"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -131,11 +133,12 @@
   <script src="js/sketches/viz/viz_bar.js"></script>
   <script src="js/sketches/viz/viz_intro.js"></script>
   <script src="js/sketches/viz/viz_worldmap.js"></script>
-  <script src="js/sketches/viz/viz_us_arrivals.js?v=20260528-arrivals-transition"></script>
+  <script src="js/sketches/viz/viz_us_arrivals.js?v=20260529-ranking-game"></script>
+  <script src="js/sketches/viz/viz_travel_ranking.js?v=20260529-cartoon-landmarks-cutout"></script>
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
   <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
   <script src="js/sketches/viz/viz_destination_compare.js?v=20260531-destinations"></script>
-  <script src="js/sketches/sketch_renderer.js?v=20260531-destinations"></script>
+  <script src="js/sketches/sketch_renderer.js?v=20260531-destinations-ranking"></script>
 
 
 </body>
