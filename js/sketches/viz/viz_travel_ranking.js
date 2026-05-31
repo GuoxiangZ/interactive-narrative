@@ -4,7 +4,7 @@
     var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
     var BACKGROUND_SRC = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/backgrounds/airport_arrivals_hall_background.png';
     var ASSET_VERSION = '20260529-cartoon-landmarks-cutout';
-    var GROUP_SHIFT_X = 80;
+    var BACKDROP = { x: 160, y: 0, w: 1380, h: 840 };
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -34,8 +34,8 @@
 
     var PRE = ['France', 'Spain', 'U.S.', 'Mexico', 'Japan'];
     var DURING = ['Mexico', 'Turkey', 'U.S.', 'Canada', 'Japan'];
-    var POST_ANSWER = ['U.S.', 'Turkey', 'Japan', 'Canada', 'Australia'];
-    var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
+    var POST_ANSWER = ['U.S.', 'Turkey', 'Mexico', 'Japan', 'Canada'];
+    var BANK = ['Japan', 'Canada', 'U.S.', 'Mexico', 'Turkey'];
     var COUNTS = {
         pre: {
             'France': 89400000,
@@ -54,26 +54,26 @@
         post: {
             'U.S.': 72390320,
             'Turkey': 56700000,
+            'Mexico': 45000000,
             'Japan': 36870000,
-            'Canada': 19900000,
-            'Australia': 8300000
+            'Canada': 19900000
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1285, y: 285, w: 200, h: 58 },
-        { country: 'Canada', x: 1285, y: 355, w: 200, h: 58 },
-        { country: 'U.S.', x: 1285, y: 425, w: 200, h: 58 },
-        { country: 'Australia', x: 1285, y: 495, w: 200, h: 58 },
-        { country: 'Turkey', x: 1285, y: 565, w: 200, h: 58 }
+        { country: 'Japan', x: 1260, y: 285, w: 200, h: 58 },
+        { country: 'Canada', x: 1260, y: 355, w: 200, h: 58 },
+        { country: 'U.S.', x: 1260, y: 425, w: 200, h: 58 },
+        { country: 'Mexico', x: 1260, y: 495, w: 200, h: 58 },
+        { country: 'Turkey', x: 1260, y: 565, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 1005, y: 290, w: 200, h: 52 },
-        { rank: 2, x: 1005, y: 364, w: 200, h: 52 },
-        { rank: 3, x: 1005, y: 438, w: 200, h: 52 },
-        { rank: 4, x: 1005, y: 512, w: 200, h: 52 },
-        { rank: 5, x: 1005, y: 586, w: 200, h: 52 }
+        { rank: 1, x: 990, y: 290, w: 200, h: 52 },
+        { rank: 2, x: 990, y: 364, w: 200, h: 52 },
+        { rank: 3, x: 990, y: 438, w: 200, h: 52 },
+        { rank: 4, x: 990, y: 512, w: 200, h: 52 },
+        { rank: 5, x: 990, y: 586, w: 200, h: 52 }
     ];
-    var REVEAL_BUTTON = { x: 1285, y: 690, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1250, y: 690, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -318,7 +318,7 @@
     function handleDrag(p, manager) {
         var state = ensureState(manager);
         if (!state || !state.layout) return;
-        var mx = (p.mouseX - manager.margin.left - state.layout.x) / state.layout.scale - (state.layout.shiftX || 0);
+        var mx = (p.mouseX - manager.margin.left - state.layout.x) / state.layout.scale;
         var my = (p.mouseY - manager.margin.top - state.layout.y) / state.layout.scale;
         var justPressed = p.mouseIsPressed && !state.wasPressed;
         var justReleased = !p.mouseIsPressed && state.wasPressed;
@@ -401,41 +401,40 @@
         p.push();
         p.translate(x, y);
         p.scale(scale);
-        p.translate(GROUP_SHIFT_X, 0);
 
-        drawCoverImage(p, manager.travelRanking && manager.travelRanking.background, 0, 0, 1600, 840);
+        drawCoverImage(p, manager.travelRanking && manager.travelRanking.background, BACKDROP.x, BACKDROP.y, BACKDROP.w, BACKDROP.h);
         p.noStroke();
         p.fill('rgba(251,254,254,0.38)');
-        p.rect(0, 0, 1600, 840);
+        p.rect(BACKDROP.x, BACKDROP.y, BACKDROP.w, BACKDROP.h);
 
-        panel(p, 220, 145, 330, 525, COLORS.teal, false);
-        panel(p, 570, 145, 330, 525, COLORS.teal, false);
-        panel(p, 920, 145, 330, 525, COLORS.teal, false);
-        panel(p, 1270, 145, 230, 525, COLORS.teal, false);
+        panel(p, 225, 145, 320, 525, COLORS.teal, false);
+        panel(p, 565, 145, 320, 525, COLORS.teal, false);
+        panel(p, 905, 145, 320, 525, COLORS.teal, false);
+        panel(p, 1245, 145, 230, 525, COLORS.teal, false);
 
-        header(p, 243, 177, '01', 'PRE-COVID', '(2019)', false);
-        header(p, 593, 177, '02', 'DURING COVID', '(2021)', true);
-        header(p, 943, 177, '03', 'POST-COVID', '(2024)', false);
+        header(p, 248, 177, '01', 'PRE-COVID', '(2019)', false);
+        header(p, 588, 177, '02', 'DURING COVID', '(2021)', true);
+        header(p, 928, 177, '03', 'POST-COVID', '(2024)', false);
 
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(16);
-        p.text('Available destinations', 1385, 178);
+        p.text('Available destinations', 1360, 178);
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
         p.textSize(12);
-        p.text('Drag from here', 1385, 205);
+        p.text('Drag from here', 1360, 205);
         p.stroke(COLORS.teal);
         p.strokeWeight(1.5);
-        p.line(1385, 231, 1385, 247);
-        p.line(1379, 241, 1385, 247);
-        p.line(1391, 241, 1385, 247);
+        p.line(1360, 231, 1360, 247);
+        p.line(1354, 241, 1360, 247);
+        p.line(1366, 241, 1360, 247);
         p.noStroke();
 
         var state = ensureState(manager);
-        drawPanelRows(p, manager, 220, 145, 330, PRE, false, COUNTS.pre, state.revealed);
-        drawPanelRows(p, manager, 570, 145, 330, DURING, true, COUNTS.during, state.revealed);
+        drawPanelRows(p, manager, 225, 145, 320, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 565, 145, 320, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
             if (!state.slots[i].country) {
                 slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
@@ -472,7 +471,7 @@
             var x = (manager.width - baseW * scale) / 2;
             var y = (manager.height - baseH * scale) / 2;
             var state = ensureState(manager);
-            state.layout = { x: x, y: y, scale: scale, shiftX: GROUP_SHIFT_X };
+            state.layout = { x: x, y: y, scale: scale };
             handleDrag(p, manager);
             drawTopFourBlocks(p, manager, x, y, scale);
             p.pop();
