@@ -16,7 +16,7 @@ function startP5() {
             h = Math.round(w * (520 / 600));
         } else {
             margin = { top: 0, left: 80, bottom: 4, right: 10 };
-            var aspectW = activeIndex === 2 ? 920 : 600;
+            var aspectW = (activeIndex === 2 || activeIndex === 3 || activeIndex === 4) ? 920 : 600;
             var aspectH = 520;
             var isFullViz = !!(document.querySelector('#graphic.layout-full-viz'));
             if (isFullViz) {

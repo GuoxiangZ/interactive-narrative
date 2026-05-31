@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260528-arrivals-transition" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260531-destinations" />
 </head>
 
 <body>
@@ -34,19 +34,27 @@
           This section focuses on arrivals into the United States. Use the year slider to see how
           inbound travel declined during the pandemic and recovered afterward.
         </section>
-        <section class="step" data-active-index="3">
-          <div class="title">Narrative</div>
-          These sections will tell a story. You can use them to explain the visualization, provide context,
-          or share insights.
+        <section class="step" data-active-index="12" data-layout="full-text">
+          <div class="title">What about spending?</div>
+          Transition placeholder: the pandemic affected tourism as an economic system, not only as a flow of people.
         </section>
-        <section class="step" data-active-index="4">
-          <div class="title">Be creative</div>
-          Surprise your readers with interesting interactions, animations, or data visualizations.
+        <section class="step spending-copy" data-active-index="3">
+          <div class="title">U.S. Travel Spending, 2019-2024</div>
+          Arrivals show whether people came back. Spending shows whether the tourism economy recovered with them.
+          Total U.S. travel spending dropped sharply in 2020, then climbed through the recovery years.
+          The chart compares each year against the 2019 pre-pandemic baseline to show both the shock and the remaining gap.
+          <br /><br />
+          Data: <a href="https://www.ustravel.org/research/travel-forecasts" target="_blank" rel="noopener">U.S. Travel Association Travel Forecast</a>
         </section>
-        <section class="step" data-active-index="5">
-          <div class="title">Same visualization multiple sections</div>
-          Some visualizations may be relevant to multiple sections. You can reuse the same visualization
-          across different sections to reinforce key points. Or build on the previous visualization to just add on.
+        <section class="step destination-transition-step" data-active-index="13" data-layout="full-viz">
+        </section>
+        <section class="step destination-copy" data-active-index="4">
+          <div class="title">Hawaii and Cancun, 2018-2024</div>
+          Hawaii and Cancun are both leisure destinations people choose for holidays, but they carry
+          different spending expectations. Comparing arrivals, hotel occupancy, and real spending per visitor
+          shows how destination-level recovery can look similar in volume but different in traveler value.
+          <br /><br />
+          Data: Hawaii and Cancun destination dataset.
         </section>
         <div id="extra-space">
         </div>
@@ -111,7 +119,7 @@
   <script src="js/helpers/sections.js"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260528-arrivals-transition"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260531-destinations"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -124,7 +132,10 @@
   <script src="js/sketches/viz/viz_intro.js"></script>
   <script src="js/sketches/viz/viz_worldmap.js"></script>
   <script src="js/sketches/viz/viz_us_arrivals.js?v=20260528-arrivals-transition"></script>
-  <script src="js/sketches/sketch_renderer.js?v=20260528-arrivals-transition"></script>
+  <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
+  <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
+  <script src="js/sketches/viz/viz_destination_compare.js?v=20260531-destinations"></script>
+  <script src="js/sketches/sketch_renderer.js?v=20260531-destinations"></script>
 
 
 </body>
