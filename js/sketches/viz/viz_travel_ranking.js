@@ -392,7 +392,7 @@
 
         panel(p, 55, 145, 390, 570, COLORS.teal, false);
         panel(p, 475, 145, 390, 570, COLORS.teal, false);
-        panel(p, 895, 145, 360, 570, COLORS.teal, false);
+        panel(p, 895, 145, 390, 570, COLORS.teal, false);
         panel(p, 1320, 145, 230, 570, COLORS.teal, false);
 
         header(p, 78, 177, '01', 'PRE-COVID', '(2019)', false);

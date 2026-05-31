@@ -4,7 +4,7 @@
 (function () {
     function easeInOut(t) {
         t = Math.max(0, Math.min(1, t));
-        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        return t * t * t * (t * (t * 6 - 15) + 10);
     }
 
     function drawUSFocusTransition(p, manager, amount) {
@@ -127,7 +127,7 @@
 
             if (ai === 2 && window.VizUSArrivals) {
                 if (manager._usFocusTransitionStart) {
-                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1650;
+                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1200;
                     if (amount < 1) {
                         if (window.VizUSArrivals.hideOverlay) window.VizUSArrivals.hideOverlay(manager);
                         drawUSFocusTransition(p, manager, amount);
