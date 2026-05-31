@@ -59,20 +59,20 @@
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1335, y: 285, w: 200, h: 58 },
-        { country: 'Canada', x: 1335, y: 355, w: 200, h: 58 },
-        { country: 'U.S.', x: 1335, y: 425, w: 200, h: 58 },
-        { country: 'Australia', x: 1335, y: 495, w: 200, h: 58 },
-        { country: 'Turkey', x: 1335, y: 565, w: 200, h: 58 }
+        { country: 'Japan', x: 1245, y: 285, w: 200, h: 58 },
+        { country: 'Canada', x: 1245, y: 355, w: 200, h: 58 },
+        { country: 'U.S.', x: 1245, y: 425, w: 200, h: 58 },
+        { country: 'Australia', x: 1245, y: 495, w: 200, h: 58 },
+        { country: 'Turkey', x: 1245, y: 565, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 978, y: 290, w: 279, h: 52 },
-        { rank: 2, x: 978, y: 364, w: 279, h: 52 },
-        { rank: 3, x: 978, y: 438, w: 279, h: 52 },
-        { rank: 4, x: 978, y: 512, w: 279, h: 52 },
-        { rank: 5, x: 978, y: 586, w: 279, h: 52 }
+        { rank: 1, x: 820, y: 290, w: 255, h: 52 },
+        { rank: 2, x: 820, y: 364, w: 255, h: 52 },
+        { rank: 3, x: 820, y: 438, w: 255, h: 52 },
+        { rank: 4, x: 820, y: 512, w: 255, h: 52 },
+        { rank: 5, x: 820, y: 586, w: 255, h: 52 }
     ];
-    var REVEAL_BUTTON = { x: 1325, y: 735, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1235, y: 735, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -406,34 +406,34 @@
         p.fill('rgba(251,254,254,0.38)');
         p.rect(0, 0, 1600, 840);
 
-        panel(p, 55, 145, 390, 570, COLORS.teal, false);
-        panel(p, 475, 145, 390, 570, COLORS.teal, false);
-        panel(p, 895, 145, 390, 570, COLORS.teal, false);
-        panel(p, 1320, 145, 230, 570, COLORS.teal, false);
+        panel(p, 55, 145, 300, 570, COLORS.teal, false);
+        panel(p, 405, 145, 300, 570, COLORS.teal, false);
+        panel(p, 755, 145, 340, 570, COLORS.teal, false);
+        panel(p, 1230, 145, 230, 570, COLORS.teal, false);
 
         header(p, 78, 177, '01', 'PRE-COVID', '(2019)', false);
-        header(p, 498, 177, '02', 'DURING COVID', '(2021)', true);
-        header(p, 918, 177, '03', 'POST-COVID', '(2024)', false);
+        header(p, 428, 177, '02', 'DURING COVID', '(2021)', true);
+        header(p, 778, 177, '03', 'POST-COVID', '(2024)', false);
 
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(15);
-        p.text('Available destinations', 1435, 178);
+        p.text('Available destinations', 1345, 178);
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
         p.textSize(12);
-        p.text('Drag from here', 1435, 205);
+        p.text('Drag from here', 1345, 205);
         p.stroke(COLORS.teal);
         p.strokeWeight(1.5);
-        p.line(1435, 231, 1435, 247);
-        p.line(1429, 241, 1435, 247);
-        p.line(1441, 241, 1435, 247);
+        p.line(1345, 231, 1345, 247);
+        p.line(1339, 241, 1345, 247);
+        p.line(1351, 241, 1345, 247);
         p.noStroke();
 
         var state = ensureState(manager);
-        drawPanelRows(p, manager, 55, 145, 390, PRE, false, COUNTS.pre, state.revealed);
-        drawPanelRows(p, manager, 475, 145, 390, DURING, true, COUNTS.during, state.revealed);
+        drawPanelRows(p, manager, 55, 145, 300, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 405, 145, 300, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
             if (!state.slots[i].country) {
                 slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
