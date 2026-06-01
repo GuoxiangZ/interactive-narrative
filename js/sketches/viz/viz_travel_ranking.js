@@ -40,11 +40,11 @@
     var BANK = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
     var COUNTS = {
         pre: {
-            'France': 89400000,
-            'Spain': 83700000,
-            'U.S.': 79442000,
-            'China': 65700000,
-            'Italy': 64513000
+            'France': 89322000,
+            'Spain': 82808000,
+            'U.S.': 79745920,
+            'China': 62900000,
+            'Italy': 61567200
         },
         during: {
             'France': 48400000,
@@ -76,6 +76,20 @@
         { rank: 5, x: 978, y: 645, w: 230, h: 58 }
     ];
     var REVEAL_BUTTON = { x: 1243, y: 750, w: 220, h: 56 };
+    var INSIGHTS = [
+        {
+            label: 'Mexico rose while others were closed',
+            body: 'Mexico did not need a full global rebound to move up. With fewer entry barriers and strong regional leisure demand, it reached #2 in 2021.'
+        },
+        {
+            label: 'The U.S. left the top five in 2021',
+            body: 'The U.S. had 79.7M visitors in 2018, but only 22.3M in 2021. That drop opened space for Mexico and Turkey during the shock.'
+        },
+        {
+            label: 'Then the U.S. came back',
+            body: 'By 2024, the U.S. returned to #3 with 72.4M visitors. Mexico also recovered, but the larger destinations recovered enough to push it out.'
+        }
+    ];
 
     function domImage(src) {
         var img = new Image();
@@ -232,6 +246,23 @@
         p.textSize(17);
         p.text('Guess how travel preferences shifted after COVID.', x + 100, y + 58);
         p.pop();
+    }
+
+    function drawWrappedText(p, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+        for (var i = 0; i < words.length; i++) {
+            var test = line ? line + ' ' + words[i] : words[i];
+            if (p.textWidth(test) > maxWidth && line) {
+                p.text(line, x, y);
+                line = words[i];
+                y += lineHeight;
+            } else {
+                line = test;
+            }
+        }
+        if (line) p.text(line, x, y);
+        return y + lineHeight;
     }
 
     function header(p, x, y, num, title, yearLabel, muted) {
@@ -476,6 +507,44 @@
         p.pop();
     }
 
+    function drawInsightPanel(p, x, y, w, h) {
+        p.push();
+        p.noStroke();
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textStyle(p.BOLD);
+        p.textSize(20);
+        p.text('What changed?', x + 20, y + 26);
+
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(11);
+        drawWrappedText(p, 'Focus on the swap: Mexico enters while the U.S. drops out, then the U.S. returns as restrictions ease.', x + 20, y + 55, w - 40, 15);
+
+        var cursorY = y + 106;
+        for (var i = 0; i < INSIGHTS.length; i++) {
+            var insight = INSIGHTS[i];
+            p.fill(i === 1 ? COLORS.wrong : COLORS.teal);
+            p.circle(x + 24, cursorY + 7, 8);
+            p.fill(COLORS.tealDark);
+            p.textStyle(p.BOLD);
+            p.textSize(12);
+            cursorY = drawWrappedText(p, insight.label, x + 40, cursorY, w - 58, 14);
+            p.fill(COLORS.muted);
+            p.textStyle(p.NORMAL);
+            p.textSize(11);
+            cursorY = drawWrappedText(p, insight.body, x + 40, cursorY + 3, w - 58, 13) + 8;
+        }
+
+        p.fill('rgba(0,124,120,0.08)');
+        p.rect(x + 18, y + h - 78, w - 36, 52, 12);
+        p.fill(COLORS.tealDark);
+        p.textStyle(p.BOLD);
+        p.textSize(11);
+        drawWrappedText(p, 'Takeaway: Mexico gained rank temporarily; the U.S. returned as access reopened.', x + 32, y + h - 64, w - 64, 14);
+        p.pop();
+    }
+
     function drawTopFourBlocks(p, manager, x, y, scale) {
         p.push();
         p.translate(x, y);
@@ -495,27 +564,30 @@
         panel(p, 1253, 200, 230, 525, COLORS.teal, false);
         turnTag(p, 1111, 185, 112, 32);
 
-        header(p, 241, 232, '01', 'PRE-COVID', '(2019)', false);
+        header(p, 241, 232, '01', 'PRE-COVID', '(2018)', false);
         header(p, 581, 232, '02', 'DURING COVID', '(2021)', true);
         header(p, 916, 217, '03', 'POST-COVID', '(2024)', false);
 
-        p.fill(COLORS.tealDark);
-        p.textAlign(p.CENTER, p.TOP);
-        p.textStyle(p.BOLD);
-        p.textSize(16);
-        p.text('Available destinations', 1368, 233);
-        p.textStyle(p.NORMAL);
-        p.fill(COLORS.muted);
-        p.textSize(12);
-        p.text('Drag from here', 1368, 260);
-        p.stroke(COLORS.teal);
-        p.strokeWeight(1.5);
-        p.line(1368, 286, 1368, 302);
-        p.line(1362, 296, 1368, 302);
-        p.line(1374, 296, 1368, 302);
-        p.noStroke();
-
         var state = ensureState(manager);
+        if (state.revealed) {
+            drawInsightPanel(p, 1253, 200, 230, 525);
+        } else {
+            p.fill(COLORS.tealDark);
+            p.textAlign(p.CENTER, p.TOP);
+            p.textStyle(p.BOLD);
+            p.textSize(16);
+            p.text('Available destinations', 1368, 233);
+            p.textStyle(p.NORMAL);
+            p.fill(COLORS.muted);
+            p.textSize(12);
+            p.text('Drag from here', 1368, 260);
+            p.stroke(COLORS.teal);
+            p.strokeWeight(1.5);
+            p.line(1368, 286, 1368, 302);
+            p.line(1362, 296, 1368, 302);
+            p.line(1374, 296, 1368, 302);
+            p.noStroke();
+        }
         drawPanelRows(p, manager, 218, 200, 320, PRE, false, COUNTS.pre, state.revealed);
         drawPanelRows(p, manager, 558, 200, 320, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
@@ -528,6 +600,7 @@
         for (var j = 0; j < state.chips.length; j++) {
             var item = state.chips[j];
             if (state.revealed && item.slot != null) continue;
+            if (state.revealed) continue;
             chip(p, manager, item.x, item.y, item.w, item.h, item.country, null, false);
         }
         drawRevealButton(p, state);
