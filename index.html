@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260529-ranking-game" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260531-book-open-revision" />
 </head>
 
 <body>
@@ -18,8 +18,24 @@
     <div id='graphic'>
       <div id='sections'>
         <section class="step intro-title-section" data-active-index="11" data-layout="full-text">
-          <div class="title">Pandemic Impact on Travel Frequency and Spending</div>
-          <div class="intro-title-kicker">An interactive article about tourism before, during, and after COVID-19.</div>
+          <div class="book-cover-stage" aria-label="Pandemic Impact on Travel Frequency and Spending">
+            <img class="book-cover-image"
+              src="assets/travel_book_cover_asset_pack/reference/reference_full_cover.png"
+              alt="Pandemic Impact on Travel Frequency and Spending book cover on a travel agency desk">
+            <div class="book-opening-layers" aria-hidden="true">
+              <div class="book-page-block"></div>
+              <div class="book-inside-page"></div>
+              <div class="book-story-preview">
+                <div class="book-story-map"></div>
+                <div class="book-story-text">Before 2020, global travel<br>never stopped.</div>
+              </div>
+              <div class="book-turn-shadow"></div>
+              <div class="book-turning-cover"></div>
+            </div>
+            <button class="book-cover-hotspot" type="button" aria-label="Open the interactive article">
+              <span class="sr-only">Open the interactive article</span>
+            </button>
+          </div>
         </section>
         <section class="step intro-placeholder" data-active-index="0" data-layout="full-viz" data-progress-mode="height">
         </section>
@@ -94,8 +110,6 @@
       </div>
     </div>
   </div>
-
-
   <!-- p5.js (using CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -122,8 +136,105 @@
   <script src="js/sketches/viz/viz_intro.js"></script>
   <script src="js/sketches/viz/viz_worldmap.js"></script>
   <script src="js/sketches/viz/viz_us_arrivals.js?v=20260529-ranking-game"></script>
-  <script src="js/sketches/viz/viz_travel_ranking.js?v=20260531-ranking-far-right"></script>
-  <script src="js/sketches/sketch_renderer.js?v=20260531-us-transition-no-label"></script>
+  <script src="js/sketches/viz/viz_travel_ranking.js?v=20260531-italy-china-landmarks"></script>
+  <script src="js/sketches/sketch_renderer.js?v=20260531-book-open-revision"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var coverButton = document.querySelector('.book-cover-hotspot');
+      var coverStage = document.querySelector('.book-cover-stage');
+      var storyPreview = document.querySelector('.book-story-preview');
+      var graphic = document.querySelector('#graphic');
+      var vis = document.querySelector('#vis');
+      var nextSection = document.querySelector('.intro-placeholder');
+      if (coverButton && coverStage && nextSection) {
+        coverButton.addEventListener('click', function () {
+          coverButton.disabled = true;
+          coverButton.classList.add('is-opening');
+          coverStage.classList.add('is-opening');
+          document.body.classList.add('cover-is-turning');
+
+          window.setTimeout(function () {
+            if (!storyPreview || !vis || !graphic) return;
+            var startRect = storyPreview.getBoundingClientRect();
+            var finalRect = {
+              left: 20,
+              top: 68,
+              width: Math.max(1, document.documentElement.clientWidth),
+              height: Math.max(1, window.innerHeight - 68)
+            };
+            graphic.classList.remove('layout-full-text');
+            graphic.classList.add('layout-full-viz');
+            if (window.__sketchAPI && window.__sketchAPI.setState) {
+              window.__sketchAPI.setState({ activeIndex: 0, progress: 0.09 });
+            }
+            if (window.__sketchAPI && window.__sketchAPI.p5 &&
+                typeof window.__sketchAPI.p5.windowResized === 'function') {
+              window.__sketchAPI.p5.windowResized();
+            }
+            vis.classList.remove('vis-hidden');
+            vis.classList.add('vis-visible', 'is-book-zoom');
+            vis.style.position = 'fixed';
+            vis.style.left = finalRect.left + 'px';
+            vis.style.top = finalRect.top + 'px';
+            vis.style.right = 'auto';
+            vis.style.bottom = 'auto';
+            vis.style.width = finalRect.width + 'px';
+            vis.style.height = finalRect.height + 'px';
+            vis.style.zIndex = '500';
+            vis.style.pointerEvents = 'none';
+            vis.style.opacity = '1';
+            vis.style.transformOrigin = 'top left';
+            vis.style.transition = 'none';
+            vis.style.transform =
+              'translate(' + (startRect.left - finalRect.left) + 'px, ' +
+              (startRect.top - finalRect.top) + 'px) scale(' +
+              (startRect.width / finalRect.width) + ', ' +
+              (startRect.height / finalRect.height) + ')';
+            window.requestAnimationFrame(function () {
+              vis.style.transition = 'transform 920ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+              vis.style.transform = 'translate(0, 0) scale(1, 1)';
+            });
+          }, 1050);
+
+          window.setTimeout(function () {
+            var targetTop = nextSection.getBoundingClientRect().top + window.pageYOffset - 52;
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+            if (window.__sketchAPI && window.__sketchAPI.setState) {
+              window.__sketchAPI.setState({ activeIndex: 0, progress: 0.09 });
+            }
+            window.setTimeout(function () {
+              document.body.classList.remove('cover-is-turning');
+              if (vis) {
+                vis.style.transition = 'opacity 180ms ease';
+                vis.style.opacity = '0.999';
+                window.requestAnimationFrame(function () {
+                  window.requestAnimationFrame(function () {
+                    vis.classList.remove('is-book-zoom');
+                    vis.style.position = '';
+                    vis.style.left = '';
+                    vis.style.top = '';
+                    vis.style.right = '';
+                    vis.style.bottom = '';
+                    vis.style.width = '';
+                    vis.style.height = '';
+                    vis.style.zIndex = '';
+                    vis.style.pointerEvents = '';
+                    vis.style.opacity = '';
+                    vis.style.transformOrigin = '';
+                    vis.style.transition = '';
+                    vis.style.transform = '';
+                  });
+                });
+              }
+              coverButton.disabled = false;
+              coverButton.classList.remove('is-opening');
+              coverStage.classList.remove('is-opening');
+            }, 520);
+          }, 2550);
+        });
+      }
+    });
+  </script>
 
 
 </body>
