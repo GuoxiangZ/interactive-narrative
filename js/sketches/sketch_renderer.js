@@ -79,6 +79,12 @@
             if (window.VizUSArrivals && typeof window.VizUSArrivals.setData === 'function') {
                 loaders.push(window.VizUSArrivals.setData(manager));
             }
+            if (window.VizSpending && typeof window.VizSpending.setData === 'function') {
+                loaders.push(window.VizSpending.setData(manager));
+            }
+            if (window.VizDestinationCompare && typeof window.VizDestinationCompare.setData === 'function') {
+                loaders.push(window.VizDestinationCompare.setData(manager));
+            }
             if (window.VizTravelRanking && typeof window.VizTravelRanking.setData === 'function') {
                 loaders.push(window.VizTravelRanking.setData(manager));
             }
@@ -99,6 +105,9 @@
             }
             if (ai !== 2 && window.VizUSArrivals && typeof window.VizUSArrivals.hideOverlay === 'function') {
                 window.VizUSArrivals.hideOverlay(manager);
+            }
+            if (ai !== 13 && window.VizDestinationTransition && typeof window.VizDestinationTransition.hideOverlay === 'function') {
+                window.VizDestinationTransition.hideOverlay(manager);
             }
 
             if (ai === 0) {
@@ -129,8 +138,29 @@
                 return;
             }
 
+            if (ai === 3 && window.VizSpending) {
+                if (previousAI !== 3 && manager.spending) {
+                    manager.spending.animStart = Date.now();
+                }
+                window.VizSpending.draw(p, manager, ai, progress);
+                return;
+            }
+
+            if (ai === 13 && window.VizDestinationTransition) {
+                window.VizDestinationTransition.draw(p, manager, ai, progress);
+                return;
+            }
+
             if (ai === 4 && window.VizTravelRanking) {
                 window.VizTravelRanking.draw(p, manager, ai, progress);
+                return;
+            }
+
+            if (ai === 5 && window.VizDestinationCompare) {
+                if (previousAI !== 5 && manager.destinationCompare) {
+                    manager.destinationCompare.animStart = Date.now();
+                }
+                window.VizDestinationCompare.draw(p, manager, ai, progress);
                 return;
             }
 
@@ -139,7 +169,7 @@
                 return;
             }
 
-            if (ai === 5) {
+            if (ai === 14) {
                 window.VizScatter.draw(p, manager, ai, progress);
                 return;
             }
