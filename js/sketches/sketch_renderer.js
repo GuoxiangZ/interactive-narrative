@@ -4,7 +4,7 @@
 (function () {
     function easeInOut(t) {
         t = Math.max(0, Math.min(1, t));
-        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        return t * t * t * (t * (t * 6 - 15) + 10);
     }
 
     function drawUSFocusTransition(p, manager, amount) {
@@ -19,20 +19,10 @@
         var y = 12;
         var w = manager.width - 20;
         var h = manager.height - 28;
-        p.noStroke();
-        p.fill('#123f4f');
-        p.textAlign(p.LEFT, p.TOP);
-        p.textStyle(p.BOLD);
-        p.textSize(16);
-        p.text('Worldwide Inbound Tourism Arrivals', x + 22, y + 4);
-        p.textStyle(p.NORMAL);
-        p.textSize(11);
-        p.fill('#6f8388');
-        p.text('Focusing on the United States', x + 22, y + 27);
 
         if (countries.length && typeof d3 !== 'undefined') {
             var projection = d3.geoNaturalEarth1();
-            projection.fitExtent([[x + 10, y + 50], [x + w - 10, y + h - 34]], { type: 'Sphere' });
+            projection.fitExtent([[x + 10, y + 22], [x + w - 10, y + h - 20]], { type: 'Sphere' });
             var usPoint = projection([-98, 39]);
             var centerX = x + w * 0.50;
             var centerY = y + h * 0.50;
@@ -136,7 +126,7 @@
 
             if (ai === 2 && window.VizUSArrivals) {
                 if (manager._usFocusTransitionStart) {
-                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1650;
+                    var amount = (Date.now() - manager._usFocusTransitionStart) / 1200;
                     if (amount < 1) {
                         if (window.VizUSArrivals.hideOverlay) window.VizUSArrivals.hideOverlay(manager);
                         drawUSFocusTransition(p, manager, amount);

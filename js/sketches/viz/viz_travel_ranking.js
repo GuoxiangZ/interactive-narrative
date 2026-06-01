@@ -2,7 +2,9 @@
 // Center blocks for the destination ranking game.
 (function () {
     var ASSET_ROOT = 'assets/travel_ranking_landmarks/';
-    var ASSET_VERSION = '20260529-cartoon-landmarks-cutout';
+    var BACKGROUND_SRC = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/backgrounds/airport_arrivals_hall_background.png';
+    var ASSET_VERSION = '20260531-italy-china-landmarks';
+    var BACKDROP = { x: 100, y: 0, w: 1500, h: 840 };
     var COLORS = {
         bg: '#fbfefe',
         ink: '#102A43',
@@ -27,51 +29,53 @@
         'Spain': { src: 'spain_sagrada.png', color: COLORS.teal },
         'Canada': { src: 'canada_toronto.png', color: COLORS.teal },
         'Australia': { src: 'australia_opera.png', color: COLORS.teal },
-        'Turkey': { src: 'turkey_mosque.png', color: COLORS.teal }
+        'Turkey': { src: 'turkey_mosque.png', color: COLORS.teal },
+        'Italy': { src: 'italy_colosseum.png', color: COLORS.teal },
+        'China': { src: 'china_great_wall.png', color: COLORS.teal }
     };
 
-    var PRE = ['France', 'Spain', 'U.S.', 'Mexico', 'Japan'];
-    var DURING = ['Mexico', 'Turkey', 'U.S.', 'Canada', 'Japan'];
-    var POST_ANSWER = ['U.S.', 'Turkey', 'Japan', 'Canada', 'Australia'];
-    var BANK = ['Japan', 'Canada', 'U.S.', 'Australia', 'Turkey'];
+    var PRE = ['France', 'Spain', 'U.S.', 'China', 'Italy'];
+    var DURING = ['France', 'Mexico', 'Spain', 'Turkey', 'Italy'];
+    var POST_ANSWER = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
+    var BANK = ['France', 'Spain', 'U.S.', 'Turkey', 'Italy'];
     var COUNTS = {
         pre: {
             'France': 89400000,
             'Spain': 83700000,
             'U.S.': 79442000,
-            'Mexico': 45024000,
-            'Japan': 31882000
+            'China': 65700000,
+            'Italy': 64513000
         },
         during: {
+            'France': 48400000,
             'Mexico': 31900000,
+            'Spain': 31200000,
             'Turkey': 29900000,
-            'U.S.': 22280146,
-            'Canada': 3240000,
-            'Japan': 246000
+            'Italy': 26900000
         },
         post: {
-            'U.S.': 72390320,
-            'Turkey': 56700000,
-            'Japan': 36870000,
-            'Canada': 19900000,
-            'Australia': 8300000
+            'France': 102000000,
+            'Spain': 93800000,
+            'U.S.': 72400000,
+            'Turkey': 60600000,
+            'Italy': 57800000
         }
     };
     var BANK_LAYOUT = [
-        { country: 'Japan', x: 1335, y: 285, w: 200, h: 58 },
-        { country: 'Canada', x: 1335, y: 355, w: 200, h: 58 },
-        { country: 'U.S.', x: 1335, y: 425, w: 200, h: 58 },
-        { country: 'Australia', x: 1335, y: 495, w: 200, h: 58 },
-        { country: 'Turkey', x: 1335, y: 565, w: 200, h: 58 }
+        { country: 'France', x: 1268, y: 340, w: 200, h: 58 },
+        { country: 'Spain', x: 1268, y: 410, w: 200, h: 58 },
+        { country: 'U.S.', x: 1268, y: 480, w: 200, h: 58 },
+        { country: 'Turkey', x: 1268, y: 550, w: 200, h: 58 },
+        { country: 'Italy', x: 1268, y: 620, w: 200, h: 58 }
     ];
     var SLOTS = [
-        { rank: 1, x: 978, y: 290, w: 279, h: 52 },
-        { rank: 2, x: 978, y: 364, w: 279, h: 52 },
-        { rank: 3, x: 978, y: 438, w: 279, h: 52 },
-        { rank: 4, x: 978, y: 512, w: 279, h: 52 },
-        { rank: 5, x: 978, y: 586, w: 279, h: 52 }
+        { rank: 1, x: 978, y: 333, w: 230, h: 58 },
+        { rank: 2, x: 978, y: 411, w: 230, h: 58 },
+        { rank: 3, x: 978, y: 489, w: 230, h: 58 },
+        { rank: 4, x: 978, y: 567, w: 230, h: 58 },
+        { rank: 5, x: 978, y: 645, w: 230, h: 58 }
     ];
-    var REVEAL_BUTTON = { x: 1325, y: 735, w: 220, h: 56 };
+    var REVEAL_BUTTON = { x: 1243, y: 750, w: 220, h: 56 };
 
     function domImage(src) {
         var img = new Image();
@@ -95,6 +99,16 @@
             p.line(x + size * 0.27, y + size * 0.70, x + size * 0.73, y + size * 0.30);
         }
         p.pop();
+    }
+
+    function drawCoverImage(p, img, x, y, w, h) {
+        if (!img || !img.complete || !img.naturalWidth) return;
+        var iw = img.naturalWidth;
+        var ih = img.naturalHeight;
+        var scale = Math.max(w / iw, h / ih);
+        var sw = iw * scale;
+        var sh = ih * scale;
+        p.drawingContext.drawImage(img, x + (w - sw) / 2, y + (h - sh) / 2, sw, sh);
     }
 
     function formatCount(value) {
@@ -146,7 +160,7 @@
     function panel(p, x, y, w, h, accent, dashed) {
         p.push();
         shadow(p, 12, 'rgba(16,42,67,0.06)', 0, 5);
-        p.fill(COLORS.panel);
+        p.fill('rgba(255,255,255,0.90)');
         p.stroke(accent || COLORS.teal);
         p.strokeWeight(1.4);
         p.rect(x, y, w, h, 18);
@@ -155,14 +169,79 @@
         p.pop();
     }
 
+    function outerFrame(p, x, y, w, h) {
+        p.push();
+        shadow(p, 24, 'rgba(16,42,67,0.12)', 0, 8);
+        p.fill('rgba(255,255,255,0.68)');
+        p.stroke('rgba(0,124,120,0.26)');
+        p.strokeWeight(1.2);
+        p.rect(x, y, w, h, 32);
+        noShadow(p);
+        p.stroke('rgba(255,255,255,0.78)');
+        p.strokeWeight(3);
+        p.noFill();
+        p.rect(x + 8, y + 8, w - 16, h - 16, 26);
+        p.pop();
+    }
+
+    function turnTag(p, x, y, w, h) {
+        p.push();
+        shadow(p, 7, 'rgba(0,124,120,0.18)', 0, 3);
+        p.fill(COLORS.teal);
+        p.noStroke();
+        p.rect(x, y, w, h, 0, 12, 0, 12);
+        noShadow(p);
+        p.fill('#FFFFFF');
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(13);
+        p.text('YOUR TURN', x + w / 2, y + h / 2 + 1);
+        p.pop();
+    }
+
+    function sectionTitle(p, x, y) {
+        p.push();
+        p.noStroke();
+        p.fill('rgba(102,229,223,0.26)');
+        p.ellipse(x + 40, y + 42, 74, 74);
+        p.fill(COLORS.teal);
+        p.translate(x + 40, y + 42);
+        p.rotate(-0.2);
+        p.beginShape();
+        p.vertex(-19, -4);
+        p.vertex(7, -7);
+        p.vertex(22, -1);
+        p.vertex(7, 5);
+        p.vertex(-19, 4);
+        p.endShape(p.CLOSE);
+        p.stroke(COLORS.teal);
+        p.strokeWeight(4);
+        p.line(-3, -6, -12, -20);
+        p.line(-3, 6, -12, 20);
+        p.pop();
+
+        p.push();
+        p.noStroke();
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textStyle(p.BOLD);
+        p.textSize(34);
+        p.text('Destination Ranking Game', x + 100, y + 18);
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(17);
+        p.text('Guess how travel preferences shifted after COVID.', x + 100, y + 58);
+        p.pop();
+    }
+
     function header(p, x, y, num, title, yearLabel, muted) {
         p.noStroke();
         p.fill(COLORS.teal);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(33);
+        p.textSize(36);
         p.text(num, x, y);
-        p.textSize(20);
+        p.textSize(22);
         p.text(title + ' ' + yearLabel, x + 60, y + 7);
         p.textStyle(p.NORMAL);
     }
@@ -176,61 +255,73 @@
         p.fill(COLORS.teal);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
-        p.textSize(17);
+        p.textSize(18);
         p.text(String(rank), x, y + 1);
     }
 
     function row(p, manager, x, y, w, h, rank, country, muted, count, wrong) {
         var icon = ICONS[country];
         rankBadge(p, x + 22, y + h / 2, rank);
+        p.push();
+        shadow(p, 7, 'rgba(16,42,67,0.08)', 0, 3);
         p.fill(wrong ? COLORS.wrongSoft : (muted ? COLORS.panelSoft : COLORS.panel));
         p.stroke(wrong ? COLORS.wrong : (muted ? COLORS.line : '#B9D2DF'));
         p.strokeWeight(wrong ? 2 : 1.2);
         p.rect(x + 55, y, w - 55, h, 10);
+        noShadow(p);
+        p.pop();
         p.noStroke();
         p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(count ? 15 : 18);
+        p.textSize(count ? 16 : 20);
         p.text(country.toUpperCase(), x + 82, y + (count ? h * 0.38 : h / 2 + 1));
         if (count) {
             p.textStyle(p.NORMAL);
-            p.textSize(10);
+            p.textSize(11);
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 82, y + h * 0.70);
         }
-        drawIcon(p, iconFor(manager, country), x + w - 64, y + 3, h - 6, icon && icon.color);
+        drawIcon(p, iconFor(manager, country), x + w - 61, y + 3, h - 6, icon && icon.color);
     }
 
     function slot(p, x, y, w, h, rank) {
         rankBadge(p, x - 26, y + h / 2, rank);
+        p.push();
+        shadow(p, 7, 'rgba(16,42,67,0.06)', 0, 3);
         p.fill('rgba(255,255,255,0.72)');
-        p.stroke(COLORS.dash);
-        p.strokeWeight(1.2);
+        p.noStroke();
+        p.rect(x, y, w, h, 10);
+        noShadow(p);
+        p.pop();
         dashedRect(p, x, y, w, h, 10, COLORS.dash);
         p.noStroke();
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.CENTER);
         p.textStyle(p.NORMAL);
-        p.textSize(12);
+        p.textSize(13);
         p.text('Drag a destination here', x + w / 2, y + h / 2);
     }
 
     function chip(p, manager, x, y, w, h, country, count, wrong) {
         var icon = ICONS[country];
+        p.push();
+        shadow(p, 7, 'rgba(16,42,67,0.08)', 0, 3);
         p.fill(wrong ? COLORS.wrongSoft : COLORS.panel);
         p.stroke(wrong ? COLORS.wrong : COLORS.teal);
         p.strokeWeight(wrong ? 2 : 1.35);
         p.rect(x, y, w, h, 9);
+        noShadow(p);
+        p.pop();
         p.noStroke();
         p.fill(wrong ? COLORS.wrong : COLORS.tealDark);
         p.textAlign(p.LEFT, p.CENTER);
         p.textStyle(p.BOLD);
-        p.textSize(count ? 14 : (country === 'Australia' ? 14 : 16));
+        p.textSize(count ? 15 : (country === 'Australia' ? 15 : 17));
         p.text(country.toUpperCase(), x + 24, y + (count ? h * 0.38 : h / 2 + 1));
         if (count) {
             p.textStyle(p.NORMAL);
-            p.textSize(10);
+            p.textSize(11);
             p.fill(wrong ? COLORS.wrong : COLORS.muted);
             p.text(formatCount(count), x + 24, y + h * 0.70);
         }
@@ -365,7 +456,7 @@
 
     function drawPanelRows(p, manager, x, y, w, countries, muted, counts, showCounts) {
         for (var i = 0; i < countries.length; i++) {
-            row(p, manager, x + 28, y + 132 + i * 74, w - 56, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
+            row(p, manager, x + 32, y + 132 + i * 74, 255, 52, i + 1, countries[i], muted, showCounts ? counts[countries[i]] : null, false);
         }
     }
 
@@ -390,34 +481,43 @@
         p.translate(x, y);
         p.scale(scale);
 
-        panel(p, 55, 145, 390, 570, COLORS.teal, false);
-        panel(p, 475, 145, 390, 570, COLORS.teal, false);
-        panel(p, 895, 145, 360, 570, COLORS.teal, false);
-        panel(p, 1320, 145, 230, 570, COLORS.teal, false);
+        drawCoverImage(p, manager.travelRanking && manager.travelRanking.background, BACKDROP.x, BACKDROP.y, BACKDROP.w, BACKDROP.h);
+        p.noStroke();
+        p.fill('rgba(251,254,254,0.38)');
+        p.rect(BACKDROP.x, BACKDROP.y, BACKDROP.w, BACKDROP.h);
 
-        header(p, 78, 177, '01', 'PRE-COVID', '(2019)', false);
-        header(p, 498, 177, '02', 'DURING COVID', '(2021)', true);
-        header(p, 918, 177, '03', 'POST-COVID', '(2024)', false);
+        outerFrame(p, 160, 55, 1380, 760);
+        sectionTitle(p, 218, 78);
+
+        panel(p, 218, 200, 320, 525, COLORS.teal, false);
+        panel(p, 558, 200, 320, 525, COLORS.teal, false);
+        panel(p, 893, 185, 340, 550, COLORS.teal, false);
+        panel(p, 1253, 200, 230, 525, COLORS.teal, false);
+        turnTag(p, 1111, 185, 112, 32);
+
+        header(p, 241, 232, '01', 'PRE-COVID', '(2019)', false);
+        header(p, 581, 232, '02', 'DURING COVID', '(2021)', true);
+        header(p, 916, 217, '03', 'POST-COVID', '(2024)', false);
 
         p.fill(COLORS.tealDark);
         p.textAlign(p.CENTER, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(15);
-        p.text('Available destinations', 1435, 178);
+        p.textSize(16);
+        p.text('Available destinations', 1368, 233);
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
         p.textSize(12);
-        p.text('Drag from here', 1435, 205);
+        p.text('Drag from here', 1368, 260);
         p.stroke(COLORS.teal);
         p.strokeWeight(1.5);
-        p.line(1435, 231, 1435, 247);
-        p.line(1429, 241, 1435, 247);
-        p.line(1441, 241, 1435, 247);
+        p.line(1368, 286, 1368, 302);
+        p.line(1362, 296, 1368, 302);
+        p.line(1374, 296, 1368, 302);
         p.noStroke();
 
         var state = ensureState(manager);
-        drawPanelRows(p, manager, 55, 145, 390, PRE, false, COUNTS.pre, state.revealed);
-        drawPanelRows(p, manager, 475, 145, 390, DURING, true, COUNTS.during, state.revealed);
+        drawPanelRows(p, manager, 218, 200, 320, PRE, false, COUNTS.pre, state.revealed);
+        drawPanelRows(p, manager, 558, 200, 320, DURING, true, COUNTS.during, state.revealed);
         for (var i = 0; i < state.slots.length; i++) {
             if (!state.slots[i].country) {
                 slot(p, state.slots[i].x, state.slots[i].y, state.slots[i].w, state.slots[i].h, i + 1);
@@ -437,7 +537,7 @@
 
     window.VizTravelRanking = {
         setData: function (manager) {
-            manager.travelRanking = { icons: {} };
+            manager.travelRanking = { icons: {}, background: domImage(BACKGROUND_SRC) };
             Object.keys(ICONS).forEach(function (country) {
                 manager.travelRanking.icons[country] = domImage(ASSET_ROOT + ICONS[country].src);
             });
@@ -448,7 +548,7 @@
             p.push();
             p.translate(manager.margin.left, manager.margin.top);
             p.background(COLORS.bg);
-            var baseW = 1600;
+            var baseW = 1700;
             var baseH = 840;
             var scale = Math.min(manager.width / baseW, manager.height / baseH);
             var x = (manager.width - baseW * scale) / 2;

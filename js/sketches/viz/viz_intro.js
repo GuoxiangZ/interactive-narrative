@@ -271,6 +271,7 @@
         var openingA = segmentFade(progress, 0, 0.16, 0.42);
         var connectedA = segmentFade(progress, 0.55, 0.68, 0.78);
         var questionA = windowFade(progress, 0.92, 0.985);
+        var narrow = manager.canvasWidth < 720;
 
         p.push();
         p.textAlign(p.CENTER, p.CENTER);
@@ -279,22 +280,46 @@
         if (openingA > 0.01) {
             p.fill(21, 33, 36, 245 * openingA);
             p.textStyle(p.BOLD);
-            p.textSize(Math.min(86, manager.canvasWidth * 0.058));
-            drawWrappedText(p, 'Before 2020, global travel never stopped.', manager.canvasWidth / 2, manager.canvasHeight * 0.22, manager.canvasWidth * 0.8, 92);
+            var openingSize = narrow ? Math.min(44, manager.canvasWidth * 0.052) : Math.min(86, manager.canvasWidth * 0.058);
+            p.textSize(openingSize);
+            drawWrappedText(
+                p,
+                'Before 2020, global travel never stopped.',
+                manager.canvasWidth / 2,
+                manager.canvasHeight * 0.22,
+                manager.canvasWidth * (narrow ? 0.68 : 0.8),
+                openingSize * 1.28
+            );
         }
 
         if (connectedA > 0.01) {
             p.fill(21, 33, 36, 235 * connectedA);
             p.textStyle(p.BOLD);
-            p.textSize(Math.min(62, manager.canvasWidth * 0.044));
-            drawWrappedText(p, 'Travel connected people, cultures, and economies.', manager.canvasWidth / 2, manager.canvasHeight * 0.22, manager.canvasWidth * 0.78, 72);
+            var connectedSize = narrow ? Math.min(36, manager.canvasWidth * 0.046) : Math.min(62, manager.canvasWidth * 0.044);
+            p.textSize(connectedSize);
+            drawWrappedText(
+                p,
+                'Travel connected people, cultures, and economies.',
+                manager.canvasWidth / 2,
+                manager.canvasHeight * 0.22,
+                manager.canvasWidth * (narrow ? 0.7 : 0.78),
+                connectedSize * 1.3
+            );
         }
 
         if (questionA > 0.01) {
             p.fill(21, 33, 36, 245 * questionA);
             p.textStyle(p.BOLD);
-            p.textSize(Math.min(78, manager.canvasWidth * 0.052));
-            drawWrappedText(p, 'What happened to tourism through the pandemic?', manager.canvasWidth / 2, manager.canvasHeight * 0.5, manager.canvasWidth * 0.78, 86);
+            var questionSize = narrow ? Math.min(40, manager.canvasWidth * 0.05) : Math.min(78, manager.canvasWidth * 0.052);
+            p.textSize(questionSize);
+            drawWrappedText(
+                p,
+                'What happened to tourism through the pandemic?',
+                manager.canvasWidth / 2,
+                manager.canvasHeight * 0.5,
+                manager.canvasWidth * (narrow ? 0.72 : 0.78),
+                questionSize * 1.3
+            );
         }
 
         p.pop();
