@@ -60,9 +60,19 @@
                 var fadeOut = Math.max(0, Math.min(1, (1 - pr) / 0.18));
                 var opacity = Math.min(fadeIn, fadeOut);
                 var eased = opacity * opacity * (3 - 2 * opacity);
+                var yOffset = 0;
+                var exit = 0;
+                if (pr < 0.16) {
+                    yOffset = (1 - fadeIn) * 18;
+                } else if (pr > 0.82) {
+                    exit = Math.max(0, Math.min(1, (pr - 0.82) / 0.18));
+                    yOffset = -exit * 26;
+                }
                 manager._destinationTransitionOverlay.style.opacity = eased.toFixed(3);
-                manager._destinationTransitionOverlay.style.transform = 'translateY(' + ((1 - eased) * 18).toFixed(2) + 'px)';
+                manager._destinationTransitionOverlay.style.transform = 'translateY(' + yOffset.toFixed(2) + 'px) scale(' + (1 - exit * 0.025).toFixed(3) + ')';
                 manager._destinationTransitionOverlay.style.setProperty('--destination-transition-progress', eased.toFixed(3));
+                manager._destinationTransitionOverlay.style.setProperty('--destination-transition-y', yOffset.toFixed(2));
+                manager._destinationTransitionOverlay.style.setProperty('--destination-transition-exit', exit.toFixed(3));
             }
             p.push();
             p.background('#fbfefe');
@@ -73,6 +83,10 @@
             if (manager._destinationTransitionOverlay) {
                 manager._destinationTransitionOverlay.style.display = 'none';
                 manager._destinationTransitionOverlay.style.opacity = '0';
+                manager._destinationTransitionOverlay.style.transform = 'translateY(18px) scale(0.975)';
+                manager._destinationTransitionOverlay.style.setProperty('--destination-transition-progress', '0');
+                manager._destinationTransitionOverlay.style.setProperty('--destination-transition-y', '18');
+                manager._destinationTransitionOverlay.style.setProperty('--destination-transition-exit', '0');
             }
         }
     };
