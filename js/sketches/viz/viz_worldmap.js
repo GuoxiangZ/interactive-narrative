@@ -105,6 +105,11 @@
         return COLORS.darker;
     }
 
+    function smoothstep(t) {
+        t = Math.max(0, Math.min(1, t));
+        return t * t * (3 - 2 * t);
+    }
+
     function getCountryRecord(worldMap, rawName, year) {
         var dataName = NAME_ALIASES[rawName] || NAME_ALIASES[normalizeName(rawName)] || rawName;
         var candidates = [
@@ -181,7 +186,7 @@
         var canvasLeft = canvas ? canvas.offsetLeft : 0;
         var canvasTop = canvas ? canvas.offsetTop : 0;
         overlay.style.left = Math.round(canvasLeft + manager.margin.left + map.x + 22) + 'px';
-        overlay.style.top = Math.round(canvasTop + manager.margin.top + map.y + map.h - 28) + 'px';
+        overlay.style.top = Math.round(canvasTop + manager.margin.top + map.y + map.h - 74) + 'px';
         overlay.style.width = Math.round(Math.min(330, map.w * 0.46)) + 'px';
     }
 
@@ -234,15 +239,19 @@
             });
         },
 
-        draw: function (p, manager) {
+        draw: function (p, manager, ai, progress) {
             buildOverlay(manager);
 
             var wm = manager.worldMap || {};
             var year = currentYear(manager);
+            var intro = smoothstep((progress || 0) / 0.18);
             if (manager._worldMapOverlay) {
                 manager._worldMapOverlay.root.style.display = 'block';
                 manager._worldMapOverlay.range.value = String(year);
                 manager._worldMapOverlay.label.textContent = String(year);
+                manager._worldMapOverlay.root.style.opacity = intro.toFixed(3);
+                manager._worldMapOverlay.root.style.transform = 'translateY(' + ((1 - intro) * 12).toFixed(2) + 'px)';
+                manager._worldMapOverlay.root.style.pointerEvents = intro > 0.92 ? 'auto' : 'none';
             }
 
             p.push();
@@ -256,14 +265,15 @@
             wm.mapBox = { x: x, y: y, w: w, h: h };
             layoutOverlay(manager);
 
+            p.translate(0, (1 - intro) * 18);
             p.noStroke();
-            p.fill(COLORS.text);
+            p.fill(21, 33, 36, 255 * intro);
             p.textAlign(p.LEFT, p.TOP);
             p.textSize(16);
             p.textStyle(p.BOLD);
             p.text('Inbound Tourism Arrivals', x + 22, y + 4);
             p.textStyle(p.NORMAL);
-            p.fill(COLORS.muted);
+            p.fill(111, 131, 136, 255 * intro);
             p.textSize(11);
             p.text('Darker teal means more visitors from abroad. Gray countries have no data.', x + 22, y + 26);
 
@@ -277,7 +287,7 @@
             }
 
             var projection = d3.geoNaturalEarth1();
-            projection.fitExtent([[x + 10, y + 48], [x + w - 10, y + h - 58]], { type: 'Sphere' });
+            projection.fitExtent([[x, y + 42], [x + w, y + h - 30]], { type: 'Sphere' });
             var ctx = p.drawingContext;
             var path = d3.geoPath(projection, ctx);
             var mx = p.mouseX - manager.margin.left;
@@ -285,6 +295,7 @@
             var hovered = null;
 
             ctx.save();
+            ctx.globalAlpha = intro;
             wm.countries.forEach(function (feature) {
                 var rawName = feature.properties && feature.properties.name;
                 var record = getCountryRecord(wm, rawName, year);
@@ -299,7 +310,7 @@
                 ctx.lineWidth = 0.65;
                 ctx.stroke();
 
-                if (!hovered && mx >= x && mx <= x + w && my >= y && my <= y + h && d3.geoContains(feature, projection.invert([mx, my]))) {
+                if (intro > 0.92 && !hovered && mx >= x && mx <= x + w && my >= y && my <= y + h && d3.geoContains(feature, projection.invert([mx, my]))) {
                     hovered = { feature: feature, name: record.name || rawName, rawName: rawName, value: value };
                 }
             });
@@ -317,7 +328,7 @@
                 ctx.restore();
             }
 
-            drawLegend(p, x + w - 254, y + h - 48);
+            drawLegend(p, x + w - 254, y + h - 48, intro);
             drawTooltip(p, hovered, mx, my, year, manager.width, manager.height);
             p.pop();
         },
@@ -327,19 +338,22 @@
         }
     };
 
-    function drawLegend(p, x, y) {
+    function drawLegend(p, x, y, alpha) {
+        alpha = alpha === undefined ? 1 : alpha;
         var boxW = 38;
         var boxH = 11;
         p.noStroke();
-        p.fill(COLORS.muted);
+        p.fill(111, 131, 136, 255 * alpha);
         p.textSize(10);
         p.textAlign(p.LEFT, p.TOP);
         p.text('Arrivals', x, y - 16);
         for (var i = 0; i < ARRIVAL_BINS.length; i++) {
             var bin = ARRIVAL_BINS[i];
-            p.fill(bin.color);
+            var c = p.color(bin.color);
+            c.setAlpha(255 * alpha);
+            p.fill(c);
             p.rect(x + i * boxW, y, boxW, boxH);
-            p.fill(COLORS.muted);
+            p.fill(111, 131, 136, 255 * alpha);
             p.textAlign(p.CENTER, p.TOP);
             p.text(bin.label, x + i * boxW + boxW / 2, y + 16);
         }

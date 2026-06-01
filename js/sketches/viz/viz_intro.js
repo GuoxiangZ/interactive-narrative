@@ -50,6 +50,10 @@
         return Math.min(windowFade(value, start, peak), 1 - windowFade(value, peak, end));
     }
 
+    function holdFade(value, inStart, inEnd, outStart, outEnd) {
+        return Math.min(windowFade(value, inStart, inEnd), 1 - windowFade(value, outStart, outEnd));
+    }
+
     function easeOut(t) {
         t = clamp(t, 0, 1);
         return 1 - Math.pow(1 - t, 3);
@@ -186,6 +190,76 @@
         p.pop();
     }
 
+    function drawBill(p, x, y, w, h, angle, alpha) {
+        p.push();
+        p.translate(x, y);
+        p.rotate(angle);
+        p.rectMode(p.CENTER);
+
+        p.stroke(78, 135, 101, 105 * alpha);
+        p.strokeWeight(1);
+        p.fill(174, 238, 196, 220 * alpha);
+        p.rect(0, 0, w, h, 4);
+
+        p.noFill();
+        p.stroke(103, 163, 128, 120 * alpha);
+        p.strokeWeight(0.9);
+        p.rect(0, 0, w * 0.82, h * 0.68, 3);
+
+        p.noStroke();
+        p.fill(76, 136, 104, 105 * alpha);
+        p.ellipse(0, 0, w * 0.22, h * 0.5);
+        p.fill(255, 255, 255, 72 * alpha);
+        p.rect(-w * 0.26, -h * 0.2, w * 0.18, h * 0.07, 99);
+        p.pop();
+    }
+
+    function drawBillPile(p, x, baseY, rows, cols, billW, alpha, highlight) {
+        var billH = billW * 0.46;
+        var stackGap = billH * 0.46;
+        var rowWidth = cols * billW * 0.34;
+        p.push();
+
+        for (var r = 0; r < rows; r++) {
+            var rowProgress = clamp(alpha * rows - r, 0, 1);
+            if (rowProgress <= 0.01) continue;
+            var rowA = smoothstep(rowProgress);
+            var rowY = baseY - r * stackGap - (1 - rowA) * billH * 1.2;
+            var count = Math.max(2, Math.min(cols, 4) - Math.floor(r * 0.08));
+            var rowShift = (r % 2 ? billW * 0.12 : -billW * 0.06);
+
+            p.push();
+            p.translate(x + rowShift, rowY);
+            p.rotate((r % 3 - 1) * 0.012);
+            for (var c = 0; c < count; c++) {
+                var bx = (c - (count - 1) / 2) * billW * 0.44;
+                var by = Math.sin(c * 0.9 + r) * billH * 0.035;
+                drawBill(p, bx, by, billW * 1.06, billH, 0, rowA);
+            }
+            p.noStroke();
+            p.fill(95, 169, 171, 115 * rowA);
+            p.rectMode(p.CENTER);
+            p.rect(0, 0, Math.min(rowWidth, count * billW * 0.42 + billW * 0.36), billH * 0.24, 3);
+            p.pop();
+        }
+        p.pop();
+
+        if (highlight && alpha > 0.82) {
+            p.push();
+            p.noFill();
+            p.stroke(95, 169, 171, 200);
+            p.strokeWeight(3);
+            p.rect(
+                x - cols * billW * 0.32,
+                baseY - rows * stackGap - billH * 0.78,
+                cols * billW * 0.64,
+                rows * stackGap + billH * 1.46,
+                10
+            );
+            p.pop();
+        }
+    }
+
     function drawCoin(p, x, y, size, alpha) {
         p.push();
         p.stroke(80, 143, 111, 130 * alpha);
@@ -218,12 +292,12 @@
     }
 
     function drawMoneyMoment(p, manager, progress) {
-        var a = windowFade(progress, 0.36, 0.56) * (1 - windowFade(progress, 0.72, 0.82));
+        var a = windowFade(progress, 0.36, 0.56) * (1 - windowFade(progress, 0.64, 0.72));
         if (a <= 0.01) return;
 
         var leftX = manager.canvasWidth * 0.33;
         var rightX = manager.canvasWidth * 0.66;
-        var baseY = manager.canvasHeight * 0.76;
+        var baseY = manager.canvasHeight * 0.79;
         var drop = easeOut(clamp((progress - 0.38) / 0.22, 0, 1));
 
         p.push();
@@ -234,26 +308,26 @@
         p.textSize(Math.min(22, manager.canvasWidth * 0.016));
         p.text('Global GDP', leftX, baseY + 22);
         p.text('Travel & Tourism', rightX, baseY + 22);
-        var coin = Math.min(34, manager.canvasWidth * 0.019);
-        drawCoinPile(p, leftX, baseY, 20, 14, coin, drop, false);
-        drawCoinPile(p, rightX, baseY, 9, 9, coin, drop, true);
+        var bill = Math.min(54, manager.canvasWidth * 0.03);
+        drawBillPile(p, leftX, baseY, 15, 5, bill, drop, false);
+        drawBillPile(p, rightX, baseY, 4, 3, bill, drop, true);
 
         var numberA = windowFade(progress, 0.48, 0.62);
         p.textSize(Math.min(72, manager.canvasWidth * 0.052));
         p.fill(95, 169, 171, 235 * numberA);
-        p.text('10.4%', rightX, baseY - coin * 8.2);
+        p.text('10.4%', rightX, baseY - bill * 4.7);
         p.textSize(Math.min(19, manager.canvasWidth * 0.014));
         p.textStyle(p.NORMAL);
         p.fill(111, 131, 136, 220 * numberA);
-        p.text('of global GDP in 2019', rightX, baseY - coin * 5.4);
+        p.text('of global GDP in 2019', rightX, baseY - bill * 3.32);
         p.textSize(11);
         p.fill(111, 131, 136, 145 * numberA);
-        p.text('Source: WTTC', rightX, baseY - coin * 4.4);
+        p.text('Source: WTTC', rightX, baseY - bill * 2.82);
         p.pop();
     }
 
     function drawPandemicBreak(p, manager, progress) {
-        var a = segmentFade(progress, 0.72, 0.82, 0.9);
+        var a = holdFade(progress, 0.76, 0.82, 0.86, 0.91);
         if (a <= 0.01) return;
         p.push();
         p.noStroke();
@@ -270,7 +344,7 @@
     function drawOpeningText(p, manager, progress) {
         var openingA = segmentFade(progress, 0, 0.16, 0.42);
         var connectedA = segmentFade(progress, 0.55, 0.68, 0.78);
-        var questionA = windowFade(progress, 0.92, 0.985);
+        var questionA = windowFade(progress, 0.92, 0.97);
         var narrow = manager.canvasWidth < 720;
 
         p.push();
@@ -316,7 +390,7 @@
                 p,
                 'What happened to tourism through the pandemic?',
                 manager.canvasWidth / 2,
-                manager.canvasHeight * 0.5,
+                manager.canvasHeight * 0.43,
                 manager.canvasWidth * (narrow ? 0.72 : 0.78),
                 questionSize * 1.3
             );

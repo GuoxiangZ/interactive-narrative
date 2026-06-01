@@ -89,7 +89,7 @@
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(24);
-        p.text('Destination Recovery Profiles', x, y);
+        p.text('Destination Travel and Spending Profiles', x, y);
     }
 
     function drawLegend(p, x, y) {
@@ -113,9 +113,10 @@
         return { x: x, y: y };
     }
 
-    function drawMetric(p, rows, metric, x, y, w, h, progress) {
+    function drawMetric(p, rows, metric, x, y, w, h, progress, mouse) {
         var years = [2018, 2021, 2024];
         var chart = { x: x + 54, y: y + 48, w: w - 82, h: h - 96 };
+        var hovered = null;
 
         p.noStroke();
         p.fill(COLORS.ink);
@@ -157,10 +158,20 @@
                 var appear = Math.max(0, Math.min(1, progress * cityRows.length - idx));
                 if (appear <= 0) return;
                 var pt = pointFor(row, metric, chart, years);
+                var distToMouse = Math.sqrt(Math.pow(mouse.x - pt.x, 2) + Math.pow(mouse.y - pt.y, 2));
+                if (distToMouse <= 11 && (!hovered || distToMouse < hovered.distance)) {
+                    hovered = {
+                        city: city,
+                        row: row,
+                        metric: metric,
+                        point: pt,
+                        distance: distToMouse
+                    };
+                }
                 p.fill(COLORS.bg);
                 p.stroke(cityColor(city));
                 p.strokeWeight(2);
-                p.circle(pt.x, pt.y, 7 + appear * 2);
+                p.circle(pt.x, pt.y, (hovered && hovered.row === row && hovered.city === city && hovered.metric === metric) ? 12 : 7 + appear * 2);
             });
         });
 
@@ -183,6 +194,55 @@
         p.text(metric.format(metric.max), chart.x - 8, chart.y - 4);
         p.textAlign(p.RIGHT, p.BOTTOM);
         p.text(metric.format(metric.min), chart.x - 8, chart.y + chart.h + 4);
+
+        return hovered;
+    }
+
+    function drawTooltip(p, hover, localW, localH) {
+        if (!hover) return;
+        var metric = hover.metric;
+        var row = hover.row;
+        var lines = [
+            hover.city,
+            row.year + ' ' + metric.title,
+            metric.format(row[metric.key])
+        ];
+
+        p.push();
+        p.textStyle(p.NORMAL);
+        p.textSize(11);
+        var tw = Math.max(p.textWidth(lines[0]), p.textWidth(lines[1]), p.textWidth(lines[2])) + 24;
+        var th = 66;
+        var tx = hover.point.x + 14;
+        var ty = hover.point.y - th - 12;
+        if (tx + tw > localW - 10) tx = hover.point.x - tw - 14;
+        if (ty < 10) ty = hover.point.y + 14;
+
+        p.noStroke();
+        p.fill(255, 255, 255, 245);
+        p.rect(tx, ty, tw, th, 8);
+        p.noFill();
+        p.stroke(cityColor(hover.city));
+        p.strokeWeight(1.2);
+        p.rect(tx, ty, tw, th, 8);
+
+        p.noStroke();
+        p.fill(cityColor(hover.city));
+        p.circle(tx + 14, ty + 17, 7);
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textStyle(p.BOLD);
+        p.textSize(12);
+        p.text(lines[0], tx + 25, ty + 9);
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(10);
+        p.text(lines[1], tx + 12, ty + 30);
+        p.fill(COLORS.ink);
+        p.textStyle(p.BOLD);
+        p.textSize(13);
+        p.text(lines[2], tx + 12, ty + 46);
+        p.pop();
     }
 
     window.VizDestinationCompare = {
@@ -234,9 +294,13 @@
             var totalW = panelW * 3 + gap * 2;
             var panelY = y + 118;
             var panelStartX = x + (w - totalW) / 2;
+            var mouse = { x: p.mouseX - manager.margin.left, y: p.mouseY - manager.margin.top };
+            var hover = null;
             METRICS.forEach(function (metric, i) {
-                drawMetric(p, rows, metric, panelStartX + i * (panelW + gap), panelY, panelW, panelH, progress);
+                var candidate = drawMetric(p, rows, metric, panelStartX + i * (panelW + gap), panelY, panelW, panelH, progress, mouse);
+                if (candidate && (!hover || candidate.distance < hover.distance)) hover = candidate;
             });
+            drawTooltip(p, hover, manager.width, manager.height);
             p.pop();
         }
     };
