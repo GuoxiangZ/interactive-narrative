@@ -78,16 +78,16 @@
     var REVEAL_BUTTON = { x: 1243, y: 750, w: 220, h: 56 };
     var INSIGHTS = [
         {
-            label: 'Mexico rose while others were closed',
-            body: 'Mexico did not need a full global rebound to move up. With fewer entry barriers and strong regional leisure demand, it reached #2 in 2021.'
+            label: 'During COVID, destinations shifted',
+            body: 'During the pandemic, traveler destinations changed a lot as restrictions reshaped where people could go.'
         },
         {
-            label: 'The U.S. left the top five in 2021',
-            body: 'The U.S. had 79.7M visitors in 2018, but only 22.3M in 2021. That drop opened space for Mexico and Turkey during the shock.'
+            label: 'Mexico rose while Spain and the U.S. fell',
+            body: 'Mexico moved up many places, while Spain and the U.S. both dropped from their pre-COVID rankings.'
         },
         {
-            label: 'Then the U.S. came back',
-            body: 'By 2024, the U.S. returned to #3 with 72.4M visitors. Mexico also recovered, but the larger destinations recovered enough to push it out.'
+            label: 'Most destinations returned after COVID',
+            body: 'After the pandemic, every destination except China returned to its original pre-COVID position.'
         }
     ];
 
@@ -513,35 +513,34 @@
         p.fill(COLORS.ink);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(20);
+        p.textSize(22);
         p.text('What changed?', x + 20, y + 26);
 
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
-        p.textSize(11);
-        drawWrappedText(p, 'Focus on the swap: Mexico enters while the U.S. drops out, then the U.S. returns as restrictions ease.', x + 20, y + 55, w - 40, 15);
-
-        var cursorY = y + 106;
-        for (var i = 0; i < INSIGHTS.length; i++) {
-            var insight = INSIGHTS[i];
-            p.fill(i === 1 ? COLORS.wrong : COLORS.teal);
-            p.circle(x + 24, cursorY + 7, 8);
-            p.fill(COLORS.tealDark);
-            p.textStyle(p.BOLD);
-            p.textSize(12);
-            cursorY = drawWrappedText(p, insight.label, x + 40, cursorY, w - 58, 14);
-            p.fill(COLORS.muted);
-            p.textStyle(p.NORMAL);
-            p.textSize(11);
-            cursorY = drawWrappedText(p, insight.body, x + 40, cursorY + 3, w - 58, 13) + 8;
-        }
+        p.textSize(15);
+        var cursorY = drawWrappedText(
+            p,
+            'During COVID, traveler destinations changed significantly. Mexico moved up strongly, while Spain and the U.S. both dropped in rank.',
+            x + 20,
+            y + 72,
+            w - 40,
+            20
+        );
 
         p.fill('rgba(0,124,120,0.08)');
-        p.rect(x + 18, y + h - 78, w - 36, 52, 12);
+        p.rect(x + 18, cursorY + 24, w - 36, 118, 12);
         p.fill(COLORS.tealDark);
         p.textStyle(p.BOLD);
-        p.textSize(11);
-        drawWrappedText(p, 'Takeaway: Mexico gained rank temporarily; the U.S. returned as access reopened.', x + 32, y + h - 64, w - 64, 14);
+        p.textSize(15);
+        drawWrappedText(
+            p,
+            'After the pandemic, every destination except China returned to its original pre-COVID position.',
+            x + 32,
+            cursorY + 42,
+            w - 64,
+            20
+        );
         p.pop();
     }
 

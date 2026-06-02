@@ -123,11 +123,6 @@ function startP5() {
                         activeStep.style.opacity = op.toFixed(3);
                     }
                 }
-
-                var dbg = document.getElementById('debug-state');
-                if (dbg) {
-                    dbg.textContent = 'activeIndex: ' + activeIndex + '   progress: ' + pr.toFixed(2);
-                }
             };
 
             p.mousePressed = function () {
