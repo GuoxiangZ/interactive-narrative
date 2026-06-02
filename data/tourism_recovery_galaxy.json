@@ -5,17 +5,17 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 93.8,
-    "receipts2024UsdBn": 126.0,
+    "arrivals2024Millions": 89,
+    "receipts2024UsdBn": 106.5,
     "arrivalRecovery": {
-      "2019": 103.0,
+      "2019": 103,
       "2021": 28.4,
-      "2024": 117
+      "2024": 106.59
     },
     "receiptRecovery": {
-      "2019": 100.0,
+      "2019": 100,
       "2021": 38.7,
-      "2024": 134
+      "2024": 133.63
     },
     "isCallout": true,
     "labelOffset": {
@@ -23,8 +23,8 @@
       "dy": -86,
       "anchor": "end"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -33,17 +33,17 @@
     "region": "Europe",
     "subregion": "Western Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 100.0,
-    "receipts2024UsdBn": 72.0,
+    "arrivals2024Millions": 102,
+    "receipts2024UsdBn": 77.1,
     "arrivalRecovery": {
       "2019": 96.9,
       "2021": 30.7,
-      "2024": 72
+      "2024": 112.21
     },
     "receiptRecovery": {
       "2019": 102.8,
       "2021": 41.8,
-      "2024": 116
+      "2024": 121.42
     },
     "isCallout": true,
     "labelOffset": {
@@ -51,8 +51,8 @@
       "dy": -76,
       "anchor": "end"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -61,17 +61,17 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 68.0,
-    "receipts2024UsdBn": 64.0,
+    "arrivals2024Millions": 57,
+    "receipts2024UsdBn": 58.7,
     "arrivalRecovery": {
       "2019": 100.5,
-      "2021": 28.0,
-      "2024": 81
+      "2021": 28,
+      "2024": 88.37
     },
     "receiptRecovery": {
       "2019": 94.6,
       "2021": 37.9,
-      "2024": 112
+      "2024": 118.59
     },
     "isCallout": true,
     "labelOffset": {
@@ -79,8 +79,8 @@
       "dy": -72,
       "anchor": "end"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -89,17 +89,17 @@
     "region": "Europe",
     "subregion": "Western Asia / Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 56.7,
-    "receipts2024UsdBn": 54.3,
+    "arrivals2024Millions": 59.9,
+    "receipts2024UsdBn": 56.3,
     "arrivalRecovery": {
-      "2019": 104.0,
+      "2019": 104,
       "2021": 53.3,
-      "2024": 97
+      "2024": 116.99
     },
     "receiptRecovery": {
       "2019": 105.2,
-      "2021": 68.0,
-      "2024": 109
+      "2021": 68,
+      "2024": 164.14
     },
     "isCallout": true,
     "labelOffset": {
@@ -107,8 +107,8 @@
       "dy": -34,
       "anchor": "end"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -117,23 +117,23 @@
     "region": "Europe",
     "subregion": "Western Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 37.5,
-    "receipts2024UsdBn": 58.0,
+    "arrivals2024Millions": 36,
+    "receipts2024UsdBn": 40.1,
     "arrivalRecovery": {
       "2019": 92.3,
       "2021": 36.6,
-      "2024": 95
+      "2024": 90.91
     },
     "receiptRecovery": {
       "2019": 98.6,
       "2021": 46.1,
-      "2024": 104
+      "2024": 95.93
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "GRC",
@@ -141,12 +141,12 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 33.0,
+    "arrivals2024Millions": 33.8,
     "receipts2024UsdBn": 24.5,
     "arrivalRecovery": {
       "2019": 107.6,
       "2021": 40.4,
-      "2024": 125
+      "2024": 99.41
     },
     "receiptRecovery": {
       "2019": 95.2,
@@ -155,8 +155,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -165,12 +165,12 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 26.5,
-    "receipts2024UsdBn": 27.0,
+    "arrivals2024Millions": 28.2,
+    "receipts2024UsdBn": 27,
     "arrivalRecovery": {
       "2019": 97.4,
       "2021": 39.7,
-      "2024": 126
+      "2024": 104.06
     },
     "receiptRecovery": {
       "2019": 109.9,
@@ -179,8 +179,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -189,11 +189,11 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 21.0,
-    "receipts2024UsdBn": 16.0,
+    "arrivals2024Millions": 21,
+    "receipts2024UsdBn": 16,
     "arrivalRecovery": {
       "2019": 98.6,
-      "2021": 54.0,
+      "2021": 54,
       "2024": 108
     },
     "receiptRecovery": {
@@ -213,12 +213,12 @@
     "region": "Europe",
     "subregion": "Western Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 20.3,
-    "receipts2024UsdBn": 24.0,
+    "arrivals2024Millions": 23.4,
+    "receipts2024UsdBn": 24,
     "arrivalRecovery": {
       "2019": 103.9,
       "2021": 32.3,
-      "2024": 103
+      "2024": 116.42
     },
     "receiptRecovery": {
       "2019": 101.4,
@@ -227,8 +227,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -237,12 +237,12 @@
     "region": "Europe",
     "subregion": "Western Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 31.0,
-    "receipts2024UsdBn": 24.0,
+    "arrivals2024Millions": 30.9,
+    "receipts2024UsdBn": 24,
     "arrivalRecovery": {
-      "2019": 95.0,
+      "2019": 95,
       "2021": 30.6,
-      "2024": 98
+      "2024": 96.87
     },
     "receiptRecovery": {
       "2019": 102.1,
@@ -251,8 +251,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -262,15 +262,15 @@
     "subregion": "Western Europe",
     "color": "#81BAF7",
     "arrivals2024Millions": 12.5,
-    "receipts2024UsdBn": 22.0,
+    "receipts2024UsdBn": 22,
     "arrivalRecovery": {
       "2019": 102.8,
       "2021": 34.4,
       "2024": 105
     },
     "receiptRecovery": {
-      "2019": 94.0,
-      "2021": 48.0,
+      "2019": 94,
+      "2021": 48,
       "2024": 121
     },
     "isCallout": false,
@@ -285,23 +285,23 @@
     "region": "Europe",
     "subregion": "Northern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 38.0,
-    "receipts2024UsdBn": 55.0,
+    "arrivals2024Millions": 38,
+    "receipts2024UsdBn": 84.5,
     "arrivalRecovery": {
       "2019": 102.3,
       "2021": 18.7,
-      "2024": 96
+      "2024": 96.45
     },
     "receiptRecovery": {
       "2019": 107.4,
       "2021": 35.1,
-      "2024": 107
+      "2024": 144.69
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "IRL",
@@ -309,11 +309,11 @@
     "region": "Europe",
     "subregion": "Northern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 10.0,
+    "arrivals2024Millions": 10,
     "receipts2024UsdBn": 10.4,
     "arrivalRecovery": {
       "2019": 92.2,
-      "2021": 26.0,
+      "2021": 26,
       "2024": 104
     },
     "receiptRecovery": {
@@ -336,7 +336,7 @@
     "arrivals2024Millions": 15.2,
     "receipts2024UsdBn": 9.5,
     "arrivalRecovery": {
-      "2019": 110.0,
+      "2019": 110,
       "2021": 37.3,
       "2024": 101
     },
@@ -358,7 +358,7 @@
     "subregion": "Northern Europe",
     "color": "#81BAF7",
     "arrivals2024Millions": 7.8,
-    "receipts2024UsdBn": 14.0,
+    "receipts2024UsdBn": 14,
     "arrivalRecovery": {
       "2019": 98.3,
       "2021": 26.6,
@@ -406,7 +406,7 @@
     "subregion": "Eastern Europe",
     "color": "#81BAF7",
     "arrivals2024Millions": 20.8,
-    "receipts2024UsdBn": 18.0,
+    "receipts2024UsdBn": 18,
     "arrivalRecovery": {
       "2019": 104.1,
       "2021": 45.7,
@@ -433,12 +433,12 @@
     "receipts2024UsdBn": 8.3,
     "arrivalRecovery": {
       "2019": 93.4,
-      "2021": 28.0,
+      "2021": 28,
       "2024": 96
     },
     "receiptRecovery": {
       "2019": 100.3,
-      "2021": 38.0,
+      "2021": 38,
       "2024": 102
     },
     "isCallout": false,
@@ -453,8 +453,8 @@
     "region": "Europe",
     "subregion": "Eastern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 12.0,
-    "receipts2024UsdBn": 8.0,
+    "arrivals2024Millions": 12,
+    "receipts2024UsdBn": 8,
     "arrivalRecovery": {
       "2019": 105.5,
       "2021": 37.3,
@@ -485,7 +485,7 @@
       "2024": 99
     },
     "receiptRecovery": {
-      "2019": 109.0,
+      "2019": 109,
       "2021": 51.2,
       "2024": 104
     },
@@ -528,7 +528,7 @@
     "arrivals2024Millions": 10.1,
     "receipts2024UsdBn": 4.8,
     "arrivalRecovery": {
-      "2019": 103.0,
+      "2019": 103,
       "2021": 63.7,
       "2024": 190
     },
@@ -549,11 +549,11 @@
     "region": "Europe",
     "subregion": "Eastern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 12.0,
+    "arrivals2024Millions": 12,
     "receipts2024UsdBn": 5.8,
     "arrivalRecovery": {
       "2019": 96.6,
-      "2021": 44.0,
+      "2021": 44,
       "2024": 138
     },
     "receiptRecovery": {
@@ -573,7 +573,7 @@
     "region": "Europe",
     "subregion": "Southern Europe",
     "color": "#81BAF7",
-    "arrivals2024Millions": 3.0,
+    "arrivals2024Millions": 3,
     "receipts2024UsdBn": 3.1,
     "arrivalRecovery": {
       "2019": 101.2,
@@ -606,7 +606,7 @@
     },
     "receiptRecovery": {
       "2019": 105.7,
-      "2021": 44.0,
+      "2021": 44,
       "2024": 119
     },
     "isCallout": false,
@@ -673,7 +673,7 @@
     "receipts2024UsdBn": 3.6,
     "arrivalRecovery": {
       "2019": 96.1,
-      "2021": 49.0,
+      "2021": 49,
       "2024": 110
     },
     "receiptRecovery": {
@@ -696,7 +696,7 @@
     "arrivals2024Millions": 4.6,
     "receipts2024UsdBn": 3.2,
     "arrivalRecovery": {
-      "2019": 99.0,
+      "2019": 99,
       "2021": 46.3,
       "2024": 106
     },
@@ -725,7 +725,7 @@
       "2024": 90
     },
     "receiptRecovery": {
-      "2019": 102.0,
+      "2019": 102,
       "2021": 33.8,
       "2024": 99
     },
@@ -741,17 +741,17 @@
     "region": "Americas",
     "subregion": "North America",
     "color": "#DF8EA2",
-    "arrivals2024Millions": 72.4,
-    "receipts2024UsdBn": 210.0,
+    "arrivals2024Millions": 66.5,
+    "receipts2024UsdBn": 215,
     "arrivalRecovery": {
       "2019": 94.8,
       "2021": 19.4,
-      "2024": 128
+      "2024": 83.75
     },
     "receiptRecovery": {
       "2019": 101.4,
       "2021": 38.9,
-      "2024": 118
+      "2024": 108.04
     },
     "isCallout": true,
     "labelOffset": {
@@ -759,8 +759,8 @@
       "dy": -54,
       "anchor": "start"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -769,16 +769,16 @@
     "region": "Americas",
     "subregion": "North America",
     "color": "#DF8EA2",
-    "arrivals2024Millions": 45.0,
-    "receipts2024UsdBn": 32.0,
+    "arrivals2024Millions": 44.9,
+    "receipts2024UsdBn": 32,
     "arrivalRecovery": {
       "2019": 103.6,
       "2021": 65.7,
-      "2024": 116
+      "2024": 99.78
     },
     "receiptRecovery": {
       "2019": 94.4,
-      "2021": 58.0,
+      "2021": 58,
       "2024": 85
     },
     "isCallout": true,
@@ -787,9 +787,9 @@
       "dy": 42,
       "anchor": "start"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
-    "estimated": false
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": true
   },
   {
     "id": "CAN",
@@ -798,21 +798,21 @@
     "subregion": "North America",
     "color": "#DF8EA2",
     "arrivals2024Millions": 21.1,
-    "receipts2024UsdBn": 28.0,
+    "receipts2024UsdBn": 49.4,
     "arrivalRecovery": {
       "2019": 101.3,
-      "2021": 17.0,
+      "2021": 17,
       "2024": 95
     },
     "receiptRecovery": {
       "2019": 107.7,
       "2021": 35.1,
-      "2024": 105
+      "2024": 165.77
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -872,7 +872,7 @@
     "arrivals2024Millions": 3.2,
     "receipts2024UsdBn": 5.2,
     "arrivalRecovery": {
-      "2019": 98.0,
+      "2019": 98,
       "2021": 39.4,
       "2024": 110
     },
@@ -894,9 +894,9 @@
     "subregion": "Central America",
     "color": "#DF8EA2",
     "arrivals2024Millions": 2.6,
-    "receipts2024UsdBn": 2.0,
+    "receipts2024UsdBn": 2,
     "arrivalRecovery": {
-      "2019": 100.0,
+      "2019": 100,
       "2021": 42.7,
       "2024": 141
     },
@@ -918,14 +918,14 @@
     "subregion": "Central America",
     "color": "#DF8EA2",
     "arrivals2024Millions": 3.8,
-    "receipts2024UsdBn": 3.0,
+    "receipts2024UsdBn": 3,
     "arrivalRecovery": {
       "2019": 103.6,
-      "2021": 58.0,
+      "2021": 58,
       "2024": 190
     },
     "receiptRecovery": {
-      "2019": 104.0,
+      "2019": 104,
       "2021": 68.9,
       "2024": 140
     },
@@ -950,7 +950,7 @@
     },
     "receiptRecovery": {
       "2019": 99.4,
-      "2021": 63.0,
+      "2021": 63,
       "2024": 111
     },
     "isCallout": false,
@@ -1037,11 +1037,11 @@
     "region": "Americas",
     "subregion": "South America",
     "color": "#DF8EA2",
-    "arrivals2024Millions": 3.0,
+    "arrivals2024Millions": 3,
     "receipts2024UsdBn": 4.1,
     "arrivalRecovery": {
       "2019": 102.9,
-      "2021": 11.0,
+      "2021": 11,
       "2024": 68
     },
     "receiptRecovery": {
@@ -1118,7 +1118,7 @@
     },
     "receiptRecovery": {
       "2019": 106.1,
-      "2021": 52.0,
+      "2021": 52,
       "2024": 102
     },
     "isCallout": false,
@@ -1136,7 +1136,7 @@
     "arrivals2024Millions": 3.1,
     "receipts2024UsdBn": 2.3,
     "arrivalRecovery": {
-      "2019": 93.0,
+      "2019": 93,
       "2021": 20.7,
       "2024": 91
     },
@@ -1161,7 +1161,7 @@
     "receipts2024UsdBn": 2.2,
     "arrivalRecovery": {
       "2019": 108.6,
-      "2021": 24.0,
+      "2021": 24,
       "2024": 63
     },
     "receiptRecovery": {
@@ -1182,7 +1182,7 @@
     "subregion": "South America",
     "color": "#DF8EA2",
     "arrivals2024Millions": 1.9,
-    "receipts2024UsdBn": 2.0,
+    "receipts2024UsdBn": 2,
     "arrivalRecovery": {
       "2019": 94.8,
       "2021": 28.3,
@@ -1229,8 +1229,8 @@
     "region": "Asia-Pacific",
     "subregion": "North-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 82.0,
-    "receipts2024UsdBn": 58.0,
+    "arrivals2024Millions": 82,
+    "receipts2024UsdBn": 39.7,
     "arrivalRecovery": {
       "2019": 103.4,
       "2021": 0,
@@ -1239,7 +1239,7 @@
     "receiptRecovery": {
       "2019": 102.4,
       "2021": 9.8,
-      "2024": 97
+      "2024": 110.89
     },
     "isCallout": true,
     "labelOffset": {
@@ -1247,9 +1247,9 @@
       "dy": 34,
       "anchor": "start"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
-    "estimated": false
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": true
   },
   {
     "id": "JPN",
@@ -1257,17 +1257,17 @@
     "region": "Asia-Pacific",
     "subregion": "North-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 36.9,
-    "receipts2024UsdBn": 47.0,
+    "arrivals2024Millions": 34.3,
+    "receipts2024UsdBn": 54.7,
     "arrivalRecovery": {
       "2019": 94.6,
       "2021": 0,
-      "2024": 69
+      "2024": 107.52
     },
     "receiptRecovery": {
       "2019": 100.7,
       "2021": 7.9,
-      "2024": 74
+      "2024": 118.66
     },
     "isCallout": true,
     "labelOffset": {
@@ -1275,8 +1275,8 @@
       "dy": 44,
       "anchor": "start"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": false
   },
   {
@@ -1286,16 +1286,16 @@
     "subregion": "Oceania",
     "color": "#E6BC63",
     "arrivals2024Millions": 9.5,
-    "receipts2024UsdBn": 38.0,
+    "receipts2024UsdBn": 51.8,
     "arrivalRecovery": {
       "2019": 104.3,
-      "2021": 2.0,
+      "2021": 2,
       "2024": 101
     },
     "receiptRecovery": {
-      "2019": 95.0,
-      "2021": 16.0,
-      "2024": 86
+      "2019": 95,
+      "2021": 16,
+      "2024": 113.85
     },
     "isCallout": true,
     "labelOffset": {
@@ -1303,9 +1303,9 @@
       "dy": 68,
       "anchor": "start"
     },
-    "dataQuality": "screenshot_anchor",
-    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
-    "estimated": false
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": true
   },
   {
     "id": "THA",
@@ -1313,23 +1313,23 @@
     "region": "Asia-Pacific",
     "subregion": "South-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 36.0,
-    "receipts2024UsdBn": 44.0,
+    "arrivals2024Millions": 32.6,
+    "receipts2024UsdBn": 42.7,
     "arrivalRecovery": {
       "2019": 100.3,
       "2021": 2.3,
-      "2024": 88
+      "2024": 81.7
     },
     "receiptRecovery": {
       "2019": 107.8,
       "2021": 9.1,
-      "2024": 92
+      "2024": 71.4
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "SGP",
@@ -1338,7 +1338,7 @@
     "subregion": "South-East Asia",
     "color": "#E6BC63",
     "arrivals2024Millions": 16.5,
-    "receipts2024UsdBn": 21.0,
+    "receipts2024UsdBn": 21,
     "arrivalRecovery": {
       "2019": 93.7,
       "2021": 6.6,
@@ -1361,23 +1361,23 @@
     "region": "Asia-Pacific",
     "subregion": "South Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 10.8,
-    "receipts2024UsdBn": 34.0,
+    "arrivals2024Millions": 20.57,
+    "receipts2024UsdBn": 35.02,
     "arrivalRecovery": {
       "2019": 110.2,
       "2021": 12.4,
-      "2024": 95
+      "2024": 114.85
     },
     "receiptRecovery": {
       "2019": 100.5,
       "2021": 35.3,
-      "2024": 120
+      "2024": 114
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "VNM",
@@ -1386,7 +1386,7 @@
     "subregion": "South-East Asia",
     "color": "#E6BC63",
     "arrivals2024Millions": 17.5,
-    "receipts2024UsdBn": 14.0,
+    "receipts2024UsdBn": 14,
     "arrivalRecovery": {
       "2019": 97.7,
       "2021": 0,
@@ -1409,11 +1409,11 @@
     "region": "Asia-Pacific",
     "subregion": "South-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 13.0,
-    "receipts2024UsdBn": 15.0,
+    "arrivals2024Millions": 13,
+    "receipts2024UsdBn": 15,
     "arrivalRecovery": {
       "2019": 100.6,
-      "2021": 10.0,
+      "2021": 10,
       "2024": 82
     },
     "receiptRecovery": {
@@ -1433,12 +1433,12 @@
     "region": "Asia-Pacific",
     "subregion": "South-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 23.0,
-    "receipts2024UsdBn": 23.0,
+    "arrivals2024Millions": 27.6,
+    "receipts2024UsdBn": 23,
     "arrivalRecovery": {
       "2019": 103.1,
       "2021": 2.3,
-      "2024": 89
+      "2024": 105.75
     },
     "receiptRecovery": {
       "2019": 104.4,
@@ -1447,8 +1447,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -1458,7 +1458,7 @@
     "subregion": "South-East Asia",
     "color": "#E6BC63",
     "arrivals2024Millions": 5.5,
-    "receipts2024UsdBn": 11.0,
+    "receipts2024UsdBn": 11,
     "arrivalRecovery": {
       "2019": 93.6,
       "2021": 8.6,
@@ -1466,7 +1466,7 @@
     },
     "receiptRecovery": {
       "2019": 98.5,
-      "2021": 16.0,
+      "2021": 16,
       "2024": 86
     },
     "isCallout": false,
@@ -1506,7 +1506,7 @@
     "subregion": "Oceania",
     "color": "#E6BC63",
     "arrivals2024Millions": 3.9,
-    "receipts2024UsdBn": 10.0,
+    "receipts2024UsdBn": 10,
     "arrivalRecovery": {
       "2019": 97.2,
       "2021": 2.7,
@@ -1533,7 +1533,7 @@
     "receipts2024UsdBn": 5.6,
     "arrivalRecovery": {
       "2019": 95.8,
-      "2021": 78.0,
+      "2021": 78,
       "2024": 120
     },
     "receiptRecovery": {
@@ -1553,7 +1553,7 @@
     "region": "Asia-Pacific",
     "subregion": "South Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 2.0,
+    "arrivals2024Millions": 2,
     "receipts2024UsdBn": 3.1,
     "arrivalRecovery": {
       "2019": 102.8,
@@ -1580,7 +1580,7 @@
     "arrivals2024Millions": 5.4,
     "receipts2024UsdBn": 4.9,
     "arrivalRecovery": {
-      "2019": 96.0,
+      "2019": 96,
       "2021": 5.6,
       "2024": 83
     },
@@ -1634,7 +1634,7 @@
     },
     "receiptRecovery": {
       "2019": 106.4,
-      "2021": 20.0,
+      "2021": 20,
       "2024": 102
     },
     "isCallout": false,
@@ -1649,11 +1649,11 @@
     "region": "Asia-Pacific",
     "subregion": "South-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 4.0,
+    "arrivals2024Millions": 4,
     "receipts2024UsdBn": 0.9,
     "arrivalRecovery": {
       "2019": 93.5,
-      "2021": 5.0,
+      "2021": 5,
       "2024": 80
     },
     "receiptRecovery": {
@@ -1673,12 +1673,12 @@
     "region": "Asia-Pacific",
     "subregion": "North-East Asia",
     "color": "#E6BC63",
-    "arrivals2024Millions": 34.0,
-    "receipts2024UsdBn": 23.0,
+    "arrivals2024Millions": 26.7,
+    "receipts2024UsdBn": 23,
     "arrivalRecovery": {
       "2019": 108.9,
       "2021": 2.3,
-      "2024": 62
+      "2024": 112.18
     },
     "receiptRecovery": {
       "2019": 98.5,
@@ -1687,8 +1687,8 @@
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals corrected from India Tourism Data Compendium 2025 Table 1.1.3; remaining non-listed metrics may be prototype estimates.",
     "estimated": true
   },
   {
@@ -1698,14 +1698,14 @@
     "subregion": "North-East Asia",
     "color": "#E6BC63",
     "arrivals2024Millions": 7.8,
-    "receipts2024UsdBn": 13.0,
+    "receipts2024UsdBn": 13,
     "arrivalRecovery": {
       "2019": 93.7,
       "2021": 3.6,
       "2024": 70
     },
     "receiptRecovery": {
-      "2019": 108.0,
+      "2019": 108,
       "2021": 12.3,
       "2024": 83
     },
@@ -1721,23 +1721,23 @@
     "region": "Middle East",
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
-    "arrivals2024Millions": 30.0,
-    "receipts2024UsdBn": 35.0,
+    "arrivals2024Millions": 28.6,
+    "receipts2024UsdBn": 41,
     "arrivalRecovery": {
       "2019": 99.8,
       "2021": 29.4,
-      "2024": 198
+      "2024": 163.43
     },
     "receiptRecovery": {
-      "2019": 97.0,
+      "2019": 97,
       "2021": 45.7,
-      "2024": 145
+      "2024": 250
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "un_tourism_best_performer",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "QAT",
@@ -1745,7 +1745,7 @@
     "region": "Middle East",
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
-    "arrivals2024Millions": 5.0,
+    "arrivals2024Millions": 5,
     "receipts2024UsdBn": 7.2,
     "arrivalRecovery": {
       "2019": 103.1,
@@ -1769,23 +1769,23 @@
     "region": "Middle East",
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
-    "arrivals2024Millions": 28.0,
-    "receipts2024UsdBn": 52.0,
+    "arrivals2024Millions": 29.4,
+    "receipts2024UsdBn": 57,
     "arrivalRecovery": {
       "2019": 94.6,
-      "2021": 45.0,
-      "2024": 123
+      "2021": 45,
+      "2024": 136.11
     },
     "receiptRecovery": {
       "2019": 99.9,
       "2021": 61.9,
-      "2024": 132
+      "2024": 185.67
     },
     "isCallout": false,
     "labelOffset": null,
-    "dataQuality": "region_adjusted",
-    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
-    "estimated": true
+    "dataQuality": "official_2025_compendium_partial",
+    "sourceNote": "2024 arrivals/receipts corrected where available from India Tourism Data Compendium 2025 Tables 1.1.3 and 1.2.3; remaining non-listed metrics may be prototype estimates.",
+    "estimated": false
   },
   {
     "id": "BHR",
@@ -1793,7 +1793,7 @@
     "region": "Middle East",
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
-    "arrivals2024Millions": 9.0,
+    "arrivals2024Millions": 9,
     "receipts2024UsdBn": 4.2,
     "arrivalRecovery": {
       "2019": 104.9,
@@ -1802,7 +1802,7 @@
     },
     "receiptRecovery": {
       "2019": 95.6,
-      "2021": 49.0,
+      "2021": 49,
       "2024": 118
     },
     "isCallout": false,
@@ -1817,7 +1817,7 @@
     "region": "Middle East",
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
-    "arrivals2024Millions": 4.0,
+    "arrivals2024Millions": 4,
     "receipts2024UsdBn": 2.1,
     "arrivalRecovery": {
       "2019": 99.2,
@@ -1842,7 +1842,7 @@
     "subregion": "Levant",
     "color": "#A88FD7",
     "arrivals2024Millions": 6.4,
-    "receipts2024UsdBn": 7.0,
+    "receipts2024UsdBn": 7,
     "arrivalRecovery": {
       "2019": 94.6,
       "2021": 24.4,
@@ -1868,7 +1868,7 @@
     "arrivals2024Millions": 3.2,
     "receipts2024UsdBn": 5.6,
     "arrivalRecovery": {
-      "2019": 110.0,
+      "2019": 110,
       "2021": 3.7,
       "2024": 60
     },
@@ -1890,10 +1890,10 @@
     "subregion": "Levant",
     "color": "#A88FD7",
     "arrivals2024Millions": 1.8,
-    "receipts2024UsdBn": 4.0,
+    "receipts2024UsdBn": 4,
     "arrivalRecovery": {
       "2019": 97.5,
-      "2021": 22.0,
+      "2021": 22,
       "2024": 72
     },
     "receiptRecovery": {
@@ -1914,14 +1914,14 @@
     "subregion": "Arabian Peninsula",
     "color": "#A88FD7",
     "arrivals2024Millions": 0.6,
-    "receipts2024UsdBn": 1.0,
+    "receipts2024UsdBn": 1,
     "arrivalRecovery": {
       "2019": 101.1,
       "2021": 26.3,
       "2024": 88
     },
     "receiptRecovery": {
-      "2019": 96.0,
+      "2019": 96,
       "2021": 31.8,
       "2024": 94
     },
@@ -1962,7 +1962,7 @@
     "subregion": "North Africa",
     "color": "#66E5DF",
     "arrivals2024Millions": 17.4,
-    "receipts2024UsdBn": 12.0,
+    "receipts2024UsdBn": 12,
     "arrivalRecovery": {
       "2019": 93.8,
       "2021": 52.4,
@@ -1970,7 +1970,7 @@
     },
     "receiptRecovery": {
       "2019": 97.7,
-      "2021": 66.0,
+      "2021": 66,
       "2024": 116
     },
     "isCallout": false,
@@ -2013,7 +2013,7 @@
     "receipts2024UsdBn": 15.5,
     "arrivalRecovery": {
       "2019": 96.1,
-      "2021": 32.0,
+      "2021": 32,
       "2024": 117
     },
     "receiptRecovery": {
@@ -2034,9 +2034,9 @@
     "subregion": "North Africa",
     "color": "#66E5DF",
     "arrivals2024Millions": 10.2,
-    "receipts2024UsdBn": 3.0,
+    "receipts2024UsdBn": 3,
     "arrivalRecovery": {
-      "2019": 97.0,
+      "2019": 97,
       "2021": 33.3,
       "2024": 101
     },
@@ -2129,16 +2129,16 @@
     "region": "Africa",
     "subregion": "East Africa",
     "color": "#66E5DF",
-    "arrivals2024Millions": 1.0,
-    "receipts2024UsdBn": 2.0,
+    "arrivals2024Millions": 1,
+    "receipts2024UsdBn": 2,
     "arrivalRecovery": {
       "2019": 100.8,
-      "2021": 18.0,
+      "2021": 18,
       "2024": 76
     },
     "receiptRecovery": {
       "2019": 106.6,
-      "2021": 34.0,
+      "2021": 34,
       "2024": 88
     },
     "isCallout": false,
@@ -2180,7 +2180,7 @@
     "arrivals2024Millions": 0.38,
     "receipts2024UsdBn": 0.9,
     "arrivalRecovery": {
-      "2019": 109.0,
+      "2019": 109,
       "2021": 57.6,
       "2024": 104
     },
@@ -2202,7 +2202,7 @@
     "subregion": "East Africa",
     "color": "#66E5DF",
     "arrivals2024Millions": 1.3,
-    "receipts2024UsdBn": 2.0,
+    "receipts2024UsdBn": 2,
     "arrivalRecovery": {
       "2019": 92.7,
       "2021": 26.4,
@@ -2233,7 +2233,7 @@
       "2024": 79
     },
     "receiptRecovery": {
-      "2019": 97.0,
+      "2019": 97,
       "2021": 34.7,
       "2024": 91
     },

@@ -20,7 +20,7 @@ function startP5() {
             if (activeIndex === 1) {
                 margin = { top: 0, left: 20, bottom: 4, right: 10 };
             }
-            var aspectW = activeIndex === 4 ? 1600 : ((activeIndex === 2 || activeIndex === 3 || activeIndex === 5) ? 920 : 600);
+            var aspectW = activeIndex === 4 ? 1600 : (activeIndex === 16 ? 700 : ((activeIndex === 2 || activeIndex === 3 || activeIndex === 5) ? 920 : 600));
             var aspectH = activeIndex === 4 ? 840 : 520;
             var isFullViz = !!(document.querySelector('#graphic.layout-full-viz'));
             if (isFullViz) {
