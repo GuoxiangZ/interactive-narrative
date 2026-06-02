@@ -240,7 +240,7 @@
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(34);
-        p.text('Destination Ranking Game', x + 100, y + 18);
+        p.text('Top 5 Most Popular Travel Destinations Ranking Game', x + 100, y + 18);
         p.textStyle(p.NORMAL);
         p.fill(COLORS.muted);
         p.textSize(17);
@@ -508,38 +508,65 @@
     }
 
     function drawInsightPanel(p, x, y, w, h) {
+        var pad = 18;
+        var cardX = x + 16;
+        var cardW = w - 32;
+        var introY = y + 74;
+        var introH = 152;
+        var summaryY = introY + introH + 22;
+        var summaryH = 198;
+        var textX = cardX + 14;
+        var textW = cardW - 28;
+
         p.push();
         p.noStroke();
+        p.textFont('system-ui, -apple-system, "Segoe UI", sans-serif');
         p.fill(COLORS.ink);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
-        p.textSize(22);
-        p.text('What changed?', x + 20, y + 26);
+        p.textSize(24);
+        p.text('What changed?', x + pad, y + 22);
+
+        p.stroke('rgba(0,124,120,0.22)');
+        p.strokeWeight(1);
+        p.line(x + pad, y + 58, x + w - pad, y + 58);
+
+        p.noStroke();
+        p.fill('rgba(255,255,255,0.82)');
+        p.rect(cardX, introY, cardW, introH, 12);
+        p.fill('rgba(0,124,120,0.08)');
+        p.rect(cardX, summaryY, cardW, summaryH, 12);
 
         p.textStyle(p.NORMAL);
-        p.fill(COLORS.muted);
-        p.textSize(15);
+        p.fill(COLORS.tealDark);
+        p.textSize(14);
         var cursorY = drawWrappedText(
             p,
             'During COVID, traveler destinations changed significantly. Mexico moved up strongly, while Spain and the U.S. both dropped in rank.',
-            x + 20,
-            y + 72,
-            w - 40,
-            20
+            textX,
+            introY + 16,
+            textW,
+            19
         );
 
-        p.fill('rgba(0,124,120,0.08)');
-        p.rect(x + 18, cursorY + 24, w - 36, 118, 12);
         p.fill(COLORS.tealDark);
-        p.textStyle(p.BOLD);
-        p.textSize(15);
-        drawWrappedText(
+        p.textStyle(p.NORMAL);
+        p.textSize(14);
+        cursorY = drawWrappedText(
             p,
             'After the pandemic, every destination except China returned to its original pre-COVID position.',
-            x + 32,
-            cursorY + 42,
-            w - 64,
-            20
+            textX,
+            summaryY + 16,
+            textW,
+            19
+        );
+        drawWrappedText(
+            p,
+            'The U.S. and Mexico showed the biggest ranking changes.',
+            textX,
+            cursorY + 12,
+            textW,
+            19
         );
         p.pop();
     }
