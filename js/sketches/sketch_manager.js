@@ -11,8 +11,9 @@ function startP5() {
         var isMobile = window.innerWidth <= 700;
         var w, h, margin;
         if (isMobile) {
-            w = window.innerWidth - 24;
-            margin = { top: 0, left: Math.round(w * 0.07), bottom: 25, right: 8 };
+            var outerW = window.innerWidth - 24;
+            margin = { top: 0, left: Math.round(outerW * 0.07), bottom: 25, right: 8 };
+            w = outerW - margin.left - margin.right;
             h = Math.round(w * (520 / 600));
         } else {
             margin = { top: 0, left: 80, bottom: 4, right: 10 };
@@ -83,7 +84,7 @@ function startP5() {
                 // scroll in/out transition using progress
                 var activeIndex = self.state.activeIndex || 0;
                 var pr = self.state.progress || 0;
-                if (activeIndex === 1 || activeIndex === 2) pr = 0.5;
+                if (activeIndex === 1 || activeIndex === 2 || activeIndex === 16) pr = 0.5;
                 var ease = 0.05;
                 var travel = 20;
                 var tx, op;
@@ -113,6 +114,24 @@ function startP5() {
                 var dbg = document.getElementById('debug-state');
                 if (dbg) {
                     dbg.textContent = 'activeIndex: ' + activeIndex + '   progress: ' + pr.toFixed(2);
+                }
+            };
+
+            p.mousePressed = function () {
+                if (localRenderer && typeof localRenderer.mousePressed === 'function') {
+                    localRenderer.mousePressed(p, self);
+                }
+            };
+
+            p.mouseDragged = function () {
+                if (localRenderer && typeof localRenderer.mouseDragged === 'function') {
+                    localRenderer.mouseDragged(p, self);
+                }
+            };
+
+            p.mouseReleased = function () {
+                if (localRenderer && typeof localRenderer.mouseReleased === 'function') {
+                    localRenderer.mouseReleased(p, self);
                 }
             };
         };

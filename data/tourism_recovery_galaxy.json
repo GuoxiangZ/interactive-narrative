@@ -1,0 +1,2246 @@
+[
+  {
+    "id": "ESP",
+    "country": "Spain",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 93.8,
+    "receipts2024UsdBn": 126.0,
+    "arrivalRecovery": {
+      "2019": 103.0,
+      "2021": 28.4,
+      "2024": 117
+    },
+    "receiptRecovery": {
+      "2019": 100.0,
+      "2021": 38.7,
+      "2024": 134
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": -72,
+      "dy": -86,
+      "anchor": "end"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "FRA",
+    "country": "France",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 100.0,
+    "receipts2024UsdBn": 72.0,
+    "arrivalRecovery": {
+      "2019": 96.9,
+      "2021": 30.7,
+      "2024": 72
+    },
+    "receiptRecovery": {
+      "2019": 102.8,
+      "2021": 41.8,
+      "2024": 116
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": -88,
+      "dy": -76,
+      "anchor": "end"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "ITA",
+    "country": "Italy",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 68.0,
+    "receipts2024UsdBn": 64.0,
+    "arrivalRecovery": {
+      "2019": 100.5,
+      "2021": 28.0,
+      "2024": 81
+    },
+    "receiptRecovery": {
+      "2019": 94.6,
+      "2021": 37.9,
+      "2024": 112
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": -48,
+      "dy": -72,
+      "anchor": "end"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "TUR",
+    "country": "Turkey",
+    "region": "Europe",
+    "subregion": "Western Asia / Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 56.7,
+    "receipts2024UsdBn": 54.3,
+    "arrivalRecovery": {
+      "2019": 104.0,
+      "2021": 53.3,
+      "2024": 97
+    },
+    "receiptRecovery": {
+      "2019": 105.2,
+      "2021": 68.0,
+      "2024": 109
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": -90,
+      "dy": -34,
+      "anchor": "end"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "DEU",
+    "country": "Germany",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 37.5,
+    "receipts2024UsdBn": 58.0,
+    "arrivalRecovery": {
+      "2019": 92.3,
+      "2021": 36.6,
+      "2024": 95
+    },
+    "receiptRecovery": {
+      "2019": 98.6,
+      "2021": 46.1,
+      "2024": 104
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "GRC",
+    "country": "Greece",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 33.0,
+    "receipts2024UsdBn": 24.5,
+    "arrivalRecovery": {
+      "2019": 107.6,
+      "2021": 40.4,
+      "2024": 125
+    },
+    "receiptRecovery": {
+      "2019": 95.2,
+      "2021": 49.2,
+      "2024": 118
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "PRT",
+    "country": "Portugal",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 26.5,
+    "receipts2024UsdBn": 27.0,
+    "arrivalRecovery": {
+      "2019": 97.4,
+      "2021": 39.7,
+      "2024": 126
+    },
+    "receiptRecovery": {
+      "2019": 109.9,
+      "2021": 52.3,
+      "2024": 121
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "HRV",
+    "country": "Croatia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 21.0,
+    "receipts2024UsdBn": 16.0,
+    "arrivalRecovery": {
+      "2019": 98.6,
+      "2021": 54.0,
+      "2024": 108
+    },
+    "receiptRecovery": {
+      "2019": 97.3,
+      "2021": 54.7,
+      "2024": 116
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "NLD",
+    "country": "Netherlands",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 20.3,
+    "receipts2024UsdBn": 24.0,
+    "arrivalRecovery": {
+      "2019": 103.9,
+      "2021": 32.3,
+      "2024": 103
+    },
+    "receiptRecovery": {
+      "2019": 101.4,
+      "2021": 35.8,
+      "2024": 108
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "AUT",
+    "country": "Austria",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 31.0,
+    "receipts2024UsdBn": 24.0,
+    "arrivalRecovery": {
+      "2019": 95.0,
+      "2021": 30.6,
+      "2024": 98
+    },
+    "receiptRecovery": {
+      "2019": 102.1,
+      "2021": 34.9,
+      "2024": 110
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CHE",
+    "country": "Switzerland",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 12.5,
+    "receipts2024UsdBn": 22.0,
+    "arrivalRecovery": {
+      "2019": 102.8,
+      "2021": 34.4,
+      "2024": 105
+    },
+    "receiptRecovery": {
+      "2019": 94.0,
+      "2021": 48.0,
+      "2024": 121
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "GBR",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 38.0,
+    "receipts2024UsdBn": 55.0,
+    "arrivalRecovery": {
+      "2019": 102.3,
+      "2021": 18.7,
+      "2024": 96
+    },
+    "receiptRecovery": {
+      "2019": 107.4,
+      "2021": 35.1,
+      "2024": 107
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "IRL",
+    "country": "Ireland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 10.0,
+    "receipts2024UsdBn": 10.4,
+    "arrivalRecovery": {
+      "2019": 92.2,
+      "2021": 26.0,
+      "2024": 104
+    },
+    "receiptRecovery": {
+      "2019": 95.5,
+      "2021": 42.2,
+      "2024": 114
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "DNK",
+    "country": "Denmark",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 15.2,
+    "receipts2024UsdBn": 9.5,
+    "arrivalRecovery": {
+      "2019": 110.0,
+      "2021": 37.3,
+      "2024": 101
+    },
+    "receiptRecovery": {
+      "2019": 97.8,
+      "2021": 46.3,
+      "2024": 109
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SWE",
+    "country": "Sweden",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 7.8,
+    "receipts2024UsdBn": 14.0,
+    "arrivalRecovery": {
+      "2019": 98.3,
+      "2021": 26.6,
+      "2024": 95
+    },
+    "receiptRecovery": {
+      "2019": 102.5,
+      "2021": 32.7,
+      "2024": 103
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "NOR",
+    "country": "Norway",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 6.5,
+    "receipts2024UsdBn": 8.5,
+    "arrivalRecovery": {
+      "2019": 99.5,
+      "2021": 27.4,
+      "2024": 134
+    },
+    "receiptRecovery": {
+      "2019": 95.8,
+      "2021": 34.8,
+      "2024": 116
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "POL",
+    "country": "Poland",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 20.8,
+    "receipts2024UsdBn": 18.0,
+    "arrivalRecovery": {
+      "2019": 104.1,
+      "2021": 45.7,
+      "2024": 107
+    },
+    "receiptRecovery": {
+      "2019": 103.5,
+      "2021": 49.9,
+      "2024": 110
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CZE",
+    "country": "Czechia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 11.5,
+    "receipts2024UsdBn": 8.3,
+    "arrivalRecovery": {
+      "2019": 93.4,
+      "2021": 28.0,
+      "2024": 96
+    },
+    "receiptRecovery": {
+      "2019": 100.3,
+      "2021": 38.0,
+      "2024": 102
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "HUN",
+    "country": "Hungary",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 12.0,
+    "receipts2024UsdBn": 8.0,
+    "arrivalRecovery": {
+      "2019": 105.5,
+      "2021": 37.3,
+      "2024": 102
+    },
+    "receiptRecovery": {
+      "2019": 94.5,
+      "2021": 43.1,
+      "2024": 106
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ROU",
+    "country": "Romania",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 13.5,
+    "receipts2024UsdBn": 6.8,
+    "arrivalRecovery": {
+      "2019": 99.6,
+      "2021": 46.6,
+      "2024": 99
+    },
+    "receiptRecovery": {
+      "2019": 109.0,
+      "2021": 51.2,
+      "2024": 104
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SRB",
+    "country": "Serbia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 2.4,
+    "receipts2024UsdBn": 2.6,
+    "arrivalRecovery": {
+      "2019": 93.5,
+      "2021": 47.4,
+      "2024": 143
+    },
+    "receiptRecovery": {
+      "2019": 92.2,
+      "2021": 61.3,
+      "2024": 127
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ALB",
+    "country": "Albania",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 10.1,
+    "receipts2024UsdBn": 4.8,
+    "arrivalRecovery": {
+      "2019": 103.0,
+      "2021": 63.7,
+      "2024": 190
+    },
+    "receiptRecovery": {
+      "2019": 100.4,
+      "2021": 68.7,
+      "2024": 145
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BGR",
+    "country": "Bulgaria",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 12.0,
+    "receipts2024UsdBn": 5.8,
+    "arrivalRecovery": {
+      "2019": 96.6,
+      "2021": 44.0,
+      "2024": 138
+    },
+    "receiptRecovery": {
+      "2019": 102.4,
+      "2021": 50.8,
+      "2024": 123
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "MLT",
+    "country": "Malta",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 3.0,
+    "receipts2024UsdBn": 3.1,
+    "arrivalRecovery": {
+      "2019": 101.2,
+      "2021": 42.3,
+      "2024": 137
+    },
+    "receiptRecovery": {
+      "2019": 94.7,
+      "2021": 49.9,
+      "2024": 125
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ISL",
+    "country": "Iceland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 2.2,
+    "receipts2024UsdBn": 3.2,
+    "arrivalRecovery": {
+      "2019": 103.3,
+      "2021": 33.6,
+      "2024": 112
+    },
+    "receiptRecovery": {
+      "2019": 105.7,
+      "2021": 44.0,
+      "2024": 119
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "FIN",
+    "country": "Finland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 3.8,
+    "receipts2024UsdBn": 4.5,
+    "arrivalRecovery": {
+      "2019": 92.6,
+      "2021": 17.4,
+      "2024": 88
+    },
+    "receiptRecovery": {
+      "2019": 97.6,
+      "2021": 35.1,
+      "2024": 100
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BEL",
+    "country": "Belgium",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 9.8,
+    "receipts2024UsdBn": 14.5,
+    "arrivalRecovery": {
+      "2019": 108.2,
+      "2021": 30.7,
+      "2024": 97
+    },
+    "receiptRecovery": {
+      "2019": 96.2,
+      "2021": 42.2,
+      "2024": 105
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CYP",
+    "country": "Cyprus",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 4.2,
+    "receipts2024UsdBn": 3.6,
+    "arrivalRecovery": {
+      "2019": 96.1,
+      "2021": 49.0,
+      "2024": 110
+    },
+    "receiptRecovery": {
+      "2019": 109.4,
+      "2021": 58.3,
+      "2024": 116
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SVN",
+    "country": "Slovenia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 4.6,
+    "receipts2024UsdBn": 3.2,
+    "arrivalRecovery": {
+      "2019": 99.0,
+      "2021": 46.3,
+      "2024": 106
+    },
+    "receiptRecovery": {
+      "2019": 97.2,
+      "2021": 48.7,
+      "2024": 109
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "EST",
+    "country": "Estonia",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "color": "#81BAF7",
+    "arrivals2024Millions": 3.1,
+    "receipts2024UsdBn": 2.2,
+    "arrivalRecovery": {
+      "2019": 103.7,
+      "2021": 30.6,
+      "2024": 90
+    },
+    "receiptRecovery": {
+      "2019": 102.0,
+      "2021": 33.8,
+      "2024": 99
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "USA",
+    "country": "U.S.",
+    "region": "Americas",
+    "subregion": "North America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 72.4,
+    "receipts2024UsdBn": 210.0,
+    "arrivalRecovery": {
+      "2019": 94.8,
+      "2021": 19.4,
+      "2024": 128
+    },
+    "receiptRecovery": {
+      "2019": 101.4,
+      "2021": 38.9,
+      "2024": 118
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": 78,
+      "dy": -54,
+      "anchor": "start"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "MEX",
+    "country": "Mexico",
+    "region": "Americas",
+    "subregion": "North America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 45.0,
+    "receipts2024UsdBn": 32.0,
+    "arrivalRecovery": {
+      "2019": 103.6,
+      "2021": 65.7,
+      "2024": 116
+    },
+    "receiptRecovery": {
+      "2019": 94.4,
+      "2021": 58.0,
+      "2024": 85
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": 76,
+      "dy": 42,
+      "anchor": "start"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "CAN",
+    "country": "Canada",
+    "region": "Americas",
+    "subregion": "North America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 21.1,
+    "receipts2024UsdBn": 28.0,
+    "arrivalRecovery": {
+      "2019": 101.3,
+      "2021": 17.0,
+      "2024": 95
+    },
+    "receiptRecovery": {
+      "2019": 107.7,
+      "2021": 35.1,
+      "2024": 105
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "DOM",
+    "country": "Dominican Republic",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 11.2,
+    "receipts2024UsdBn": 10.6,
+    "arrivalRecovery": {
+      "2019": 92.9,
+      "2021": 64.3,
+      "2024": 124
+    },
+    "receiptRecovery": {
+      "2019": 94.5,
+      "2021": 73.2,
+      "2024": 106
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "COL",
+    "country": "Colombia",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 6.4,
+    "receipts2024UsdBn": 8.8,
+    "arrivalRecovery": {
+      "2019": 110.2,
+      "2021": 54.6,
+      "2024": 132
+    },
+    "receiptRecovery": {
+      "2019": 99.2,
+      "2021": 67.3,
+      "2024": 113
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CRI",
+    "country": "Costa Rica",
+    "region": "Americas",
+    "subregion": "Central America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 3.2,
+    "receipts2024UsdBn": 5.2,
+    "arrivalRecovery": {
+      "2019": 98.0,
+      "2021": 39.4,
+      "2024": 110
+    },
+    "receiptRecovery": {
+      "2019": 102.2,
+      "2021": 55.7,
+      "2024": 116
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "GTM",
+    "country": "Guatemala",
+    "region": "Americas",
+    "subregion": "Central America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 2.6,
+    "receipts2024UsdBn": 2.0,
+    "arrivalRecovery": {
+      "2019": 100.0,
+      "2021": 42.7,
+      "2024": 141
+    },
+    "receiptRecovery": {
+      "2019": 95.8,
+      "2021": 58.8,
+      "2024": 119
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SLV",
+    "country": "El Salvador",
+    "region": "Americas",
+    "subregion": "Central America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 3.8,
+    "receipts2024UsdBn": 3.0,
+    "arrivalRecovery": {
+      "2019": 103.6,
+      "2021": 58.0,
+      "2024": 190
+    },
+    "receiptRecovery": {
+      "2019": 104.0,
+      "2021": 68.9,
+      "2024": 140
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "PRI",
+    "country": "Puerto Rico",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 5.9,
+    "receipts2024UsdBn": 6.4,
+    "arrivalRecovery": {
+      "2019": 93.4,
+      "2021": 49.3,
+      "2024": 121
+    },
+    "receiptRecovery": {
+      "2019": 99.4,
+      "2021": 63.0,
+      "2024": 111
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BRA",
+    "country": "Brazil",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 6.6,
+    "receipts2024UsdBn": 7.1,
+    "arrivalRecovery": {
+      "2019": 106.2,
+      "2021": 14.6,
+      "2024": 85
+    },
+    "receiptRecovery": {
+      "2019": 95.3,
+      "2021": 36.1,
+      "2024": 96
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ARG",
+    "country": "Argentina",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 7.3,
+    "receipts2024UsdBn": 6.8,
+    "arrivalRecovery": {
+      "2019": 98.4,
+      "2021": 12.4,
+      "2024": 75
+    },
+    "receiptRecovery": {
+      "2019": 108.9,
+      "2021": 34.2,
+      "2024": 108
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CHL",
+    "country": "Chile",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 4.5,
+    "receipts2024UsdBn": 3.4,
+    "arrivalRecovery": {
+      "2019": 94.6,
+      "2021": 16.7,
+      "2024": 82
+    },
+    "receiptRecovery": {
+      "2019": 91.4,
+      "2021": 34.3,
+      "2024": 99
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "PER",
+    "country": "Peru",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 3.0,
+    "receipts2024UsdBn": 4.1,
+    "arrivalRecovery": {
+      "2019": 102.9,
+      "2021": 11.0,
+      "2024": 68
+    },
+    "receiptRecovery": {
+      "2019": 100.8,
+      "2021": 24.7,
+      "2024": 91
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "JAM",
+    "country": "Jamaica",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 4.4,
+    "receipts2024UsdBn": 4.7,
+    "arrivalRecovery": {
+      "2019": 96.3,
+      "2021": 53.3,
+      "2024": 109
+    },
+    "receiptRecovery": {
+      "2019": 101.9,
+      "2021": 63.8,
+      "2024": 103
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BHS",
+    "country": "Bahamas",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 8.2,
+    "receipts2024UsdBn": 5.7,
+    "arrivalRecovery": {
+      "2019": 101.9,
+      "2021": 50.6,
+      "2024": 118
+    },
+    "receiptRecovery": {
+      "2019": 94.9,
+      "2021": 65.9,
+      "2024": 107
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "PAN",
+    "country": "Panama",
+    "region": "Americas",
+    "subregion": "Central America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 2.4,
+    "receipts2024UsdBn": 4.5,
+    "arrivalRecovery": {
+      "2019": 102.5,
+      "2021": 33.4,
+      "2024": 97
+    },
+    "receiptRecovery": {
+      "2019": 106.1,
+      "2021": 52.0,
+      "2024": 102
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "URY",
+    "country": "Uruguay",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 3.1,
+    "receipts2024UsdBn": 2.3,
+    "arrivalRecovery": {
+      "2019": 93.0,
+      "2021": 20.7,
+      "2024": 91
+    },
+    "receiptRecovery": {
+      "2019": 96.7,
+      "2021": 38.1,
+      "2024": 98
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CUB",
+    "country": "Cuba",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 2.8,
+    "receipts2024UsdBn": 2.2,
+    "arrivalRecovery": {
+      "2019": 108.6,
+      "2021": 24.0,
+      "2024": 63
+    },
+    "receiptRecovery": {
+      "2019": 97.4,
+      "2021": 33.2,
+      "2024": 70
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ECU",
+    "country": "Ecuador",
+    "region": "Americas",
+    "subregion": "South America",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 1.9,
+    "receipts2024UsdBn": 2.0,
+    "arrivalRecovery": {
+      "2019": 94.8,
+      "2021": 28.3,
+      "2024": 83
+    },
+    "receiptRecovery": {
+      "2019": 108.8,
+      "2021": 43.3,
+      "2024": 95
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CUW",
+    "country": "Curaçao",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "color": "#DF8EA2",
+    "arrivals2024Millions": 0.6,
+    "receipts2024UsdBn": 1.1,
+    "arrivalRecovery": {
+      "2019": 99.4,
+      "2021": 52.6,
+      "2024": 145
+    },
+    "receiptRecovery": {
+      "2019": 97.1,
+      "2021": 63.7,
+      "2024": 124
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "CHN",
+    "country": "China",
+    "region": "Asia-Pacific",
+    "subregion": "North-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 82.0,
+    "receipts2024UsdBn": 58.0,
+    "arrivalRecovery": {
+      "2019": 103.4,
+      "2021": 0,
+      "2024": 81
+    },
+    "receiptRecovery": {
+      "2019": 102.4,
+      "2021": 9.8,
+      "2024": 97
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": 58,
+      "dy": 34,
+      "anchor": "start"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "JPN",
+    "country": "Japan",
+    "region": "Asia-Pacific",
+    "subregion": "North-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 36.9,
+    "receipts2024UsdBn": 47.0,
+    "arrivalRecovery": {
+      "2019": 94.6,
+      "2021": 0,
+      "2024": 69
+    },
+    "receiptRecovery": {
+      "2019": 100.7,
+      "2021": 7.9,
+      "2024": 74
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": 42,
+      "dy": 44,
+      "anchor": "start"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "AUS",
+    "country": "Australia",
+    "region": "Asia-Pacific",
+    "subregion": "Oceania",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 9.5,
+    "receipts2024UsdBn": 38.0,
+    "arrivalRecovery": {
+      "2019": 104.3,
+      "2021": 2.0,
+      "2024": 101
+    },
+    "receiptRecovery": {
+      "2019": 95.0,
+      "2021": 16.0,
+      "2024": 86
+    },
+    "isCallout": true,
+    "labelOffset": {
+      "dx": 52,
+      "dy": 68,
+      "anchor": "start"
+    },
+    "dataQuality": "screenshot_anchor",
+    "sourceNote": "Exact visual anchor transcribed from the supplied reference image.",
+    "estimated": false
+  },
+  {
+    "id": "THA",
+    "country": "Thailand",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 36.0,
+    "receipts2024UsdBn": 44.0,
+    "arrivalRecovery": {
+      "2019": 100.3,
+      "2021": 2.3,
+      "2024": 88
+    },
+    "receiptRecovery": {
+      "2019": 107.8,
+      "2021": 9.1,
+      "2024": 92
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SGP",
+    "country": "Singapore",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 16.5,
+    "receipts2024UsdBn": 21.0,
+    "arrivalRecovery": {
+      "2019": 93.7,
+      "2021": 6.6,
+      "2024": 93
+    },
+    "receiptRecovery": {
+      "2019": 93.6,
+      "2021": 17.2,
+      "2024": 108
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "IND",
+    "country": "India",
+    "region": "Asia-Pacific",
+    "subregion": "South Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 10.8,
+    "receipts2024UsdBn": 34.0,
+    "arrivalRecovery": {
+      "2019": 110.2,
+      "2021": 12.4,
+      "2024": 95
+    },
+    "receiptRecovery": {
+      "2019": 100.5,
+      "2021": 35.3,
+      "2024": 120
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "VNM",
+    "country": "Vietnam",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 17.5,
+    "receipts2024UsdBn": 14.0,
+    "arrivalRecovery": {
+      "2019": 97.7,
+      "2021": 0,
+      "2024": 98
+    },
+    "receiptRecovery": {
+      "2019": 101.9,
+      "2021": 3.7,
+      "2024": 118
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "IDN",
+    "country": "Indonesia",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 13.0,
+    "receipts2024UsdBn": 15.0,
+    "arrivalRecovery": {
+      "2019": 100.6,
+      "2021": 10.0,
+      "2024": 82
+    },
+    "receiptRecovery": {
+      "2019": 95.8,
+      "2021": 15.8,
+      "2024": 95
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "MYS",
+    "country": "Malaysia",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 23.0,
+    "receipts2024UsdBn": 23.0,
+    "arrivalRecovery": {
+      "2019": 103.1,
+      "2021": 2.3,
+      "2024": 89
+    },
+    "receiptRecovery": {
+      "2019": 104.4,
+      "2021": 6.9,
+      "2024": 94
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "PHL",
+    "country": "Philippines",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 5.5,
+    "receipts2024UsdBn": 11.0,
+    "arrivalRecovery": {
+      "2019": 93.6,
+      "2021": 8.6,
+      "2024": 66
+    },
+    "receiptRecovery": {
+      "2019": 98.5,
+      "2021": 16.0,
+      "2024": 86
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "KOR",
+    "country": "South Korea",
+    "region": "Asia-Pacific",
+    "subregion": "North-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 16.4,
+    "receipts2024UsdBn": 16.2,
+    "arrivalRecovery": {
+      "2019": 106.8,
+      "2021": 3.4,
+      "2024": 75
+    },
+    "receiptRecovery": {
+      "2019": 96.2,
+      "2021": 16.1,
+      "2024": 88
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "NZL",
+    "country": "New Zealand",
+    "region": "Asia-Pacific",
+    "subregion": "Oceania",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 3.9,
+    "receipts2024UsdBn": 10.0,
+    "arrivalRecovery": {
+      "2019": 97.2,
+      "2021": 2.7,
+      "2024": 95
+    },
+    "receiptRecovery": {
+      "2019": 108.6,
+      "2021": 20.2,
+      "2024": 90
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "MDV",
+    "country": "Maldives",
+    "region": "Asia-Pacific",
+    "subregion": "South Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 2.1,
+    "receipts2024UsdBn": 5.6,
+    "arrivalRecovery": {
+      "2019": 95.8,
+      "2021": 78.0,
+      "2024": 120
+    },
+    "receiptRecovery": {
+      "2019": 90.7,
+      "2021": 88.3,
+      "2024": 130
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "LKA",
+    "country": "Sri Lanka",
+    "region": "Asia-Pacific",
+    "subregion": "South Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 2.0,
+    "receipts2024UsdBn": 3.1,
+    "arrivalRecovery": {
+      "2019": 102.8,
+      "2021": 9.3,
+      "2024": 94
+    },
+    "receiptRecovery": {
+      "2019": 101.2,
+      "2021": 15.7,
+      "2024": 106
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "KHM",
+    "country": "Cambodia",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 5.4,
+    "receipts2024UsdBn": 4.9,
+    "arrivalRecovery": {
+      "2019": 96.0,
+      "2021": 5.6,
+      "2024": 83
+    },
+    "receiptRecovery": {
+      "2019": 101.4,
+      "2021": 6.8,
+      "2024": 88
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "NPL",
+    "country": "Nepal",
+    "region": "Asia-Pacific",
+    "subregion": "South Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 1.2,
+    "receipts2024UsdBn": 0.8,
+    "arrivalRecovery": {
+      "2019": 102.5,
+      "2021": 9.4,
+      "2024": 96
+    },
+    "receiptRecovery": {
+      "2019": 95.2,
+      "2021": 16.9,
+      "2024": 104
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "FJI",
+    "country": "Fiji",
+    "region": "Asia-Pacific",
+    "subregion": "Oceania",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 0.9,
+    "receipts2024UsdBn": 1.1,
+    "arrivalRecovery": {
+      "2019": 101.6,
+      "2021": 8.7,
+      "2024": 104
+    },
+    "receiptRecovery": {
+      "2019": 106.4,
+      "2021": 20.0,
+      "2024": 102
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "LAO",
+    "country": "Laos",
+    "region": "Asia-Pacific",
+    "subregion": "South-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 4.0,
+    "receipts2024UsdBn": 0.9,
+    "arrivalRecovery": {
+      "2019": 93.5,
+      "2021": 5.0,
+      "2024": 80
+    },
+    "receiptRecovery": {
+      "2019": 95.7,
+      "2021": 13.1,
+      "2024": 84
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "HKG",
+    "country": "Hong Kong",
+    "region": "Asia-Pacific",
+    "subregion": "North-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 34.0,
+    "receipts2024UsdBn": 23.0,
+    "arrivalRecovery": {
+      "2019": 108.9,
+      "2021": 2.3,
+      "2024": 62
+    },
+    "receiptRecovery": {
+      "2019": 98.5,
+      "2021": 12.2,
+      "2024": 79
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "TWN",
+    "country": "Taiwan",
+    "region": "Asia-Pacific",
+    "subregion": "North-East Asia",
+    "color": "#E6BC63",
+    "arrivals2024Millions": 7.8,
+    "receipts2024UsdBn": 13.0,
+    "arrivalRecovery": {
+      "2019": 93.7,
+      "2021": 3.6,
+      "2024": 70
+    },
+    "receiptRecovery": {
+      "2019": 108.0,
+      "2021": 12.3,
+      "2024": 83
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SAU",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 30.0,
+    "receipts2024UsdBn": 35.0,
+    "arrivalRecovery": {
+      "2019": 99.8,
+      "2021": 29.4,
+      "2024": 198
+    },
+    "receiptRecovery": {
+      "2019": 97.0,
+      "2021": 45.7,
+      "2024": 145
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "QAT",
+    "country": "Qatar",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 5.0,
+    "receipts2024UsdBn": 7.2,
+    "arrivalRecovery": {
+      "2019": 103.1,
+      "2021": 27.7,
+      "2024": 177
+    },
+    "receiptRecovery": {
+      "2019": 102.9,
+      "2021": 49.8,
+      "2024": 150
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ARE",
+    "country": "UAE",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 28.0,
+    "receipts2024UsdBn": 52.0,
+    "arrivalRecovery": {
+      "2019": 94.6,
+      "2021": 45.0,
+      "2024": 123
+    },
+    "receiptRecovery": {
+      "2019": 99.9,
+      "2021": 61.9,
+      "2024": 132
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BHR",
+    "country": "Bahrain",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 9.0,
+    "receipts2024UsdBn": 4.2,
+    "arrivalRecovery": {
+      "2019": 104.9,
+      "2021": 37.3,
+      "2024": 115
+    },
+    "receiptRecovery": {
+      "2019": 95.6,
+      "2021": 49.0,
+      "2024": 118
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "OMN",
+    "country": "Oman",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 4.0,
+    "receipts2024UsdBn": 2.1,
+    "arrivalRecovery": {
+      "2019": 99.2,
+      "2021": 30.6,
+      "2024": 110
+    },
+    "receiptRecovery": {
+      "2019": 107.8,
+      "2021": 42.1,
+      "2024": 106
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "JOR",
+    "country": "Jordan",
+    "region": "Middle East",
+    "subregion": "Levant",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 6.4,
+    "receipts2024UsdBn": 7.0,
+    "arrivalRecovery": {
+      "2019": 94.6,
+      "2021": 24.4,
+      "2024": 92
+    },
+    "receiptRecovery": {
+      "2019": 92.8,
+      "2021": 42.2,
+      "2024": 88
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ISR",
+    "country": "Israel",
+    "region": "Middle East",
+    "subregion": "Levant",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 3.2,
+    "receipts2024UsdBn": 5.6,
+    "arrivalRecovery": {
+      "2019": 110.0,
+      "2021": 3.7,
+      "2024": 60
+    },
+    "receiptRecovery": {
+      "2019": 101.9,
+      "2021": 19.3,
+      "2024": 70
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "LBN",
+    "country": "Lebanon",
+    "region": "Middle East",
+    "subregion": "Levant",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 1.8,
+    "receipts2024UsdBn": 4.0,
+    "arrivalRecovery": {
+      "2019": 97.5,
+      "2021": 22.0,
+      "2024": 72
+    },
+    "receiptRecovery": {
+      "2019": 101.6,
+      "2021": 33.7,
+      "2024": 85
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "KWT",
+    "country": "Kuwait",
+    "region": "Middle East",
+    "subregion": "Arabian Peninsula",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 0.6,
+    "receipts2024UsdBn": 1.0,
+    "arrivalRecovery": {
+      "2019": 101.1,
+      "2021": 26.3,
+      "2024": 88
+    },
+    "receiptRecovery": {
+      "2019": 96.0,
+      "2021": 31.8,
+      "2024": 94
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "IRN",
+    "country": "Iran",
+    "region": "Middle East",
+    "subregion": "Western Asia",
+    "color": "#A88FD7",
+    "arrivals2024Millions": 5.8,
+    "receipts2024UsdBn": 3.5,
+    "arrivalRecovery": {
+      "2019": 102.4,
+      "2021": 20.6,
+      "2024": 90
+    },
+    "receiptRecovery": {
+      "2019": 104.8,
+      "2021": 29.9,
+      "2024": 97
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "MAR",
+    "country": "Morocco",
+    "region": "Africa",
+    "subregion": "North Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 17.4,
+    "receipts2024UsdBn": 12.0,
+    "arrivalRecovery": {
+      "2019": 93.8,
+      "2021": 52.4,
+      "2024": 132
+    },
+    "receiptRecovery": {
+      "2019": 97.7,
+      "2021": 66.0,
+      "2024": 116
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "TZA",
+    "country": "Tanzania",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 2.1,
+    "receipts2024UsdBn": 3.4,
+    "arrivalRecovery": {
+      "2019": 107.2,
+      "2021": 36.7,
+      "2024": 153
+    },
+    "receiptRecovery": {
+      "2019": 97.1,
+      "2021": 50.1,
+      "2024": 105
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "EGY",
+    "country": "Egypt",
+    "region": "Africa",
+    "subregion": "North Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 15.7,
+    "receipts2024UsdBn": 15.5,
+    "arrivalRecovery": {
+      "2019": 96.1,
+      "2021": 32.0,
+      "2024": 117
+    },
+    "receiptRecovery": {
+      "2019": 108.1,
+      "2021": 46.2,
+      "2024": 109
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "TUN",
+    "country": "Tunisia",
+    "region": "Africa",
+    "subregion": "North Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 10.2,
+    "receipts2024UsdBn": 3.0,
+    "arrivalRecovery": {
+      "2019": 97.0,
+      "2021": 33.3,
+      "2024": 101
+    },
+    "receiptRecovery": {
+      "2019": 90.2,
+      "2021": 45.3,
+      "2024": 101
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "KEN",
+    "country": "Kenya",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 2.1,
+    "receipts2024UsdBn": 2.7,
+    "arrivalRecovery": {
+      "2019": 102.6,
+      "2021": 31.6,
+      "2024": 89
+    },
+    "receiptRecovery": {
+      "2019": 101.5,
+      "2021": 35.7,
+      "2024": 94
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ZAF",
+    "country": "South Africa",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 8.7,
+    "receipts2024UsdBn": 9.5,
+    "arrivalRecovery": {
+      "2019": 95.9,
+      "2021": 24.4,
+      "2024": 85
+    },
+    "receiptRecovery": {
+      "2019": 100.9,
+      "2021": 35.8,
+      "2024": 92
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "DZA",
+    "country": "Algeria",
+    "region": "Africa",
+    "subregion": "North Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 3.3,
+    "receipts2024UsdBn": 0.8,
+    "arrivalRecovery": {
+      "2019": 103.2,
+      "2021": 32.7,
+      "2024": 117
+    },
+    "receiptRecovery": {
+      "2019": 95.6,
+      "2021": 38.9,
+      "2024": 100
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "un_tourism_best_performer",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "ETH",
+    "country": "Ethiopia",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 1.0,
+    "receipts2024UsdBn": 2.0,
+    "arrivalRecovery": {
+      "2019": 100.8,
+      "2021": 18.0,
+      "2024": 76
+    },
+    "receiptRecovery": {
+      "2019": 106.6,
+      "2021": 34.0,
+      "2024": 88
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "RWA",
+    "country": "Rwanda",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 1.4,
+    "receipts2024UsdBn": 0.7,
+    "arrivalRecovery": {
+      "2019": 94.1,
+      "2021": 36.3,
+      "2024": 112
+    },
+    "receiptRecovery": {
+      "2019": 94.9,
+      "2021": 47.1,
+      "2024": 102
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "SYC",
+    "country": "Seychelles",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 0.38,
+    "receipts2024UsdBn": 0.9,
+    "arrivalRecovery": {
+      "2019": 109.0,
+      "2021": 57.6,
+      "2024": 104
+    },
+    "receiptRecovery": {
+      "2019": 99.7,
+      "2021": 67.2,
+      "2024": 112
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "MUS",
+    "country": "Mauritius",
+    "region": "Africa",
+    "subregion": "East Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 1.3,
+    "receipts2024UsdBn": 2.0,
+    "arrivalRecovery": {
+      "2019": 92.7,
+      "2021": 26.4,
+      "2024": 92
+    },
+    "receiptRecovery": {
+      "2019": 107.1,
+      "2021": 48.3,
+      "2024": 101
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  },
+  {
+    "id": "BWA",
+    "country": "Botswana",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "color": "#66E5DF",
+    "arrivals2024Millions": 1.9,
+    "receipts2024UsdBn": 0.8,
+    "arrivalRecovery": {
+      "2019": 100.2,
+      "2021": 20.7,
+      "2024": 79
+    },
+    "receiptRecovery": {
+      "2019": 97.0,
+      "2021": 34.7,
+      "2024": 91
+    },
+    "isCallout": false,
+    "labelOffset": null,
+    "dataQuality": "region_adjusted",
+    "sourceNote": "Public UN Tourism regional/best-performer context, normalized into a complete visual prototype point.",
+    "estimated": true
+  }
+]

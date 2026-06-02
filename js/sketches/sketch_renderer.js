@@ -85,6 +85,9 @@
             if (window.VizDestinationCompare && typeof window.VizDestinationCompare.setData === 'function') {
                 loaders.push(window.VizDestinationCompare.setData(manager));
             }
+            if (window.VizTourismGalaxy && typeof window.VizTourismGalaxy.setData === 'function') {
+                loaders.push(window.VizTourismGalaxy.setData(manager));
+            }
             if (window.VizTravelRanking && typeof window.VizTravelRanking.setData === 'function') {
                 loaders.push(window.VizTravelRanking.setData(manager));
             }
@@ -108,6 +111,9 @@
             }
             if (ai !== 13 && window.VizDestinationTransition && typeof window.VizDestinationTransition.hideOverlay === 'function') {
                 window.VizDestinationTransition.hideOverlay(manager);
+            }
+            if (ai !== 16 && window.VizTourismGalaxy && typeof window.VizTourismGalaxy.hideOverlay === 'function') {
+                window.VizTourismGalaxy.hideOverlay(manager);
             }
 
             if (ai === 0) {
@@ -164,6 +170,14 @@
                 return;
             }
 
+            if (ai === 16 && window.VizTourismGalaxy) {
+                if (previousAI !== 16 && manager.tourismGalaxy) {
+                    manager.tourismGalaxy.animStart = Date.now();
+                }
+                window.VizTourismGalaxy.draw(p, manager, ai, progress);
+                return;
+            }
+
             if (ai === 6  || ai === 9) {
                 window.VizProgressColor.draw(p, manager, ai, progress);
                 return;
@@ -177,6 +191,26 @@
             if (ai === 7) {
                 window.VizBar.draw(p, manager, ai, progress);
                 return;
+            }
+        },
+
+        mousePressed: function (p, manager) {
+            if ((manager.state && manager.state.activeIndex) === 16 &&
+                window.VizTourismGalaxy && typeof window.VizTourismGalaxy.mousePressed === 'function') {
+                window.VizTourismGalaxy.mousePressed(p, manager);
+            }
+        },
+
+        mouseDragged: function (p, manager) {
+            if ((manager.state && manager.state.activeIndex) === 16 &&
+                window.VizTourismGalaxy && typeof window.VizTourismGalaxy.mouseDragged === 'function') {
+                window.VizTourismGalaxy.mouseDragged(p, manager);
+            }
+        },
+
+        mouseReleased: function (p, manager) {
+            if (window.VizTourismGalaxy && typeof window.VizTourismGalaxy.mouseReleased === 'function') {
+                window.VizTourismGalaxy.mouseReleased(p, manager);
             }
         }
     };
