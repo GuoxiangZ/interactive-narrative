@@ -286,8 +286,9 @@
                 return;
             }
 
+            var mapBleedX = Math.min(86, manager.width * 0.07);
             var projection = d3.geoNaturalEarth1();
-            projection.fitExtent([[x, y + 42], [x + w, y + h - 30]], { type: 'Sphere' });
+            projection.fitExtent([[x - mapBleedX, y + 42], [x + w + mapBleedX, y + h - 30]], { type: 'Sphere' });
             var ctx = p.drawingContext;
             var path = d3.geoPath(projection, ctx);
             var mx = p.mouseX - manager.margin.left;

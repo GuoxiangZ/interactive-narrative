@@ -3,14 +3,14 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tourism Through the Pandemic</title>
+  <title>Has Tourism Recovered?</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-author-columns" />
 </head>
 
 <body>
   <header id="site-header">
-    <span id="site-title">Tourism Through the Pandemic</span>
+    <span id="site-title">Has Tourism Recovered?</span>
     <span id="site-course">IMT 561 Data Visualization: Design and Development</span>
     <span id="debug-state"></span>
   </header>
@@ -47,14 +47,49 @@
         </section>
         <section class="step map-copy-placeholder" data-active-index="1">
           <div class="title">Worldwide Inbound Tourism, 2018-2024</div>
-          This section will introduce the world map and explain how to read the yearly recovery pattern.
-          Use the slider to compare inbound tourist arrivals before, during, and after the pandemic.
-          Countries without available data remain gray.
+          <p>
+            We begin with a global view of inbound tourism arrivals. The map gives a broad sense of
+            how international travel changed before, during, and after the pandemic.
+          </p>
+          <p>
+            Use the year slider to compare 2018 and 2019 with the pandemic years. The darker teal
+            countries, which represent higher arrival volumes, suddenly become much lighter in 2020
+            and 2021 as cross-border travel slowed around the world.
+          </p>
+          <p>
+            From 2022 to 2024, the darker colors gradually return. By 2024, many destinations appear
+            close to their pre-pandemic levels, suggesting that global travel demand had largely
+            recovered, though not evenly everywhere.
+          </p>
+          <p class="section-source">
+            Data: <a href="https://ourworldindata.org/grapher/international-tourist-trips?time=2019" target="_blank" rel="noopener">Our World in Data, Global Change Data Lab</a>
+          </p>
         </section>
-        <section class="step" data-active-index="2">
+        <section class="step us-arrivals-copy" data-active-index="2">
           <div class="title">U.S. Inbound Travelers, 2018-2024</div>
-          This section focuses on arrivals into the United States. Use the year slider to see how
-          inbound travel declined during the pandemic and recovered afterward.
+          <p>
+            After the global overview, we shift attention to the United States, one of the world's
+            largest travel markets and a major hub for international exchange. Looking at one country
+            in detail helps make the pandemic's disruption more concrete.
+          </p>
+          <p>
+            Use the year slider in the upper right to follow the exact number of inbound travelers.
+            Before the pandemic, U.S. arrivals were near their peak, reaching about 80 million
+            visitors in 2019. In 2020, that number fell to only about 19 million.
+          </p>
+          <p>
+            This sharp drop shows how severely COVID-19 disrupted international movement. It reflects
+            both a collapse in people's ability and willingness to travel, and the border controls
+            and public-health restrictions that limited cross-border trips.
+          </p>
+          <p>
+            As the slider moves toward 2024, arrivals climb year by year and reach about 72 million.
+            The United States had not fully returned to its pre-pandemic high, but it was once again
+            operating in the same broad range.
+          </p>
+          <p class="section-source">
+            Data: <a href="https://ourworldindata.org/grapher/international-tourist-trips?time=2019" target="_blank" rel="noopener">Our World in Data, Global Change Data Lab</a>
+          </p>
         </section>
         <section class="step chapter-image-section" data-active-index="12" data-layout="full-text">
           <img
@@ -64,11 +99,29 @@
         </section>
         <section class="step spending-copy" data-active-index="3">
           <div class="title">U.S. Travel Spending, 2019-2024</div>
-          Arrivals show whether people came back. Spending shows whether the tourism economy recovered with them.
-          Total U.S. travel spending dropped sharply in 2020, then climbed through the recovery years.
-          The chart compares each year against the 2019 pre-pandemic baseline to show both the shock and the remaining gap.
-          <br /><br />
-          Data: <a href="https://www.ustravel.org/research/travel-forecasts" target="_blank" rel="noopener">U.S. Travel Association Travel Forecast</a>
+          <p>
+            Visitor counts are not the only way to measure whether tourism recovered. Spending matters
+            too: it shows how much economic activity travel brought back to hotels, restaurants,
+            transportation, attractions, and local businesses.
+          </p>
+          <p>
+            As one of the world's most economically active travel markets, the United States offers a
+            useful snapshot of tourism spending before, during, and after COVID-19. The line chart
+            compares total U.S. travel spending from 2019 to 2024.
+          </p>
+          <p>
+            Before the pandemic, spending reached a high level of about $1.41 trillion in 2019. In
+            2020, it fell by almost half, showing that the shock was not only about fewer travelers,
+            but also about a much smaller tourism economy.
+          </p>
+          <p>
+            Over the next several years, spending rose steadily. By 2024, it reached about $1.23
+            trillion, still roughly 5% below the 2019 baseline but close enough to suggest that travel
+            spending had returned to a similar overall scale.
+          </p>
+          <p class="section-source">
+            Data: <a href="https://impact.ustravel.org/" target="_blank" rel="noopener">U.S. Travel Association</a>
+          </p>
         </section>
         <section class="step tourism-galaxy-step" data-active-index="16">
           <div class="title">Tourism Recovery, 2019-2024</div>
@@ -107,7 +160,7 @@
           <br /><br />
           Data: Hawaii and Cancun destination dataset.
         </section>
-        <section class="step closing-book-section" data-active-index="15" data-layout="full-text">
+        <section class="step closing-book-section" data-active-index="17" data-layout="full-text" data-activate-offset="0.32">
           <div class="book-cover-stage closing-book-stage" aria-label="Closing the tourism story book">
             <img class="book-cover-image"
               src="assets/post_pandemic_book_mockup_pack/has_the_tourism_industry_recovered_post_pandemic_full.png"
@@ -167,14 +220,14 @@
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <!-- helpers (data/loading, scroller, visual controller) -->
   <script src="js/helpers/data_loader.js"></script>
-  <script src="js/helpers/scroller.js"></script>
+  <script src="js/helpers/scroller.js?v=20260602-step-offset"></script>
   <script src="js/helpers/visual_controller.js"></script>
 
   <!-- orchestrator (wires scroller -> sketch) -->
-  <script src="js/helpers/sections.js?v=20260601-closing-book"></script>
+  <script src="js/helpers/sections.js?v=20260602-closing-book-trigger"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260601-galaxy-side-compact"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260602-smooth-spending-step"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -185,7 +238,7 @@
   <script src="js/sketches/viz/viz_scatter.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
   <script src="js/sketches/viz/viz_intro.js"></script>
-  <script src="js/sketches/viz/viz_worldmap.js"></script>
+  <script src="js/sketches/viz/viz_worldmap.js?v=20260602-wide-map"></script>
   <script src="js/sketches/viz/viz_us_arrivals.js?v=20260529-ranking-game"></script>
   <script src="js/sketches/viz/viz_travel_ranking.js?v=20260601-ranking-us-mexico"></script>
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>

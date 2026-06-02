@@ -21,14 +21,22 @@
                 // - otherwise -> element top
                 var rect = el.getBoundingClientRect();
                 var top = rect.top + window.pageYOffset;
+                var activateOffset = 0;
+                if (el.dataset && el.dataset.activateOffset !== undefined) {
+                    var parsedOffset = parseFloat(el.dataset.activateOffset);
+                    if (!isNaN(parsedOffset)) activateOffset = parsedOffset;
+                }
+
+                var position;
                 if (el.dataset && el.dataset.progressMode === 'height') {
-                    self.sectionPositions.push(top - window.innerHeight * 0.15);
+                    position = top - window.innerHeight * 0.15;
                 } else if (self.trigger === 'center') {
                     var centerY = top + (rect.height / 2);
-                    self.sectionPositions.push(centerY - window.innerHeight * 0.4);
+                    position = centerY - window.innerHeight * 0.4;
                 } else {
-                    self.sectionPositions.push(top);
+                    position = top;
                 }
+                self.sectionPositions.push(position - window.innerHeight * activateOffset);
             });
         };
 

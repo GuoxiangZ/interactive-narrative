@@ -84,7 +84,7 @@ function startP5() {
                 // scroll in/out transition using progress
                 var activeIndex = self.state.activeIndex || 0;
                 var pr = self.state.progress || 0;
-                if (activeIndex === 1 || activeIndex === 2 || activeIndex === 16) pr = 0.5;
+                if (activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 16) pr = 0.5;
                 var ease = 0.05;
                 var travel = 20;
                 var tx, op;

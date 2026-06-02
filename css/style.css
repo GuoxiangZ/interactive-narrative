@@ -183,6 +183,10 @@ body {
   display: block;
 }
 
+#graphic.layout-full-text .step:not(.is-active) {
+  opacity: 0 !important;
+}
+
 /* full-viz layout: keep sections in flow (preserves scroll height) but invisible */
 #graphic.layout-full-viz #sections {
   opacity: 0;
@@ -1335,6 +1339,25 @@ body.cover-is-turning {
   color: #152124;
 }
 
+.map-copy-placeholder p,
+.us-arrivals-copy p,
+.spending-copy p {
+  margin: 0 0 14px;
+}
+
+.section-source {
+  margin-top: 20px;
+  color: #6f8388;
+  font-size: 0.78em;
+  line-height: 1.45;
+}
+
+.section-source a {
+  color: #347f82;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(52, 127, 130, 0.34);
+}
+
 .worldmap-overlay {
   position: absolute;
   z-index: 5;
@@ -1588,4 +1611,3 @@ body.cover-is-turning {
     min-height: 210px;
   }
 }
-
