@@ -384,16 +384,19 @@
         if (questionA > 0.01) {
             p.fill(21, 33, 36, 245 * questionA);
             p.textStyle(p.BOLD);
-            var questionSize = narrow ? Math.min(40, manager.canvasWidth * 0.05) : Math.min(78, manager.canvasWidth * 0.052);
+            var questionSize = narrow ? Math.min(30, manager.canvasWidth * 0.038) : Math.min(52, manager.canvasWidth * 0.034);
             p.textSize(questionSize);
-            drawWrappedText(
-                p,
-                'What happened to tourism through the pandemic?',
-                manager.canvasWidth / 2,
-                manager.canvasHeight * 0.43,
-                manager.canvasWidth * (narrow ? 0.72 : 0.78),
-                questionSize * 1.3
-            );
+            var questionLines = [
+                'After a long pause, the pandemic finally ended.',
+                'Did travelers come back?',
+                'Did spending confidence return?',
+                'Did people go back to the destinations they loved?'
+            ];
+            var questionLineHeight = questionSize * 1.28;
+            var questionY = manager.canvasHeight * 0.31;
+            questionLines.forEach(function (line, i) {
+                p.text(line, manager.canvasWidth / 2, questionY + i * questionLineHeight);
+            });
         }
 
         p.pop();
