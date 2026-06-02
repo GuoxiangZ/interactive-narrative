@@ -2,7 +2,7 @@
 // Recovery bubble chart using the supplied tourism recovery data.
 (function () {
     var COLORS = {
-        bg: '#f7fbfb',
+        bg: '#ffffff',
         card: '#ffffff',
         ink: '#0a4d52',
         muted: '#526d78',
@@ -37,8 +37,11 @@
         return x - Math.floor(x);
     }
 
-    function radiusFor(arrivals) {
-        return clamp(4 + Math.sqrt(arrivals || 1) * 2.05, 5, 26);
+    function radiusForRank(rank) {
+        if (rank <= 5) return 25;
+        if (rank <= 10) return 19;
+        if (rank <= 20) return 14;
+        return 8;
     }
 
     function metricAt(row, key, year) {
@@ -67,6 +70,23 @@
 
     function valueFor(row, key, ys) {
         return metricAt(row, key, ys.from) + (metricAt(row, key, ys.to) - metricAt(row, key, ys.from)) * ys.t;
+    }
+
+    function estimatedArrivalsForYear(row, ys) {
+        var recovery2024 = metricAt(row, 'arrivalRecovery', '2024') || 100;
+        var baseline2019 = (row.arrivals2024Millions || 0) / Math.max(0.01, recovery2024 / 100);
+        return baseline2019 * (valueFor(row, 'arrivalRecovery', ys) / 100);
+    }
+
+    function buildRankLookup(rows, ys) {
+        var sorted = rows.slice().sort(function (a, b) {
+            return estimatedArrivalsForYear(b, ys) - estimatedArrivalsForYear(a, ys);
+        });
+        var lookup = {};
+        sorted.forEach(function (row, i) {
+            lookup[row.id || row.country] = i + 1;
+        });
+        return lookup;
     }
 
     function buildYearOverlay(manager) {
@@ -135,10 +155,6 @@
         var compact = plot.w < 380;
         var ticksX = compact ? [0, 50, 100, 150, 200] : [0, 25, 50, 75, 100, 125, 150, 175, 200];
         var ticksY = compact ? [0, 50, 100, 150, 200, 250] : [0, 50, 100, 150, 200, 250];
-
-        p.noStroke();
-        p.fill(255, 255, 255, 150);
-        p.rect(plot.x, plot.y, plot.w, plot.h, 4);
 
         p.stroke(COLORS.grid);
         p.strokeWeight(1);
@@ -227,70 +243,143 @@
     }
 
     function drawLegend(p, x, y, w) {
-        drawPanel(p, x, y, w, 220);
-        p.noStroke();
-        p.fill(COLORS.ink);
-        p.textAlign(p.LEFT, p.TOP);
-        p.textStyle(p.BOLD);
-        p.textSize(14);
-        p.text('Continent', x + 18, y + 18);
-        var items = ['Europe', 'Asia', 'North America', 'South America', 'Africa', 'Oceania'];
-        items.forEach(function (name, i) {
-            var yy = y + 54 + i * 28;
-            p.fill(regionColor(name));
-            p.stroke(regionColor(name));
-            p.strokeWeight(1);
-            p.circle(x + 28, yy, 16);
-            p.noStroke();
-            p.fill(COLORS.ink);
-            p.textStyle(p.NORMAL);
-            p.textSize(12);
-            p.text(name, x + 48, yy - 8);
-        });
-    }
-
-    function drawRankGuide(p, x, y, w) {
-        drawPanel(p, x, y, w, 185);
         p.noStroke();
         p.fill(COLORS.ink);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(13);
-        p.text('World Tourism Rank', x + 18, y + 18);
+        p.text('Circle color', x, y);
         p.textStyle(p.NORMAL);
-        p.textSize(11);
-        p.text('(Bubble Size Guide)', x + 18, y + 36);
+        p.fill(COLORS.muted);
+        p.textSize(10);
+        p.text('Different continents', x, y + 18);
+        var items = ['Europe', 'Asia', 'North America', 'South America', 'Africa', 'Oceania'];
+        items.forEach(function (name, i) {
+            var yy = y + 48 + i * 23;
+            p.fill(regionColor(name));
+            p.stroke(regionColor(name));
+            p.strokeWeight(1);
+            p.circle(x + 10, yy, 14);
+            p.noStroke();
+            p.fill(COLORS.ink);
+            p.textStyle(p.NORMAL);
+            p.textSize(10.5);
+            p.text(name, x + 24, yy - 7);
+        });
+    }
+
+    function drawSizeGuide(p, x, y, w) {
+        p.noStroke();
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textStyle(p.BOLD);
+        p.textSize(13);
+        p.text('Circle size', x, y);
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(10);
+        p.text('tourism popularity rank in selected year', x, y + 18);
         [
-            { r: 8, label: 'Rank #20' },
-            { r: 13, label: 'Rank #10' },
-            { r: 18, label: 'Rank #5' }
+            { rank: 3, label: 'Top 5' },
+            { rank: 8, label: 'Top 10' },
+            { rank: 15, label: 'Top 20' },
+            { rank: 30, label: 'Other' }
         ].forEach(function (item, i) {
-            var yy = y + 70 + i * 33;
+            var yy = y + 52 + i * 30;
+            var r = radiusForRank(item.rank);
             p.fill(160, 166, 171, 120);
             p.stroke(136, 142, 148, 120);
             p.strokeWeight(1);
-            p.circle(x + 34, yy, item.r * 2);
+            p.circle(x + 24, yy, r * 2);
             p.noStroke();
             p.fill(COLORS.muted);
             p.textAlign(p.LEFT, p.CENTER);
             p.textSize(11);
-            p.text(item.label, x + 68, yy);
+            p.text(item.label, x + 62, yy);
         });
     }
 
-    function drawTooltip(p, row, x, y, ys, w, h) {
+    function drawExplanationPanel(p, x, y, w, h) {
+        drawPanel(p, x, y, w, h);
+        var pad = 16;
+        p.noStroke();
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textStyle(p.BOLD);
+        p.textSize(15);
+        p.text('How to read', x + pad, y + pad);
+
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(10.5);
+        p.text('X: arrivals recovery vs 2019', x + pad, y + 42);
+        p.text('Y: receipts recovery vs 2019', x + pad, y + 60);
+        p.text('Dashed 100% lines = recovered', x + pad, y + 78);
+
+        drawLegend(p, x + pad, y + 108, w - pad * 2);
+        drawSizeGuide(p, x + pad, y + 274, w - pad * 2);
+
+        p.fill(COLORS.muted);
+        p.textSize(9.5);
+        p.textLeading(13);
+        p.text(
+            'Data note: this is a compiled visual dataset. Circle size is ranked within the selected year; long-tail points include prototype estimates.',
+            x + pad,
+            y + h - 72,
+            w - pad * 2,
+            62
+        );
+    }
+
+    function drawCompactExplanation(p, plot) {
+        var x = plot.x;
+        var y = Math.max(42, plot.y - 58);
+        var w = Math.min(plot.w, 430);
+        p.push();
+        p.noStroke();
+        p.fill(255, 255, 255, 230);
+        p.rect(x, y, w, 48, 6);
+        p.fill(COLORS.ink);
+        p.textAlign(p.LEFT, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(10);
+        p.text('Color = continent', x + 10, y + 15);
+        ['Europe', 'Asia', 'North America'].forEach(function (name, i) {
+            p.fill(regionColor(name));
+            p.circle(x + 112 + i * 18, y + 15, 9);
+        });
+        p.fill(COLORS.ink);
+        p.textStyle(p.BOLD);
+        p.textSize(10);
+        p.text('Size = tourism rank', x + 10, y + 34);
+        p.textStyle(p.NORMAL);
+        p.fill(COLORS.muted);
+        p.textSize(9);
+        p.text('Top 5 / Top 10 / Top 20 / Other', x + 126, y + 34);
+        p.fill(160, 166, 171, 125);
+        p.stroke(136, 142, 148, 125);
+        p.strokeWeight(1);
+        p.circle(x + w - 78, y + 27, radiusForRank(5) * 2);
+        p.circle(x + w - 50, y + 27, radiusForRank(10) * 2);
+        p.circle(x + w - 24, y + 27, radiusForRank(20) * 2);
+        p.circle(x + w - 6, y + 27, radiusForRank(30) * 2);
+        p.pop();
+    }
+
+    function drawTooltip(p, row, x, y, ys, w, h, rank) {
         if (!row) return;
         var arrival = Math.round(valueFor(row, 'arrivalRecovery', ys));
         var receipt = Math.round(valueFor(row, 'receiptRecovery', ys));
         var lines = [
             row.country,
             row.region,
-            'Arrivals ' + arrival + '%  |  Receipts ' + receipt + '%'
+            'Arrivals ' + arrival + '%  |  Receipts ' + receipt + '%',
+            ys.label + ' popularity rank #' + rank
         ];
         p.push();
         p.textSize(12);
-        var tw = Math.max(p.textWidth(lines[0]), p.textWidth(lines[1]), p.textWidth(lines[2])) + 28;
-        var th = 78;
+        var tw = Math.max(p.textWidth(lines[0]), p.textWidth(lines[1]), p.textWidth(lines[2]), p.textWidth(lines[3])) + 28;
+        var th = 96;
         var tx = x + 18;
         var ty = y - th - 16;
         if (tx + tw > w - 12) tx = x - tw - 18;
@@ -317,7 +406,73 @@
         p.fill(COLORS.ink);
         p.textSize(12);
         p.text(lines[2], tx + 14, ty + 54);
+        p.fill(COLORS.muted);
+        p.textSize(11);
+        p.text(lines[3], tx + 14, ty + 74);
         p.pop();
+    }
+
+    function placeCalloutLabels(p, rows, ys, plot, xScale, yScale, compact) {
+        p.textStyle(p.BOLD);
+        p.textSize(compact ? 10 : 12);
+        var labels = rows.filter(function (row) {
+            return row.isCallout && row.labelOffset;
+        }).map(function (row) {
+            var x = xScale(valueFor(row, 'arrivalRecovery', ys));
+            var y = yScale(valueFor(row, 'receiptRecovery', ys));
+            var dx = row.labelOffset.dx * (compact ? 0.45 : 0.74);
+            var dy = row.labelOffset.dy * (compact ? 0.45 : 0.74);
+            var alignRight = dx < 0;
+            var textW = p.textWidth(row.country);
+            var lx = clamp(x + dx, plot.x + textW + 8, plot.x + plot.w - textW - 8);
+            var ly = clamp(y + dy, plot.y + 12, plot.y + plot.h - 12);
+            return {
+                row: row,
+                x: x,
+                y: y,
+                lx: lx,
+                ly: ly,
+                width: textW,
+                height: compact ? 12 : 15,
+                alignRight: alignRight
+            };
+        }).sort(function (a, b) {
+            return a.ly - b.ly;
+        });
+
+        labels.forEach(function (label, i) {
+            if (i === 0) return;
+            var prev = labels[i - 1];
+            var xOverlap = Math.abs(label.lx - prev.lx) < (label.width + prev.width) * 0.45 + 12;
+            if (xOverlap && label.ly - prev.ly < label.height + 5) {
+                label.ly = prev.ly + label.height + 5;
+            }
+        });
+
+        for (var i = labels.length - 2; i >= 0; i--) {
+            var current = labels[i];
+            var next = labels[i + 1];
+            if (next.ly > plot.y + plot.h - 10) {
+                next.ly = plot.y + plot.h - 10;
+            }
+            var overlaps = Math.abs(current.lx - next.lx) < (current.width + next.width) * 0.45 + 12;
+            if (overlaps && next.ly - current.ly < current.height + 5) {
+                current.ly = next.ly - current.height - 5;
+            }
+            current.ly = clamp(current.ly, plot.y + 12, plot.y + plot.h - 12);
+        }
+
+        labels.forEach(function (label) {
+            p.stroke(100, 142, 148, 130);
+            p.strokeWeight(1);
+            p.line(label.x, label.y, label.lx, label.ly);
+            p.noStroke();
+            p.fill(COLORS.ink);
+            p.textAlign(label.alignRight ? p.RIGHT : p.LEFT, p.CENTER);
+            p.textStyle(p.BOLD);
+            p.textSize(compact ? 10 : 12);
+            p.text(label.row.country, label.lx, label.ly);
+        });
     }
 
     window.VizTourismGalaxy = {
@@ -355,19 +510,21 @@
             p.background(COLORS.bg);
 
             var compact = w < 760;
+            var sideW = Math.max(168, Math.min(200, w * 0.20));
+            var gutter = 18;
             var plot = compact ? {
-                x: 58,
-                y: 94,
-                w: Math.max(220, w - 86),
-                h: Math.max(210, h - 216)
+                x: 48,
+                y: 84,
+                w: Math.max(250, w - 62),
+                h: Math.max(238, h - 184)
             } : {
-                x: Math.max(82, w * 0.075),
-                y: Math.max(92, h * 0.15),
-                w: w - Math.max(260, w * 0.29),
-                h: h - Math.max(222, h * 0.36)
+                x: Math.max(64, w * 0.055),
+                y: Math.max(74, h * 0.115),
+                w: w - Math.max(64, w * 0.055) - sideW - gutter - 16,
+                h: h - Math.max(170, h * 0.28)
             };
-            var legendX = plot.x + plot.w + 34;
-            var legendW = Math.max(150, Math.min(220, w - legendX - 24));
+            var legendX = plot.x + plot.w + gutter;
+            var legendW = sideW;
             var xScale = function (value) {
                 return plot.x + ((value - X_DOMAIN[0]) / (X_DOMAIN[1] - X_DOMAIN[0])) * plot.w;
             };
@@ -408,14 +565,16 @@
 
             var mouse = { x: p.mouseX - manager.margin.left, y: p.mouseY - manager.margin.top };
             var hovered = null;
+            var rankLookup = buildRankLookup(rows, ys);
             rows.forEach(function (row, i) {
                 var x = xScale(valueFor(row, 'arrivalRecovery', ys));
                 var y = yScale(valueFor(row, 'receiptRecovery', ys));
-                var r = radiusFor(row.arrivals2024Millions);
+                var rank = rankLookup[row.id || row.country] || rows.length;
+                var r = radiusForRank(rank);
                 var drift = 0;
                 var distance = Math.sqrt(Math.pow(mouse.x - x, 2) + Math.pow(mouse.y - y, 2));
                 if (distance <= r + 6 && (!hovered || distance < hovered.distance)) {
-                    hovered = { row: row, x: x, y: y, distance: distance };
+                    hovered = { row: row, x: x, y: y, distance: distance, rank: rank };
                 }
 
                 var c = regionColor(row);
@@ -436,31 +595,16 @@
                 p.circle(x, y + drift, r * 2);
             });
 
-            rows.filter(function (row) { return row.isCallout && row.labelOffset; }).forEach(function (row) {
-                var x = xScale(valueFor(row, 'arrivalRecovery', ys));
-                var y = yScale(valueFor(row, 'receiptRecovery', ys));
-                var dx = row.labelOffset.dx * 0.78;
-                var dy = row.labelOffset.dy * 0.78;
-                var lx = clamp(x + dx, plot.x + 8, plot.x + plot.w - 8);
-                var ly = clamp(y + dy, plot.y + 10, plot.y + plot.h - 10);
-                p.stroke(100, 142, 148, 150);
-                p.strokeWeight(1);
-                p.line(x, y, lx, ly);
-                p.noStroke();
-                p.fill(COLORS.ink);
-                p.textAlign(dx < 0 ? p.RIGHT : p.LEFT, p.CENTER);
-                p.textStyle(p.BOLD);
-                p.textSize(12);
-                p.text(row.country, lx, ly);
-            });
+            placeCalloutLabels(p, rows, ys, plot, xScale, yScale, compact);
 
             if (!compact) {
-                drawLegend(p, legendX, plot.y + 8, legendW);
-                drawRankGuide(p, legendX, plot.y + 244, legendW);
+                drawExplanationPanel(p, legendX, plot.y + 8, legendW, Math.min(448, Math.max(390, plot.h - 12)));
+            } else {
+                drawCompactExplanation(p, plot);
             }
 
             if (hovered) {
-                drawTooltip(p, hovered.row, hovered.x, hovered.y, ys, w, h);
+                drawTooltip(p, hovered.row, hovered.x, hovered.y, ys, w, h, hovered.rank);
             }
             p.pop();
         },

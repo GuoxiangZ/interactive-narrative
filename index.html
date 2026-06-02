@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-book-cover-flow" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-author-columns" />
 </head>
 
 <body>
@@ -72,16 +72,28 @@
         </section>
         <section class="step tourism-galaxy-step" data-active-index="16">
           <div class="title">Tourism Recovery, 2019-2024</div>
-          Visitor volume and tourism receipts did not recover at the same pace everywhere.
-          This chart compares each destination against its 2019 baseline: horizontal position shows
-          arrival recovery, vertical position shows tourism receipts recovery, and bubble size shows
-          2024 arrival scale.
+          This bubble chart shows how destinations moved from the pandemic shock toward recovery.
+          In 2021, most destinations were still far below their 2019 baseline, especially across
+          Asia-Pacific where border restrictions lasted longer.
           <br /><br />
-          Years are shown as discrete snapshots because the dataset only includes 2019, 2021, and 2024.
-          Official 2024 values are used where available; remaining countries are retained as prototype estimates.
+          By 2024, tourism had broadly recovered, but not in the same way everywhere.
+          Europe and the Middle East show some of the strongest rebounds, with many destinations
+          exceeding pre-pandemic levels in both visitor recovery and tourism receipts. The Americas
+          and Africa also returned close to or above baseline, while Asia-Pacific recovered more unevenly.
+          The key takeaway is that post-pandemic tourism is not simply a return to normal:
+          destinations are recovering at different speeds, and spending recovery does not always match visitor volume.
           <br /><br />
-          Data: <a href="https://tourism.gov.in/sites/default/files/2025-09/India%20Tourism%20Data%20Compendium%202025_0.pdf" target="_blank" rel="noopener">India Tourism Data Compendium 2025</a>
-          and <a href="data/tourism_recovery_galaxy.json?v=20260601-audited" target="_blank" rel="noopener">project data JSON</a>.
+          Data compiled from:
+          <a href="https://data.worldbank.org/indicator/ST.INT.ARVL" target="_blank" rel="noopener">World Bank international tourist arrivals</a>
+          <a href="https://data.worldbank.org/indicator/ST.INT.RCPT.CD" target="_blank" rel="noopener">World Bank international tourism receipts</a>
+          <a href="https://data.tourism.gov.in/mrd/Uploads/tourism_data/India%20Tourism%20Data%20Compendium%202025_1.pdf" target="_blank" rel="noopener">India Tourism Data Compendium 2025</a>
+          and <a href="https://www.unwto.org/es/tourism-data/country-profile-inbound-tourism?language_content_entity=en" target="_blank" rel="noopener">UN Tourism inbound tourism dashboard</a>.
+        </section>
+        <section class="step chapter-image-section" data-active-index="14" data-layout="full-text">
+          <img
+            class="chapter-transition-image"
+            src="assets/chapter_transition/chapter3_destination_preference_recovery_full.png"
+            alt="Chapter 3 Destination Preference Recovery book spread">
         </section>
         <section class="step" data-active-index="4" data-layout="full-viz">
         </section>
@@ -137,8 +149,8 @@
               <div class="author-bio">Brief bio or affiliation. Describe your background, research interests, or role in this project.</div>
             </div>
             <div class="author">
-              <div class="author-name">Author Two</div>
-              <div class="author-bio">Brief bio or affiliation. Describe your background, research interests, or role in this project.</div>
+              <div class="author-name">Jiufu Zhou</div>
+              <div class="author-bio">I am a graduate student in Information Management at the University of Washington. My work in this project focuses on data storytelling, visual design, and analyzing how post-pandemic travel recovery changed tourism behavior and destination choices.</div>
             </div>
           </div>
         </section>
@@ -179,7 +191,7 @@
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
   <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
   <script src="js/sketches/viz/viz_destination_compare.js?v=20260531-destinations"></script>
-  <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260601-source-links-cachefix"></script>
+  <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260602-rank-circles-desc"></script>
   <script src="js/sketches/sketch_renderer.js?v=20260601-galaxy-events"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
