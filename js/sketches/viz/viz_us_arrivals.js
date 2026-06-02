@@ -12,6 +12,7 @@
         2024: 72390320
     };
     var ASSET_ROOT = 'assets/figma_airport_arrivals/figma_codex_airport_arrivals_asset_pack/assets/';
+    var ASSET_VERSION = '20260602-traveler-assets';
     var TRAVELER_COUNT = { 2018: 8, 2019: 8, 2020: 3, 2021: 3, 2022: 5, 2023: 7, 2024: 7 };
     var TRAVELER_LAYOUT = [
         { n: 'traveler_01.png', x: 0.060, y: 0.835, h: 0.300, mirror: false },
@@ -189,7 +190,7 @@
 
     function domImage(src) {
         var img = new Image();
-        img.src = src;
+        img.src = src + (src.indexOf('?') === -1 ? '?' : '&') + 'v=' + ASSET_VERSION;
         return img;
     }
 

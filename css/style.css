@@ -146,15 +146,14 @@ body {
   align-items: center;
 }
 .author-section .authors {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 36px;
-  width: min(82vw, 920px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
   margin: 24px 0;
 }
 .author-section .authors .author {
   text-align: center;
-  min-width: 0;
 }
 .author-name {
   font-weight: 700;
@@ -166,8 +165,6 @@ body {
   font-size: 15px;
   color: #555;
   line-height: 1.6;
-  max-width: 42ch;
-  margin: 0 auto;
 }
 
 /* full-text layout: hide vis, center and expand text column */
@@ -694,12 +691,6 @@ body {
 }
 
 @media (max-width: 700px) {
-  .author-section .authors {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    width: min(88vw, 420px);
-  }
-
   .spending-transition-section,
   .chapter-image-section {
     min-height: calc(100vh - 52px);
