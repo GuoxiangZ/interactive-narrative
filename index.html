@@ -82,6 +82,8 @@
           <br /><br />
           Data: Hawaii and Cancun destination dataset.
         </section>
+        <section class="step tourism-galaxy-step" data-active-index="16" data-layout="full-viz">
+        </section>
         <section class="step closing-book-section" data-active-index="15" data-layout="full-text">
           <div class="book-cover-stage closing-book-stage" aria-label="Closing the tourism story book">
             <img class="book-cover-image"
@@ -91,26 +93,8 @@
               <div class="book-page-block"></div>
               <div class="book-inside-page"></div>
               <div class="book-story-preview">
-                <div class="closing-viz-preview">
-                  <div class="closing-viz-title">Destination Travel and Spending Profiles</div>
-                  <div class="closing-viz-panels">
-                    <div class="closing-viz-panel">
-                      <span>Air Arrivals</span>
-                      <i class="line hawaii"></i>
-                      <i class="line cancun"></i>
-                    </div>
-                    <div class="closing-viz-panel">
-                      <span>Hotel Occupancy</span>
-                      <i class="line hawaii"></i>
-                      <i class="line cancun"></i>
-                    </div>
-                    <div class="closing-viz-panel">
-                      <span>Spend / Visitor</span>
-                      <i class="line hawaii"></i>
-                      <i class="line cancun"></i>
-                    </div>
-                  </div>
-                </div>
+                <div class="book-story-map"></div>
+                <div class="book-story-text">Before 2020, global travel<br>never stopped.</div>
               </div>
               <div class="book-turn-shadow"></div>
               <div class="book-turning-cover"></div>
@@ -150,7 +134,7 @@
   <script src="js/helpers/sections.js?v=20260601-closing-book"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260531-destinations-ranking"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260601-galaxy-events"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -167,7 +151,8 @@
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
   <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
   <script src="js/sketches/viz/viz_destination_compare.js?v=20260531-destinations"></script>
-  <script src="js/sketches/sketch_renderer.js?v=20260601-book-destinations"></script>
+  <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260601-direct-year-transition"></script>
+  <script src="js/sketches/sketch_renderer.js?v=20260601-galaxy-events"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var coverButton = document.querySelector('.book-cover-hotspot');

@@ -938,103 +938,9 @@ body.cover-is-turning {
 .closing-book-stage .book-story-preview {
   opacity: 1;
   transform: translateZ(0) scale(1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background:
-    linear-gradient(90deg, rgba(251, 254, 254, 0.84), rgba(251, 254, 254, 0.58)),
-    linear-gradient(180deg, #fbfefe, #eef8f7);
-}
-
-.closing-viz-preview {
-  width: 82%;
-  color: #123f4f;
-  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  transform: rotate(0.2deg);
-}
-
-.closing-viz-title {
-  font-size: clamp(10px, 1.25vw, 18px);
-  font-weight: 800;
-  margin-bottom: 8%;
-  white-space: nowrap;
-}
-
-.closing-viz-panels {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5%;
-}
-
-.closing-viz-panel {
-  position: relative;
-  aspect-ratio: 1.05 / 0.8;
-  border-left: 1px solid rgba(154, 179, 186, 0.82);
-  border-bottom: 1px solid rgba(154, 179, 186, 0.82);
-  background:
-    linear-gradient(90deg, transparent 43%, rgba(244, 159, 134, 0.16) 43%, rgba(244, 159, 134, 0.16) 64%, transparent 64%),
-    repeating-linear-gradient(0deg, transparent 0 32%, rgba(215, 238, 238, 0.75) 32% 34%);
-}
-
-.closing-viz-panel span {
-  position: absolute;
-  left: -2px;
-  top: -26%;
-  color: #123f4f;
-  font-size: clamp(7px, 0.72vw, 10px);
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.closing-viz-panel .line {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  height: 3px;
-  border-radius: 999px;
-  transform-origin: left center;
-}
-
-.closing-viz-panel .line::before,
-.closing-viz-panel .line::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #fbfefe;
-  transform: translateY(-50%);
-}
-
-.closing-viz-panel .line::before {
-  left: 0;
-}
-
-.closing-viz-panel .line::after {
-  right: 0;
-}
-
-.closing-viz-panel .hawaii {
-  top: 35%;
-  background: #7a5cff;
-  transform: rotate(7deg);
-}
-
-.closing-viz-panel .hawaii::before,
-.closing-viz-panel .hawaii::after {
-  border: 2px solid #7a5cff;
-}
-
-.closing-viz-panel .cancun {
-  top: 62%;
-  background: #d39a2e;
-  transform: rotate(-3deg);
-}
-
-.closing-viz-panel .cancun::before,
-.closing-viz-panel .cancun::after {
-  border: 2px solid #d39a2e;
+    linear-gradient(90deg, rgba(251, 254, 254, 0.18), rgba(251, 254, 254, 0.02)),
+    url("../assets/travel_book_cover_asset_pack/revision/intro_first_frame.png") center / cover no-repeat;
 }
 
 .closing-book-stage .book-turn-shadow {
@@ -1061,10 +967,6 @@ body.cover-is-turning {
 
 .closing-book-section.is-active .book-story-preview {
   animation: book-story-emerge 980ms cubic-bezier(0.22, 0.61, 0.36, 1) 280ms reverse forwards;
-}
-
-.closing-book-section.is-active .closing-viz-preview {
-  animation: closing-viz-preview-fade 880ms cubic-bezier(0.22, 0.61, 0.36, 1) 240ms forwards;
 }
 
 .closing-book-section.is-active .book-turn-shadow {
@@ -1423,6 +1325,39 @@ body.cover-is-turning {
   border: 0;
   background: transparent;
   box-shadow: none;
+}
+
+.tourism-galaxy-year-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.tourism-galaxy-year-buttons button {
+  height: 28px;
+  border: 1px solid #b1dff6;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #0a4d52;
+  font: 700 12px/1 system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(21, 33, 36, 0.08);
+}
+
+.tourism-galaxy-year-buttons button.is-selected {
+  background: #b1dff6;
+  border-color: #81baf7;
+}
+
+.tourism-galaxy-year-buttons button[data-year-index="1"] {
+  border-color: #f49f86;
+  color: #9d3e2d;
+}
+
+.tourism-galaxy-year-buttons button[data-year-index="1"].is-selected {
+  background: #f49f86;
+  border-color: #d56f51;
+  color: #ffffff;
 }
 
 .destination-transition-step {
