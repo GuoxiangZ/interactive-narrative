@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tourism Through the Pandemic</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260601-tight-chapter-spacing" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-book-cover-flow" />
 </head>
 
 <body>
@@ -18,10 +18,10 @@
     <div id='graphic'>
       <div id='sections'>
         <section class="step intro-title-section" data-active-index="11" data-layout="full-text">
-          <div class="book-cover-stage" aria-label="Pandemic Impact on Travel Frequency and Spending">
+          <div class="book-cover-stage" aria-label="Has the Tourism Industry Recovered in the Post-Pandemic Era">
             <img class="book-cover-image"
-              src="assets/travel_book_cover_asset_pack/reference/reference_full_cover.png"
-              alt="Pandemic Impact on Travel Frequency and Spending book cover on a travel agency desk">
+              src="assets/post_pandemic_book_mockup_pack/has_the_tourism_industry_recovered_post_pandemic_full.png"
+              alt="Has the Tourism Industry Recovered Post Pandemic book cover on a travel agency desk">
             <div class="book-opening-layers" aria-hidden="true">
               <div class="book-page-block"></div>
               <div class="book-inside-page"></div>
@@ -37,7 +37,7 @@
             </button>
           </div>
         </section>
-        <section class="step intro-placeholder" data-active-index="0" data-layout="full-viz" data-progress-mode="height">
+        <section id="intro-page" class="step intro-placeholder" data-active-index="0" data-layout="full-viz" data-progress-mode="height">
         </section>
         <section class="step chapter-image-section" data-active-index="15" data-layout="full-text">
           <img
@@ -70,6 +70,19 @@
           <br /><br />
           Data: <a href="https://www.ustravel.org/research/travel-forecasts" target="_blank" rel="noopener">U.S. Travel Association Travel Forecast</a>
         </section>
+        <section class="step tourism-galaxy-step" data-active-index="16">
+          <div class="title">Tourism Recovery, 2019-2024</div>
+          Visitor volume and tourism receipts did not recover at the same pace everywhere.
+          This chart compares each destination against its 2019 baseline: horizontal position shows
+          arrival recovery, vertical position shows tourism receipts recovery, and bubble size shows
+          2024 arrival scale.
+          <br /><br />
+          Years are shown as discrete snapshots because the dataset only includes 2019, 2021, and 2024.
+          Official 2024 values are used where available; remaining countries are retained as prototype estimates.
+          <br /><br />
+          Data: <a href="https://tourism.gov.in/sites/default/files/2025-09/India%20Tourism%20Data%20Compendium%202025_0.pdf" target="_blank" rel="noopener">India Tourism Data Compendium 2025</a>
+          and <a href="data/tourism_recovery_galaxy.json?v=20260601-audited" target="_blank" rel="noopener">project data JSON</a>.
+        </section>
         <section class="step" data-active-index="4" data-layout="full-viz">
         </section>
         <section class="step destination-transition-step" data-active-index="13" data-layout="full-viz">
@@ -82,19 +95,34 @@
           <br /><br />
           Data: Hawaii and Cancun destination dataset.
         </section>
-        <section class="step tourism-galaxy-step" data-active-index="16" data-layout="full-viz">
-        </section>
         <section class="step closing-book-section" data-active-index="15" data-layout="full-text">
           <div class="book-cover-stage closing-book-stage" aria-label="Closing the tourism story book">
             <img class="book-cover-image"
-              src="assets/travel_book_cover_asset_pack/reference/reference_full_cover.png"
-              alt="Pandemic Impact on Travel Frequency and Spending book cover on a travel agency desk">
+              src="assets/post_pandemic_book_mockup_pack/has_the_tourism_industry_recovered_post_pandemic_full.png"
+              alt="Has the Tourism Industry Recovered Post Pandemic book cover on a travel agency desk">
             <div class="book-opening-layers" aria-hidden="true">
               <div class="book-page-block"></div>
               <div class="book-inside-page"></div>
-              <div class="book-story-preview">
-                <div class="book-story-map"></div>
-                <div class="book-story-text">Before 2020, global travel<br>never stopped.</div>
+              <div class="book-story-preview closing-page-preview">
+                <div class="closing-page-kicker">Destination Snapshot</div>
+                <div class="closing-page-title">Hawaii and Cancun, 2018-2024</div>
+                <div class="closing-page-body">
+                  Similar leisure trips recovered with different spending patterns.
+                </div>
+                <div class="closing-page-metrics" aria-hidden="true">
+                  <div class="closing-page-metric">
+                    <span>Hawaii</span>
+                    <i style="--bar-height: 76%;"></i>
+                  </div>
+                  <div class="closing-page-metric">
+                    <span>Cancun</span>
+                    <i style="--bar-height: 88%;"></i>
+                  </div>
+                  <div class="closing-page-metric">
+                    <span>Spend</span>
+                    <i style="--bar-height: 62%;"></i>
+                  </div>
+                </div>
               </div>
               <div class="book-turn-shadow"></div>
               <div class="book-turning-cover"></div>
@@ -134,7 +162,7 @@
   <script src="js/helpers/sections.js?v=20260601-closing-book"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260601-galaxy-events"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260601-galaxy-side-compact"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -151,101 +179,46 @@
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
   <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
   <script src="js/sketches/viz/viz_destination_compare.js?v=20260601-spending-title-color"></script>
-  <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260601-direct-year-transition"></script>
+  <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260601-source-links-cachefix"></script>
   <script src="js/sketches/sketch_renderer.js?v=20260601-galaxy-events"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var coverButton = document.querySelector('.book-cover-hotspot');
       var coverStage = document.querySelector('.book-cover-stage');
-      var storyPreview = document.querySelector('.book-story-preview');
       var graphic = document.querySelector('#graphic');
       var vis = document.querySelector('#vis');
       var nextSection = document.querySelector('.intro-placeholder');
       if (coverButton && coverStage && nextSection) {
         coverButton.addEventListener('click', function () {
+          var openingTargetTop = Math.max(0, nextSection.getBoundingClientRect().top + window.pageYOffset - 52);
           coverButton.disabled = true;
           coverButton.classList.add('is-opening');
           coverStage.classList.add('is-opening');
           document.body.classList.add('cover-is-turning');
 
           window.setTimeout(function () {
-            if (!storyPreview || !vis || !graphic) return;
-            var startRect = storyPreview.getBoundingClientRect();
-            var finalRect = {
-              left: 20,
-              top: 68,
-              width: Math.max(1, document.documentElement.clientWidth),
-              height: Math.max(1, window.innerHeight - 68)
-            };
-            graphic.classList.remove('layout-full-text');
-            graphic.classList.add('layout-full-viz');
-            if (window.__sketchAPI && window.__sketchAPI.setState) {
-              window.__sketchAPI.setState({ activeIndex: 0, progress: 0.09 });
+            window.scrollTo({ top: openingTargetTop, behavior: 'auto' });
+            if (window.history && window.history.replaceState) {
+              window.history.replaceState(null, '', '#intro-page');
             }
-            if (window.__sketchAPI && window.__sketchAPI.p5 &&
-                typeof window.__sketchAPI.p5.windowResized === 'function') {
-              window.__sketchAPI.p5.windowResized();
+            if (window.__scroller) {
+              if (typeof window.__scroller.resize === 'function') window.__scroller.resize();
+              if (typeof window.__scroller.position === 'function') window.__scroller.position();
             }
-            vis.classList.remove('vis-hidden');
-            vis.classList.add('vis-visible', 'is-book-zoom');
-            vis.style.position = 'fixed';
-            vis.style.left = finalRect.left + 'px';
-            vis.style.top = finalRect.top + 'px';
-            vis.style.right = 'auto';
-            vis.style.bottom = 'auto';
-            vis.style.width = finalRect.width + 'px';
-            vis.style.height = finalRect.height + 'px';
-            vis.style.zIndex = '500';
-            vis.style.pointerEvents = 'none';
-            vis.style.opacity = '1';
-            vis.style.transformOrigin = 'top left';
-            vis.style.transition = 'none';
-            vis.style.transform =
-              'translate(' + (startRect.left - finalRect.left) + 'px, ' +
-              (startRect.top - finalRect.top) + 'px) scale(' +
-              (startRect.width / finalRect.width) + ', ' +
-              (startRect.height / finalRect.height) + ')';
-            window.requestAnimationFrame(function () {
-              vis.style.transition = 'transform 920ms cubic-bezier(0.22, 0.61, 0.36, 1)';
-              vis.style.transform = 'translate(0, 0) scale(1, 1)';
-            });
-          }, 1050);
-
-          window.setTimeout(function () {
-            var targetTop = nextSection.getBoundingClientRect().top + window.pageYOffset - 52;
-            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
-            if (window.__sketchAPI && window.__sketchAPI.setState) {
-              window.__sketchAPI.setState({ activeIndex: 0, progress: 0.09 });
+            if (graphic) {
+              graphic.classList.remove('layout-full-text');
+              graphic.classList.add('layout-full-viz');
+            }
+            if (vis) {
+              vis.classList.remove('is-book-zoom');
             }
             window.setTimeout(function () {
               document.body.classList.remove('cover-is-turning');
-              if (vis) {
-                vis.style.transition = 'opacity 180ms ease';
-                vis.style.opacity = '0.999';
-                window.requestAnimationFrame(function () {
-                  window.requestAnimationFrame(function () {
-                    vis.classList.remove('is-book-zoom');
-                    vis.style.position = '';
-                    vis.style.left = '';
-                    vis.style.top = '';
-                    vis.style.right = '';
-                    vis.style.bottom = '';
-                    vis.style.width = '';
-                    vis.style.height = '';
-                    vis.style.zIndex = '';
-                    vis.style.pointerEvents = '';
-                    vis.style.opacity = '';
-                    vis.style.transformOrigin = '';
-                    vis.style.transition = '';
-                    vis.style.transform = '';
-                  });
-                });
-              }
               coverButton.disabled = false;
               coverButton.classList.remove('is-opening');
               coverStage.classList.remove('is-opening');
-            }, 520);
-          }, 2550);
+            }, 220);
+          }, 1180);
         });
       }
     });
