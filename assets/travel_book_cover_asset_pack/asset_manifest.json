@@ -1,0 +1,97 @@
+{
+  "title": "Travel Book Cover Asset Pack",
+  "source_image": "\u75ab\u60c5\u5bf9\u65c5\u6e38\u7684\u5f71\u54cd.png",
+  "image_size_px": [
+    1672,
+    941
+  ],
+  "purpose": "Assets for building a travel-agency book-cover landing page with a click-to-open page-turn transition.",
+  "assets": {
+    "reference_full_cover": "reference/reference_full_cover.png",
+    "crops": [
+      {
+        "file": "crops/book_main_crop.png",
+        "crop_box_px": [
+          300,
+          141,
+          1136,
+          875
+        ],
+        "size_px": [
+          836,
+          734
+        ]
+      },
+      {
+        "file": "crops/book_cover_close_crop.png",
+        "crop_box_px": [
+          401,
+          169,
+          1036,
+          733
+        ],
+        "size_px": [
+          635,
+          564
+        ]
+      },
+      {
+        "file": "crops/agency_background_crop.png",
+        "crop_box_px": [
+          936,
+          18,
+          1672,
+          395
+        ],
+        "size_px": [
+          736,
+          377
+        ]
+      },
+      {
+        "file": "crops/desk_props_crop.png",
+        "crop_box_px": [
+          1103,
+          639,
+          1571,
+          865
+        ],
+        "size_px": [
+          468,
+          226
+        ]
+      },
+      {
+        "file": "crops/globe_detail_crop.png",
+        "crop_box_px": [
+          33,
+          395,
+          334,
+          677
+        ],
+        "size_px": [
+          301,
+          282
+        ]
+      },
+      {
+        "file": "crops/left_brochure_crop.png",
+        "crop_box_px": [
+          0,
+          705,
+          367,
+          941
+        ],
+        "size_px": [
+          367,
+          236
+        ]
+      }
+    ]
+  },
+  "recommended_use": [
+    "Use reference/reference_full_cover.png as the visual target.",
+    "Use crops/book_main_crop.png as the main clickable book object or as a guide for rebuilding the book in Figma/CSS.",
+    "Use crops/book_cover_close_crop.png for close-up cover texture or hover state."
+  ]
+}
