@@ -422,17 +422,17 @@ body {
 }
 
 .chapter-image-section {
-  min-height: calc(100vh - 76px);
+  min-height: 76vh;
   align-items: center;
   justify-content: center;
-  margin-bottom: 96px;
+  margin-bottom: 18px;
   background: #fbfefe;
 }
 
 .chapter-transition-image {
   display: block;
   width: min(92vw, calc((100vh - 112px) * 1.7779), 1500px);
-  max-height: calc(100vh - 112px);
+  max-height: calc(76vh - 32px);
   object-fit: contain;
 }
 
@@ -1216,7 +1216,8 @@ body.cover-is-turning {
 }
 
 .intro-placeholder {
-  min-height: 585vh;
+  min-height: 560vh;
+  margin-bottom: 24px;
 }
 
 .intro-placeholder .title {
