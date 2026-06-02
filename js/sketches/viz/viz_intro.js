@@ -344,7 +344,7 @@
     function drawOpeningText(p, manager, progress) {
         var openingA = segmentFade(progress, 0, 0.16, 0.42);
         var connectedA = segmentFade(progress, 0.55, 0.68, 0.78);
-        var questionA = windowFade(progress, 0.92, 0.97);
+        var questionA = windowFade(progress, 0.88, 0.94);
         var narrow = manager.canvasWidth < 720;
 
         p.push();

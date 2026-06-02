@@ -27,8 +27,8 @@
         var copy = document.createElement('div');
         copy.className = 'destination-transition-copy';
         copy.innerHTML = [
-            '<div class="destination-transition-title">Now, let&#39;s look at two specific examples.</div>',
-            '<div class="destination-transition-body">How did travel frequency change, and how did spending per visitor change?</div>'
+            '<div class="destination-transition-title">It looks like everything came back. But did it really?</div>',
+            '<div class="destination-transition-body">Now, let&#39;s look at two specific examples.</div>'
         ].join('');
 
         overlay.appendChild(panels);

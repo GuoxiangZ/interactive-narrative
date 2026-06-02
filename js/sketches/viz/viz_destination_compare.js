@@ -119,7 +119,7 @@
         var hovered = null;
 
         p.noStroke();
-        p.fill(COLORS.ink);
+        p.fill(metric.key === 'spending' ? COLORS.spend : COLORS.ink);
         p.textAlign(p.LEFT, p.TOP);
         p.textStyle(p.BOLD);
         p.textSize(14);
