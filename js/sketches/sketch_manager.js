@@ -85,7 +85,13 @@ function startP5() {
                 var activeIndex = self.state.activeIndex || 0;
                 var pr = self.state.progress || 0;
                 if (activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 16) pr = 0.5;
+                var activeStep = document.querySelector('.step[data-active-index="' + activeIndex + '"]');
                 var ease = 0.05;
+                var exitFadeStart = 1 - ease;
+                if (activeStep && activeStep.dataset && activeStep.dataset.exitFadeStart !== undefined) {
+                    var parsedExitFadeStart = parseFloat(activeStep.dataset.exitFadeStart);
+                    if (!isNaN(parsedExitFadeStart)) exitFadeStart = Math.max(ease, Math.min(0.98, parsedExitFadeStart));
+                }
                 var travel = 20;
                 var tx, op;
                 function smoothstep(t) { return t * t * (3 - 2 * t); }
@@ -93,8 +99,8 @@ function startP5() {
                     var t = smoothstep(pr / ease);
                     tx = (1 - t) * travel;
                     op = t;
-                } else if (pr > 1 - ease) {
-                    var t = smoothstep((pr - (1 - ease)) / ease);
+                } else if (pr > exitFadeStart) {
+                    var t = smoothstep((pr - exitFadeStart) / (1 - exitFadeStart));
                     tx = -t * travel;
                     op = 1 - t;
                 } else {
@@ -107,7 +113,6 @@ function startP5() {
                 // Mirror the scroll transition on ordinary text steps only.
                 // Full-text pages are standalone scenes; fading them by progress
                 // makes chapter spreads and the author page disappear at the edges.
-                var activeStep = document.querySelector('.step[data-active-index="' + activeIndex + '"]');
                 if (activeStep) {
                     var isFullTextStep = activeStep.dataset && activeStep.dataset.layout === 'full-text';
                     if (isFullTextStep) {

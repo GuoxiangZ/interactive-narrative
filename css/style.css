@@ -150,9 +150,12 @@ body {
   flex-direction: row;
   justify-content: center;
   gap: 60px;
+  width: min(86vw, 980px);
   margin: 24px 0;
 }
 .author-section .authors .author {
+  flex: 1 1 0;
+  max-width: 50%;
   text-align: center;
 }
 .author-name {
@@ -165,6 +168,8 @@ body {
   font-size: 15px;
   color: #555;
   line-height: 1.6;
+  max-width: 42ch;
+  margin: 0 auto;
 }
 
 /* full-text layout: hide vis, center and expand text column */
@@ -176,8 +181,13 @@ body {
   display: none;
 }
 #graphic.layout-full-text #sections {
-  width: min(94vw, 1500px);
+  width: 30vw;
   display: block;
+}
+
+#graphic.layout-full-text .step[data-layout="full-text"] {
+  width: min(94vw, 1500px);
+  margin-left: calc((30vw - min(94vw, 1500px)) / 2);
 }
 
 #graphic.layout-full-text .step:not(.is-active) {
@@ -1468,11 +1478,15 @@ body.cover-is-turning {
   min-height: 120vh;
 }
 
+.destination-game-step {
+  min-height: 110vh;
+}
+
 .destination-transition-overlay {
   position: absolute;
   inset: 0;
   z-index: 6;
-  display: none;
+  display: grid;
   grid-template-rows: 1fr auto;
   gap: 24px;
   padding: 44px clamp(28px, 6vw, 88px) 52px;
@@ -1480,12 +1494,19 @@ body.cover-is-turning {
   font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   color: #123f4f;
   pointer-events: none;
+  visibility: hidden;
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 120ms linear, transform 120ms linear;
+  will-change: opacity, transform;
+  transition: opacity 120ms linear, transform 120ms linear, visibility 0s linear 120ms;
   --destination-transition-progress: 0;
   --destination-transition-y: 18;
   --destination-transition-exit: 0;
+}
+
+.destination-transition-overlay.is-visible {
+  visibility: visible;
+  transition: opacity 120ms linear, transform 120ms linear, visibility 0s;
 }
 
 .destination-photo-panels {
