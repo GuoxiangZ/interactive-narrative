@@ -3,11 +3,23 @@
 (function () {
     var HAWAII_PHOTO = 'data/hawaii.png';
     var CANCUN_PHOTO = 'data/Cancun.png';
+    var PRELOAD_URLS = [HAWAII_PHOTO, CANCUN_PHOTO, 'data/America.png', 'data/Mexico.png'];
+
+    function preloadAssets(manager) {
+        if (manager._destinationTransitionPreloaded) return;
+        manager._destinationTransitionPreloaded = true;
+        PRELOAD_URLS.forEach(function (url) {
+            var img = new Image();
+            img.decoding = 'async';
+            img.src = url;
+        });
+    }
 
     function buildOverlay(manager) {
         var vis = document.getElementById('vis');
         if (!vis) return;
         if (manager._destinationTransitionOverlay && document.body.contains(manager._destinationTransitionOverlay)) return;
+        preloadAssets(manager);
 
         if (getComputedStyle(vis).position === 'static') {
             vis.style.position = 'fixed';
@@ -54,7 +66,7 @@
         draw: function (p, manager, ai, progress) {
             buildOverlay(manager);
             if (manager._destinationTransitionOverlay) {
-                manager._destinationTransitionOverlay.style.display = 'grid';
+                manager._destinationTransitionOverlay.classList.add('is-visible');
                 var pr = Math.max(0, Math.min(1, progress || 0.5));
                 var fadeIn = Math.max(0, Math.min(1, pr / 0.16));
                 var fadeOut = Math.max(0, Math.min(1, (1 - pr) / 0.18));
@@ -80,8 +92,10 @@
         },
 
         hideOverlay: function (manager) {
+            preloadAssets(manager);
+            buildOverlay(manager);
             if (manager._destinationTransitionOverlay) {
-                manager._destinationTransitionOverlay.style.display = 'none';
+                manager._destinationTransitionOverlay.classList.remove('is-visible');
                 manager._destinationTransitionOverlay.style.opacity = '0';
                 manager._destinationTransitionOverlay.style.transform = 'translateY(18px) scale(0.975)';
                 manager._destinationTransitionOverlay.style.setProperty('--destination-transition-progress', '0');

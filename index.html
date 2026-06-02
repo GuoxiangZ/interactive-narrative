@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Has Tourism Recovered?</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-destination-copy" />
+  <link rel="preload" as="image" href="assets/chapter_transition/chapter3_destination_preference_recovery_full.png" />
+  <link rel="preload" as="image" href="data/hawaii.png" />
+  <link rel="preload" as="image" href="data/Cancun.png" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=20260602-gh-pages-author-balance" />
 </head>
 
 <body>
@@ -148,7 +151,7 @@
             src="assets/chapter_transition/chapter3_destination_preference_recovery_full.png"
             alt="Chapter 3 Destination Preference Recovery book spread">
         </section>
-        <section class="step" data-active-index="4" data-layout="full-viz">
+        <section class="step destination-game-step" data-active-index="4" data-layout="full-viz" data-exit-fade-start="0.20">
         </section>
         <section class="step destination-transition-step" data-active-index="13" data-layout="full-viz">
         </section>
@@ -226,8 +229,8 @@
               <div class="author-bio">Brief bio or affiliation. Describe your background, research interests, or role in this project.</div>
             </div>
             <div class="author">
-              <div class="author-name">Author Two</div>
-              <div class="author-bio">Brief bio or affiliation. Describe your background, research interests, or role in this project.</div>
+              <div class="author-name">Jiufu Zhou</div>
+              <div class="author-bio">I am a graduate student in Information Management at the University of Washington. In this project, I focused on data storytelling, visual design, and analyzing how post-pandemic travel recovery changed tourism behavior and destination choices.</div>
             </div>
           </div>
         </section>
@@ -251,7 +254,7 @@
   <script src="js/helpers/sections.js?v=20260602-scroll-refresh"></script>
 
   <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js?v=20260602-full-text-stable"></script>
+  <script src="js/sketches/sketch_manager.js?v=20260602-step-exit-fade"></script>
 
   <!-- sketches (example renderer) -->
   <script src="js/sketches/examples/sketch_grid.js"></script>
@@ -266,7 +269,7 @@
   <script src="js/sketches/viz/viz_us_arrivals.js?v=20260602-traveler-assets"></script>
   <script src="js/sketches/viz/viz_travel_ranking.js?v=20260601-ranking-us-mexico"></script>
   <script src="js/sketches/viz/viz_spending.js?v=20260530-spending"></script>
-  <script src="js/sketches/viz/viz_destination_transition.js?v=20260531-destination-transition"></script>
+  <script src="js/sketches/viz/viz_destination_transition.js?v=20260602-overlay-stable"></script>
   <script src="js/sketches/viz/viz_destination_compare.js?v=20260601-spending-title-color"></script>
   <script src="js/sketches/viz/viz_tourism_galaxy.js?v=20260602-rank-circles-desc"></script>
   <script src="js/sketches/sketch_renderer.js?v=20260601-galaxy-events"></script>
