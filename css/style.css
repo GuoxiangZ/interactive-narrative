@@ -1332,7 +1332,8 @@ body.cover-is-turning {
 
 .map-copy-placeholder p,
 .us-arrivals-copy p,
-.spending-copy p {
+.spending-copy p,
+.destination-copy p {
   margin: 0 0 14px;
 }
 
