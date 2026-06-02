@@ -104,11 +104,19 @@ function startP5() {
                 p.canvas.style.transform = 'translateY(' + tx.toFixed(2) + 'px)';
                 p.canvas.style.opacity = op.toFixed(3);
 
-                // mirror transition on the active text step
+                // Mirror the scroll transition on ordinary text steps only.
+                // Full-text pages are standalone scenes; fading them by progress
+                // makes chapter spreads and the author page disappear at the edges.
                 var activeStep = document.querySelector('.step[data-active-index="' + activeIndex + '"]');
                 if (activeStep) {
-                    activeStep.style.transform = 'translateY(' + tx.toFixed(2) + 'px)';
-                    activeStep.style.opacity = op.toFixed(3);
+                    var isFullTextStep = activeStep.dataset && activeStep.dataset.layout === 'full-text';
+                    if (isFullTextStep) {
+                        activeStep.style.transform = '';
+                        activeStep.style.opacity = '1';
+                    } else {
+                        activeStep.style.transform = 'translateY(' + tx.toFixed(2) + 'px)';
+                        activeStep.style.opacity = op.toFixed(3);
+                    }
                 }
 
                 var dbg = document.getElementById('debug-state');
