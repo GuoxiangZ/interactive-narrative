@@ -83,6 +83,28 @@
                     var sc = new ScrollerCtor(cfg.containerSelector, cfg.stepSelector, cfg.trigger);
                     window.__scroller = sc;
                     console.log('sections: scroller created, steps=', sc.steps.length);
+                    var scrollerRefreshQueued = false;
+                    function scheduleScrollerRefresh() {
+                        if (scrollerRefreshQueued) return;
+                        scrollerRefreshQueued = true;
+                        requestAnimationFrame(function () {
+                            scrollerRefreshQueued = false;
+                            if (typeof sc.resize === 'function') sc.resize();
+                            if (typeof sc.position === 'function') sc.position();
+                        });
+                    }
+                    window.addEventListener('load', scheduleScrollerRefresh);
+                    document.querySelectorAll('img').forEach(function (img) {
+                        if (!img.complete) {
+                            img.addEventListener('load', scheduleScrollerRefresh, { once: true });
+                            img.addEventListener('error', scheduleScrollerRefresh, { once: true });
+                        }
+                    });
+                    if (document.fonts && typeof document.fonts.ready.then === 'function') {
+                        document.fonts.ready.then(scheduleScrollerRefresh).catch(function () { });
+                    }
+                    setTimeout(scheduleScrollerRefresh, 350);
+                    setTimeout(scheduleScrollerRefresh, 1200);
 
                     // create VisualController to show/hide #vis when appropriate
                     var VisualControllerCtor = window.VisualController;
@@ -109,6 +131,7 @@
                                     typeof window.__sketchAPI.p5.windowResized === 'function') {
                                     window.__sketchAPI.p5.windowResized();
                                 }
+                                scheduleScrollerRefresh();
                             });
                         }
 
