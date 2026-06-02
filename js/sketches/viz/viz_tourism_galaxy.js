@@ -21,7 +21,7 @@
 
     var YEARS = ['2019', '2021', '2024'];
     var X_DOMAIN = [0, 205];
-    var Y_DOMAIN = [0, 155];
+    var Y_DOMAIN = [0, 260];
 
     function clamp(n, min, max) {
         return Math.max(min, Math.min(max, n));
@@ -38,7 +38,7 @@
     }
 
     function radiusFor(arrivals) {
-        return clamp(5 + Math.sqrt(arrivals || 1) * 2.7, 6, 34);
+        return clamp(4 + Math.sqrt(arrivals || 1) * 2.05, 5, 26);
     }
 
     function metricAt(row, key, year) {
@@ -134,7 +134,7 @@
     function drawAxes(p, plot, xScale, yScale) {
         var compact = plot.w < 380;
         var ticksX = compact ? [0, 50, 100, 150, 200] : [0, 25, 50, 75, 100, 125, 150, 175, 200];
-        var ticksY = compact ? [0, 50, 100, 150] : [0, 25, 50, 75, 100, 125, 150];
+        var ticksY = compact ? [0, 50, 100, 150, 200, 250] : [0, 50, 100, 150, 200, 250];
 
         p.noStroke();
         p.fill(255, 255, 255, 150);
@@ -278,36 +278,6 @@
         });
     }
 
-    function drawFooter(p, x, y, w, h) {
-        p.noStroke();
-        p.fill(COLORS.footer);
-        p.rect(x, y, w, h, 8);
-        p.fill(255, 255, 255, 105);
-        p.rect(x + w * 0.60, y, w * 0.40, h, 8);
-        p.fill(COLORS.sand);
-        p.beginShape();
-        p.vertex(x + w * 0.70, y + h);
-        p.bezierVertex(x + w * 0.78, y + h * 0.58, x + w * 0.88, y + h * 0.70, x + w, y + h * 0.42);
-        p.vertex(x + w, y + h);
-        p.endShape(p.CLOSE);
-        p.stroke(255, 255, 255, 180);
-        p.strokeWeight(2);
-        for (var i = 0; i < 3; i++) {
-            var yy = y + h * (0.35 + i * 0.16);
-            p.noFill();
-            p.arc(x + w * (0.78 + i * 0.055), yy, w * 0.18, h * 0.38, Math.PI * 1.05, Math.PI * 1.88);
-        }
-        p.noStroke();
-        p.fill(COLORS.ink);
-        p.textAlign(p.LEFT, p.CENTER);
-        p.textStyle(p.NORMAL);
-        p.textSize(12);
-        p.text('Arrivals and tourism receipts recovery are expressed as a percentage of 2019 levels.', x + 22, y + h * 0.36);
-        p.fill(COLORS.muted);
-        p.textSize(11);
-        p.text('Source: previous tourism recovery dataset.', x + 22, y + h * 0.66);
-    }
-
     function drawTooltip(p, row, x, y, ys, w, h) {
         if (!row) return;
         var arrival = Math.round(valueFor(row, 'arrivalRecovery', ys));
@@ -361,7 +331,7 @@
                 transitionDuration: 700,
                 dragging: false
             };
-            return fetch('data/tourism_recovery_galaxy.json')
+            return fetch('data/tourism_recovery_galaxy.json?v=20260601-audited')
                 .then(function (response) { return response.json(); })
                 .then(function (rows) {
                     manager.tourismGalaxy.rows = Array.isArray(rows) ? rows : [];

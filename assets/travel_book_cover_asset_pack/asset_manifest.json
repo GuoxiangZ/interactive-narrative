@@ -87,13 +87,11 @@
           236
         ]
       }
-    ],
-    "prompt": "prompt/cover_interaction_prompt.md"
+    ]
   },
   "recommended_use": [
     "Use reference/reference_full_cover.png as the visual target.",
     "Use crops/book_main_crop.png as the main clickable book object or as a guide for rebuilding the book in Figma/CSS.",
-    "Use crops/book_cover_close_crop.png for close-up cover texture or hover state.",
-    "Use prompt/cover_interaction_prompt.md as the instruction file for Codex."
+    "Use crops/book_cover_close_crop.png for close-up cover texture or hover state."
   ]
 }
