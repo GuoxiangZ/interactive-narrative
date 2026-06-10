@@ -24,7 +24,7 @@
             key: 'arrivals',
             title: 'Air Arrivals',
             unit: 'M',
-            min: 5200000,
+            min: 0,
             max: 10400000,
             format: function (v) { return (v / 1000000).toFixed(1) + 'M'; }
         },
@@ -32,7 +32,7 @@
             key: 'occupancy',
             title: 'Hotel Occupancy',
             unit: '%',
-            min: 0.48,
+            min: 0,
             max: 0.86,
             format: function (v) { return Math.round(v * 100) + '%'; }
         },
@@ -40,7 +40,7 @@
             key: 'spending',
             title: 'Real Spend / Visitor',
             unit: '$',
-            min: 1050,
+            min: 0,
             max: 2350,
             format: function (v) { return '$' + Math.round(v).toLocaleString(); }
         }

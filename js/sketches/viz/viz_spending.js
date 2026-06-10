@@ -115,8 +115,8 @@
         }
 
         var years = rows.map(function (d) { return d.year; });
-        var minV = 780;
-        var maxV = 1460;
+        var minV = 0;
+        var maxV = 1500;
         var baseline = rows.filter(function (d) { return d.year === 2019; })[0].spending;
         var chart = { x: x + 68, y: y + 38, w: w - 112, h: h - 112 };
         var progress = easeOut(Math.min(1, (Date.now() - (state.animStart || Date.now())) / 1800));
@@ -135,7 +135,7 @@
         p.stroke(COLORS.grid);
         p.strokeWeight(1);
         p.textStyle(p.NORMAL);
-        for (var tick = 800; tick <= 1400; tick += 200) {
+        for (var tick = 0; tick <= 1500; tick += 300) {
             var ty = lerp(chart.y + chart.h, chart.y, (tick - minV) / (maxV - minV));
             p.line(chart.x, ty, chart.x + chart.w, ty);
             p.noStroke();

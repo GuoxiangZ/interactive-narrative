@@ -4,25 +4,25 @@
     var YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
     var COLORS = {
         water: '#fbfefe',
-        landNoData: '#d9e2e8',
+        landNoData: '#edf3f5',
         mapStroke: '#ffffff',
         text: '#152124',
         muted: '#6f8388',
-        light: '#c8eded',
-        mid: '#66e5df',
-        dark: '#5fa9ab',
-        darker: '#347f82',
+        light: '#d7e8e8',
+        mid: '#74d3ce',
+        dark: '#208b90',
+        darker: '#045e68',
         time: '#b1dff6',
         country: '#81baf7',
         covid: '#f49f86'
     };
 
     var ARRIVAL_BINS = [
-        { min: 0, max: 1000000, label: '<1M', color: '#c8eded' },
-        { min: 1000000, max: 5000000, label: '1-5M', color: '#a5ece8' },
-        { min: 5000000, max: 15000000, label: '5-15M', color: '#66e5df' },
-        { min: 15000000, max: 40000000, label: '15-40M', color: '#5fa9ab' },
-        { min: 40000000, max: Infinity, label: '40M+', color: '#347f82' }
+        { min: 0, max: 1000000, label: '<1M', color: '#d7e8e8' },
+        { min: 1000000, max: 5000000, label: '1-5M', color: '#b7dddd' },
+        { min: 5000000, max: 15000000, label: '5-15M', color: '#74d3ce' },
+        { min: 15000000, max: 40000000, label: '15-40M', color: '#208b90' },
+        { min: 40000000, max: Infinity, label: '40M+', color: '#045e68' }
     ];
 
     var NAME_ALIASES = {
@@ -105,6 +105,10 @@
         return COLORS.darker;
     }
 
+    function isAntarctica(name) {
+        return /antarctica/i.test(name || '');
+    }
+
     function smoothstep(t) {
         t = Math.max(0, Math.min(1, t));
         return t * t * (3 - 2 * t);
@@ -172,6 +176,19 @@
         range.addEventListener('input', function () {
             manager.worldMap.selectedYear = +range.value;
             label.textContent = range.value;
+        });
+
+        overlay.addEventListener('pointerenter', function () {
+            manager.worldMap.pointerOverOverlay = true;
+        });
+        overlay.addEventListener('pointerleave', function () {
+            manager.worldMap.pointerOverOverlay = false;
+        });
+        overlay.addEventListener('pointerdown', function () {
+            manager.worldMap.pointerOverOverlay = true;
+        });
+        window.addEventListener('pointerup', function () {
+            if (manager.worldMap) manager.worldMap.pointerOverOverlay = false;
         });
 
         manager._worldMapOverlay = { root: overlay, range: range, label: label };
@@ -294,6 +311,7 @@
             var mx = p.mouseX - manager.margin.left;
             var my = p.mouseY - manager.margin.top;
             var hovered = null;
+            var canHoverMap = intro > 0.92 && !wm.pointerOverOverlay;
 
             ctx.save();
             ctx.globalAlpha = intro;
@@ -311,7 +329,7 @@
                 ctx.lineWidth = 0.65;
                 ctx.stroke();
 
-                if (intro > 0.92 && !hovered && mx >= x && mx <= x + w && my >= y && my <= y + h && d3.geoContains(feature, projection.invert([mx, my]))) {
+                if (canHoverMap && !hovered && !isAntarctica(rawName) && mx >= x && mx <= x + w && my >= y && my <= y + h && d3.geoContains(feature, projection.invert([mx, my]))) {
                     hovered = { feature: feature, name: record.name || rawName, rawName: rawName, value: value };
                 }
             });
